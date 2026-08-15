@@ -1,0 +1,67 @@
+{
+  "name": "@llblab/pi-kit",
+  "version": "0.1.0",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "description": "Version-pinned distribution of LLBLAB extensions for Pi",
+  "keywords": [
+    "pi-package",
+    "pi",
+    "extensions",
+    "kit",
+    "llblab"
+  ],
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/llblab/pi-kit.git"
+  },
+  "homepage": "https://github.com/llblab/pi-kit",
+  "bugs": {
+    "url": "https://github.com/llblab/pi-kit/issues"
+  },
+  "engines": {
+    "node": ">=22.19.0"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "audit": "npm audit --omit=dev",
+    "pack:check": "npm pack --dry-run",
+    "validate": "npm test && npm run audit && npm run pack:check"
+  },
+  "files": [
+    "README.md",
+    "AGENTS.md",
+    "BACKLOG.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "dependencies": {
+    "@llblab/pi-actors": "0.47.0",
+    "@llblab/pi-codex-usage": "0.9.2",
+    "@llblab/pi-grow-loop": "0.7.1",
+    "@llblab/pi-telegram": "0.29.0"
+  },
+  "bundledDependencies": [
+    "@llblab/pi-actors",
+    "@llblab/pi-codex-usage",
+    "@llblab/pi-grow-loop",
+    "@llblab/pi-telegram"
+  ],
+  "pi": {
+    "extensions": [
+      "./node_modules/@llblab/pi-actors/dist/pi-actors/index.js",
+      "./node_modules/@llblab/pi-codex-usage/index.ts",
+      "./node_modules/@llblab/pi-grow-loop/index.ts",
+      "./node_modules/@llblab/pi-telegram/index.ts"
+    ],
+    "skills": [
+      "./node_modules/@llblab/pi-actors/dist/skills",
+      "./node_modules/@llblab/pi-grow-loop/skills",
+      "./node_modules/@llblab/pi-telegram/skills"
+    ]
+  }
+}
