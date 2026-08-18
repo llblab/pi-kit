@@ -6,10 +6,10 @@ const root = new URL("../", import.meta.url);
 const manifest = JSON.parse(await readFile(new URL("package.json", root), "utf8"));
 const readme = await readFile(new URL("README.md", root), "utf8");
 const expected = {
-  "@llblab/pi-actors": "0.47.0",
+  "@llblab/pi-actors": "0.49.1",
   "@llblab/pi-codex-usage": "0.9.2",
   "@llblab/pi-grow-loop": "0.7.1",
-  "@llblab/pi-telegram": "0.29.0",
+  "@llblab/pi-telegram": "0.36.1",
 };
 const expectedExtensions = [
   "./node_modules/@llblab/pi-actors/dist/pi-actors/index.js",

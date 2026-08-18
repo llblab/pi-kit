@@ -2,7 +2,8 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
-## 0.1.0 - Unreleased
+## 0.1.0 - 2026-08-18
 
 - `Package`: Established a version-pinned Pi distribution bundling Actors, Codex usage, Grow Loop, and Telegram extensions with their declared Skills behind one installable package.
 - `Validation`: Added executable coherence checks for exact versions, bundled dependencies, resource paths, installed manifests, and public inventory synchronization; verified the packed distribution through Pi in an isolated agent home.
+- `Pinned Releases`: Advances Actors to `0.49.1` for maintained Music Player Generative App routing and Telegram to `0.36.1` for adaptive JSON/CML controls, hybrid surface guidance, consistent denials, destructive Skip state, and Trusted Publisher release automation.
