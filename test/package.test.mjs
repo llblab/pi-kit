@@ -9,7 +9,7 @@ const expected = {
   "@llblab/pi-actors": "0.49.1",
   "@llblab/pi-codex-usage": "0.9.2",
   "@llblab/pi-grow-loop": "0.7.1",
-  "@llblab/pi-telegram": "0.36.1",
+  "@llblab/pi-telegram": "0.36.7",
 };
 const expectedExtensions = [
   "./node_modules/@llblab/pi-actors/dist/pi-actors/index.js",

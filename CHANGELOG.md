@@ -2,6 +2,10 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.1.1 - 2026-08-20
+
+- `Telegram Release`: Advances `@llblab/pi-telegram` to `0.36.7`, bringing proactive prompt-button delivery, explicit connection-state context, scoped Telegram control activation, provider-neutral voice configuration guidance, separated tool errors, host compatibility, prompt-block compatibility, and orphan-journal protection into the bundled kit.
+
 ## 0.1.0 - 2026-08-18
 
 - `Package`: Established a version-pinned Pi distribution bundling Actors, Codex usage, Grow Loop, and Telegram extensions with their declared Skills behind one installable package.

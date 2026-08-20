@@ -9,7 +9,7 @@
 | `@llblab/pi-actors` | `0.49.1` | Extension and Skills |
 | `@llblab/pi-codex-usage` | `0.9.2` | Extension |
 | `@llblab/pi-grow-loop` | `0.7.1` | Extension and Skills |
-| `@llblab/pi-telegram` | `0.36.1` | Extension and Skills |
+| `@llblab/pi-telegram` | `0.36.7` | Extension and Skills |
 
 Versions are exact by design. Updating an extension does not change an installed kit until this repository explicitly advances that dependency and publishes a new kit version.
 
@@ -18,7 +18,7 @@ Versions are exact by design. Updating an extension does not change an installed
 From npm after publication:
 
 ```bash
-pi install npm:@llblab/pi-kit@0.1.0
+pi install npm:@llblab/pi-kit@0.1.1
 ```
 
 For local development:
