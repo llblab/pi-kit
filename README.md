@@ -18,13 +18,13 @@ Versions are exact by design. Updating an extension does not change an installed
 From npm after publication:
 
 ```bash
-pi install npm:@llblab/pi-kit@0.1.1
+pi install npm:@llblab/pi-kit@0.1.4
 ```
 
-For local development:
+From GitHub:
 
 ```bash
-pi install ./pi-kit
+pi install git:github.com/llblab/pi-kit
 ```
 
 Pi loads the bundled extension entrypoints and Skills declared by this package. The kit itself does not register an extension or introduce runtime behavior.

@@ -2,6 +2,10 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.1.4 - 2026-08-20
+
+- `Installation`: Updates the npm example to the current kit version and replaces the local-path example with direct installation from the GitHub repository.
+
 ## 0.1.3 - 2026-08-20
 
 - `Extension Releases`: Advances `@llblab/pi-codex-usage` to `0.9.3` for current Pi header-type compatibility and Trusted Publisher releases, and `@llblab/pi-grow-loop` to `0.7.2` for audited Trusted Publisher releases.
