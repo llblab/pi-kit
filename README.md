@@ -15,10 +15,10 @@ Versions are exact by design. Updating an extension does not change an installed
 
 ## Install
 
-From npm after publication:
+From npm:
 
 ```bash
-pi install npm:@llblab/pi-kit@0.1.4
+pi install npm:@llblab/pi-kit
 ```
 
 From GitHub:

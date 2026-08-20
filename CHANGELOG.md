@@ -2,6 +2,10 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.1.5 - 2026-08-20
+
+- `Installation`: Makes the npm installation command version-agnostic so the README stays current across future kit releases.
+
 ## 0.1.4 - 2026-08-20
 
 - `Installation`: Updates the npm example to the current kit version and replaces the local-path example with direct installation from the GitHub repository.
