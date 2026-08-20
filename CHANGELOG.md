@@ -2,6 +2,10 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.1.3 - 2026-08-20
+
+- `Extension Releases`: Advances `@llblab/pi-codex-usage` to `0.9.3` for current Pi header-type compatibility and Trusted Publisher releases, and `@llblab/pi-grow-loop` to `0.7.2` for audited Trusted Publisher releases.
+
 ## 0.1.2 - 2026-08-20
 
 - `Trusted Release Automation`: Adds tag-gated validation, npm Trusted Publisher provenance, immutable package/tag identity checks, public package verification, and workflow-owned GitHub Release creation through `.github/workflows/release.yml`.
