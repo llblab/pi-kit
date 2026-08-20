@@ -2,6 +2,10 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.1.2 - 2026-08-20
+
+- `Trusted Release Automation`: Adds tag-gated validation, npm Trusted Publisher provenance, immutable package/tag identity checks, public package verification, and workflow-owned GitHub Release creation through `.github/workflows/release.yml`.
+
 ## 0.1.1 - 2026-08-20
 
 - `Telegram Release`: Advances `@llblab/pi-telegram` to `0.36.7`, bringing proactive prompt-button delivery, explicit connection-state context, scoped Telegram control activation, provider-neutral voice configuration guidance, separated tool errors, host compatibility, prompt-block compatibility, and orphan-journal protection into the bundled kit.
