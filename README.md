@@ -1,15 +1,15 @@
 # @llblab/pi-kit
 
-`@llblab/pi-kit` is the version-pinned LLBLAB extension distribution for [Pi](https://github.com/badlogic/pi-mono). It provides one installable package while each included extension keeps its own repository, release line, and development lifecycle.
+`@llblab/pi-kit` is the version-pinned LLB Lab extension distribution for [Pi](https://github.com/badlogic/pi-mono). It provides one installable package while each included extension keeps its own repository, release line, and development lifecycle.
 
 ## Included packages
 
 | Package | Version | Resources |
 | --- | ---: | --- |
-| `@llblab/pi-actors` | `0.49.1` | Extension and Skills |
+| `@llblab/pi-actors` | `0.50.0` | Extension and Skills |
 | `@llblab/pi-codex-usage` | `0.9.3` | Extension |
 | `@llblab/pi-grow-loop` | `0.7.2` | Extension and Skills |
-| `@llblab/pi-telegram` | `0.36.7` | Extension and Skills |
+| `@llblab/pi-telegram` | `0.36.10` | Extension and Skills |
 
 Versions are exact by design. Updating an extension does not change an installed kit until this repository explicitly advances that dependency and publishes a new kit version.
 

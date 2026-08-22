@@ -2,6 +2,11 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.1.6 - 2026-08-22
+
+- `Extension Releases`: Advances `@llblab/pi-actors` to `0.50.0` and `@llblab/pi-telegram` to `0.36.10`, bringing their latest released runtime, Skill, and Telegram integration updates into the bundled kit.
+- `Branding`: Standardizes the public package description on the LLB Lab name.
+
 ## 0.1.5 - 2026-08-20
 
 - `Installation`: Makes the npm installation command version-agnostic so the README stays current across future kit releases.
