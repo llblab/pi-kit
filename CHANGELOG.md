@@ -2,6 +2,10 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.1.7 - 2026-08-22
+
+- `Telegram Hotfix`: Advances `@llblab/pi-telegram` to `0.36.11`, bringing at-most-once durable prompt dispatch that prevents session or process replacement from automatically replaying an already-admitted Telegram prompt.
+
 ## 0.1.6 - 2026-08-22
 
 - `Extension Releases`: Advances `@llblab/pi-actors` to `0.50.0` and `@llblab/pi-telegram` to `0.36.10`, bringing their latest released runtime, Skill, and Telegram integration updates into the bundled kit.

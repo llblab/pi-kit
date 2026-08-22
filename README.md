@@ -9,7 +9,7 @@
 | `@llblab/pi-actors` | `0.50.0` | Extension and Skills |
 | `@llblab/pi-codex-usage` | `0.9.3` | Extension |
 | `@llblab/pi-grow-loop` | `0.7.2` | Extension and Skills |
-| `@llblab/pi-telegram` | `0.36.10` | Extension and Skills |
+| `@llblab/pi-telegram` | `0.36.11` | Extension and Skills |
 
 Versions are exact by design. Updating an extension does not change an installed kit until this repository explicitly advances that dependency and publishes a new kit version.
 
