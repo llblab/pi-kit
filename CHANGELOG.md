@@ -2,6 +2,11 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.1.8 - 2026-08-23
+
+- `Telegram Releases`: Advances `@llblab/pi-telegram` to `0.37.1`, bringing journal-owned polling admission state from `0.37.0` plus the settings-manager compatibility hotfix for `/start`, model, and queue menus.
+- `Release Verification`: Allows up to ten minutes for Trusted Publisher releases to become publicly readable before package identity and bundled inventory verification, avoiding false failures from npm registry propagation delay.
+
 ## 0.1.7 - 2026-08-22
 
 - `Telegram Hotfix`: Advances `@llblab/pi-telegram` to `0.36.11`, bringing at-most-once durable prompt dispatch that prevents session or process replacement from automatically replaying an already-admitted Telegram prompt.

@@ -155,9 +155,10 @@ jobs:
           VERSION: ${{ steps.preflight.outputs.version }}
         run: |
           verified=false
-          for attempt in $(seq 1 20); do
-            if npm view "$PACKAGE_NAME@$VERSION" --json version gitHead > npm-published.json 2> npm-published.err &&
-               npm pack "$PACKAGE_NAME@$VERSION" --dry-run --json > npm-pack.json 2> npm-pack.err &&
+          # Trusted Publisher may finish before the new version reaches public registry reads.
+          for attempt in $(seq 1 120); do
+            if npm view "$PACKAGE_NAME@$VERSION" --json version gitHead --prefer-online > npm-published.json 2> npm-published.err &&
+               npm pack "$PACKAGE_NAME@$VERSION" --dry-run --json --prefer-online > npm-pack.json 2> npm-pack.err &&
                node --input-type=module <<'NODE'
           import { readFileSync } from "node:fs";
           const unpackView = (raw) => Array.isArray(raw) ? raw[0] : raw;
@@ -178,7 +179,7 @@ jobs:
               verified=true
               break
             fi
-            sleep 3
+            sleep 5
           done
           if [ "$verified" != "true" ]; then
             cat npm-published.err npm-pack.err >&2 2>/dev/null || true

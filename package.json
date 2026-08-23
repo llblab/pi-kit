@@ -1,6 +1,6 @@
 {
   "name": "@llblab/pi-kit",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "private": false,
   "publishConfig": {
     "access": "public"
@@ -43,7 +43,7 @@
     "@llblab/pi-actors": "0.50.0",
     "@llblab/pi-codex-usage": "0.9.3",
     "@llblab/pi-grow-loop": "0.7.2",
-    "@llblab/pi-telegram": "0.36.11"
+    "@llblab/pi-telegram": "0.37.1"
   },
   "bundledDependencies": [
     "@llblab/pi-actors",
