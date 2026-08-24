@@ -2,6 +2,10 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.1.9 - 2026-08-24
+
+- `Telegram Release`: Advances `@llblab/pi-telegram` to `0.38.0`, presenting the default voice mode as `manual`, retaining legacy `hidden` compatibility, and removing the redundant transcript-caption configuration and provider contract.
+
 ## 0.1.8 - 2026-08-23
 
 - `Telegram Releases`: Advances `@llblab/pi-telegram` to `0.37.1`, bringing journal-owned polling admission state from `0.37.0` plus the settings-manager compatibility hotfix for `/start`, model, and queue menus.
