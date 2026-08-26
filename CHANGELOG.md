@@ -2,6 +2,10 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.1.10 - 2026-08-26
+
+- `Extension Releases`: Advances `@llblab/pi-grow-loop` to `0.7.3` for the current bounded continuation protocol and `@llblab/pi-telegram` to `0.39.3` for Windows IPC replacement fencing, trusted outbound voice command compatibility, and macOS lock-recovery contention handling.
+
 ## 0.1.9 - 2026-08-24
 
 - `Telegram Release`: Advances `@llblab/pi-telegram` to `0.38.0`, presenting the default voice mode as `manual`, retaining legacy `hidden` compatibility, and removing the redundant transcript-caption configuration and provider contract.
