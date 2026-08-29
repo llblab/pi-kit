@@ -2,6 +2,11 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.1.12 - 2026-08-28
+
+- `Codex Usage Release`: Advances `@llblab/pi-codex-usage` to `0.9.4`, reducing automatic OpenAI quota polling by increasing the refresh interval from 30 to 60 seconds while preserving the local countdown responsiveness.
+- `Telegram Hotfix`: Advances `@llblab/pi-telegram` to `0.39.5`, preserving terminal-equivalent chronology by delivering an active turn's final Telegram answer before automatic-compaction start and completion notices.
+
 ## 0.1.11 - 2026-08-28
 
 - `Telegram Hotfix`: Advances `@llblab/pi-telegram` to `0.39.4`, preventing repeated extension errors when print, RPC, ACP, or other headless hosts refresh lifecycle status without an initialized theme while preserving interactive status rendering.
