@@ -2,6 +2,10 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.1.13 - 2026-08-30
+
+- `Telegram Minor Release`: Advances `@llblab/pi-telegram` to `0.40.0`, requiring Pi 0.84.4 and adopting native compaction-failure, mid-run compaction, terminal-message, and local UI-prompt lifecycle contracts while increasing bounded inbound text output to 24,000 characters.
+
 ## 0.1.12 - 2026-08-28
 
 - `Codex Usage Release`: Advances `@llblab/pi-codex-usage` to `0.9.4`, reducing automatic OpenAI quota polling by increasing the refresh interval from 30 to 60 seconds while preserving the local countdown responsiveness.
