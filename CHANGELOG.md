@@ -2,6 +2,11 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.2.0 - 2026-08-31
+
+- `Actors Minor Releases`: Advances `@llblab/pi-actors` to `0.52.0`, bringing root-owned follow-ups, durable completion epochs, presentation acknowledgment, recovery-safe scheduling, explicit urgent steering, and settled packed-package parity into the bundled kit.
+- `Telegram Minor Release`: Advances `@llblab/pi-telegram` to `0.41.0`, keeping typing active through settled work and compaction, making connected companion projection always-on, and updating generated controls, connection notices, token telemetry, and voice setup guidance.
+
 ## 0.1.13 - 2026-08-30
 
 - `Telegram Minor Release`: Advances `@llblab/pi-telegram` to `0.40.0`, requiring Pi 0.84.4 and adopting native compaction-failure, mid-run compaction, terminal-message, and local UI-prompt lifecycle contracts while increasing bounded inbound text output to 24,000 characters.
