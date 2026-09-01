@@ -2,6 +2,10 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.3.2 - 2026-09-01
+
+- `Telegram Comment Membrane`: Advances `@llblab/pi-telegram` to `0.42.2`, keeping assistant-authored HTML comments transport-private across Telegram previews and final replies while preserving top-level button and voice activation and skipping empty text sends after sanitization.
+
 ## 0.3.1 - 2026-09-01
 
 - `Telegram Patch Release`: Advances `@llblab/pi-telegram` to `0.42.1`, accepting prompt-only CML button cells such as `{|e2}` and their optional selected-style form while preserving prompt-as-label fallback and fail-closed empty prompt, style, and voice atoms.
