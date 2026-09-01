@@ -2,6 +2,11 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.3.0 - 2026-09-01
+
+- `Telegram Minor Release`: Advances `@llblab/pi-telegram` to `0.42.0`, bringing tolerant JSON and compact CML action parsing, positional voice action cells, Thread-aware generated-button prompts, and focused proactive control-surface guidance into the bundled kit.
+- `Release Cohort Policy`: Codifies that the kit follows the highest dependency bump in each synchronized cohort, so dependency patch-only updates produce kit patches while any dependency minor update produces a kit minor.
+
 ## 0.2.0 - 2026-08-31
 
 - `Actors Minor Releases`: Advances `@llblab/pi-actors` to `0.52.0`, bringing root-owned follow-ups, durable completion epochs, presentation acknowledgment, recovery-safe scheduling, explicit urgent steering, and settled packed-package parity into the bundled kit.

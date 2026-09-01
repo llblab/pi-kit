@@ -24,6 +24,7 @@
 - Expose only resources declared by each included package. Prefer published distribution entrypoints over source entrypoints when both exist.
 - Do not copy extension source, Skills, or documentation into this repository.
 - Preserve package independence: a kit release may advance any subset of included extensions without forcing lockstep extension releases.
+- Derive the kit version bump from the highest dependency bump in the synchronized release cohort: dependency patch-only updates require a kit patch bump, while any dependency minor update requires a kit minor bump. Do not let lower-level dependency bumps force a larger kit bump.
 - Use English for public and repository-facing text.
 - Do not commit, publish, tag, create a remote repository, or mutate Pi settings without explicit authorization.
 
