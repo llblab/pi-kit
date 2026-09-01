@@ -2,6 +2,10 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.3.1 - 2026-09-01
+
+- `Telegram Patch Release`: Advances `@llblab/pi-telegram` to `0.42.1`, accepting prompt-only CML button cells such as `{|e2}` and their optional selected-style form while preserving prompt-as-label fallback and fail-closed empty prompt, style, and voice atoms.
+
 ## 0.3.0 - 2026-09-01
 
 - `Telegram Minor Release`: Advances `@llblab/pi-telegram` to `0.42.0`, bringing tolerant JSON and compact CML action parsing, positional voice action cells, Thread-aware generated-button prompts, and focused proactive control-surface guidance into the bundled kit.
