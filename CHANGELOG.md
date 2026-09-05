@@ -2,6 +2,10 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.5.1 - 2026-09-06
+
+- `Telegram Continuity Hotfix`: Advances the exact Telegram pin to `0.43.1`, bringing bounded persistent polling-conflict stand-down with accepted queue preservation, missing/null system-prompt normalization, and authority-fenced preview cleanup without changing the resource inventory.
+
 ## 0.5.0 - 2026-09-05
 
 - `Telegram Native Controls`: Advances the exact Telegram pin to `0.43.0`, bringing in-body button blocks, shared JSON/CML disabled controls, HTML footer fallback, and updated agent Skills while preserving package-owned implementations and the existing resource inventory.
