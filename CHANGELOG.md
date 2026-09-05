@@ -2,6 +2,10 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.5.0 - 2026-09-05
+
+- `Telegram Native Controls`: Advances the exact Telegram pin to `0.43.0`, bringing in-body button blocks, shared JSON/CML disabled controls, HTML footer fallback, and updated agent Skills while preserving package-owned implementations and the existing resource inventory.
+
 ## 0.4.0 - 2026-09-05
 
 - `Expanded Composition`: Adds exact published pins for Clean Room and opt-in State Flow alongside the portable LLBLAB Skills collection, exposing each package's own declared resources without duplicating source or runtime ownership.
