@@ -2,6 +2,12 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.4.0 - 2026-09-05
+
+- `Expanded Composition`: Adds exact published pins for Clean Room and opt-in State Flow alongside the portable LLBLAB Skills collection, exposing each package's own declared resources without duplicating source or runtime ownership.
+- `Verified Hotfix Cohort`: Advances Actors to `0.52.1`, Grow Loop to `0.7.4`, and Telegram to `0.42.4`, including guarded thread recovery and cleanup, while retaining independent package release ownership.
+- `Independent Package Guide`: Links every included package to its owning repository, explains its purpose, and documents duplicate-resource configuration for users migrating from individual installations.
+
 ## 0.3.2 - 2026-09-01
 
 - `Telegram Comment Membrane`: Advances `@llblab/pi-telegram` to `0.42.2`, keeping assistant-authored HTML comments transport-private across Telegram previews and final replies while preserving top-level button and voice activation and skipping empty text sends after sanitization.

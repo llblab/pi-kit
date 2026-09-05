@@ -1,11 +1,11 @@
 {
   "name": "@llblab/pi-kit",
-  "version": "0.3.2",
+  "version": "0.4.0",
   "private": false,
   "publishConfig": {
     "access": "public"
   },
-  "description": "Version-pinned distribution of LLB Lab extensions for Pi",
+  "description": "Version-pinned distribution of LLB Lab extensions and Skills for Pi",
   "keywords": [
     "pi-package",
     "pi",
@@ -40,34 +40,46 @@
     "LICENSE"
   ],
   "dependencies": {
-    "@llblab/pi-actors": "0.52.0",
+    "@llblab/pi-actors": "0.52.1",
+    "@llblab/pi-clean-room": "0.1.1",
     "@llblab/pi-codex-usage": "0.9.4",
-    "@llblab/pi-grow-loop": "0.7.3",
-    "@llblab/pi-telegram": "0.42.2"
+    "@llblab/pi-grow-loop": "0.7.4",
+    "@llblab/pi-state-flow": "0.3.0",
+    "@llblab/pi-telegram": "0.42.4",
+    "@llblab/skills": "1.14.0"
   },
   "bundledDependencies": [
     "@llblab/pi-actors",
+    "@llblab/pi-clean-room",
     "@llblab/pi-codex-usage",
     "@llblab/pi-grow-loop",
-    "@llblab/pi-telegram"
+    "@llblab/pi-state-flow",
+    "@llblab/pi-telegram",
+    "@llblab/skills"
   ],
   "pi": {
     "extensions": [
       "./node_modules/@llblab/pi-actors/dist/pi-actors/index.js",
+      "./node_modules/@llblab/pi-clean-room/index.ts",
       "./node_modules/@llblab/pi-codex-usage/index.ts",
       "./node_modules/@llblab/pi-grow-loop/index.ts",
+      "./node_modules/@llblab/pi-state-flow/index.ts",
       "./node_modules/@llblab/pi-telegram/index.ts"
     ],
     "skills": [
       "./node_modules/@llblab/pi-actors/dist/skills",
       "./node_modules/@llblab/pi-grow-loop/skills",
-      "./node_modules/@llblab/pi-telegram/skills"
+      "./node_modules/@llblab/pi-telegram/skills",
+      "./node_modules/@llblab/skills/"
     ]
   },
   "bundleDependencies": [
     "@llblab/pi-actors",
+    "@llblab/pi-clean-room",
     "@llblab/pi-codex-usage",
     "@llblab/pi-grow-loop",
-    "@llblab/pi-telegram"
+    "@llblab/pi-state-flow",
+    "@llblab/pi-telegram",
+    "@llblab/skills"
   ]
 }

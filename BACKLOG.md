@@ -1,3 +1,3 @@
 # Backlog
 
-No open work.
+No open items.

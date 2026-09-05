@@ -6,21 +6,27 @@ const root = new URL("../", import.meta.url);
 const manifest = JSON.parse(await readFile(new URL("package.json", root), "utf8"));
 const readme = await readFile(new URL("README.md", root), "utf8");
 const expected = {
-  "@llblab/pi-actors": "0.52.0",
+  "@llblab/pi-actors": "0.52.1",
+  "@llblab/pi-clean-room": "0.1.1",
   "@llblab/pi-codex-usage": "0.9.4",
-  "@llblab/pi-grow-loop": "0.7.3",
-  "@llblab/pi-telegram": "0.42.2",
+  "@llblab/pi-grow-loop": "0.7.4",
+  "@llblab/pi-state-flow": "0.3.0",
+  "@llblab/pi-telegram": "0.42.4",
+  "@llblab/skills": "1.14.0",
 };
 const expectedExtensions = [
   "./node_modules/@llblab/pi-actors/dist/pi-actors/index.js",
+  "./node_modules/@llblab/pi-clean-room/index.ts",
   "./node_modules/@llblab/pi-codex-usage/index.ts",
   "./node_modules/@llblab/pi-grow-loop/index.ts",
+  "./node_modules/@llblab/pi-state-flow/index.ts",
   "./node_modules/@llblab/pi-telegram/index.ts",
 ];
 const expectedSkills = [
   "./node_modules/@llblab/pi-actors/dist/skills",
   "./node_modules/@llblab/pi-grow-loop/skills",
   "./node_modules/@llblab/pi-telegram/skills",
+  "./node_modules/@llblab/skills/",
 ];
 
 test("package set and resource order are explicit", () => {
@@ -33,15 +39,24 @@ test("package set and resource order are explicit", () => {
 test("pins are exact and the public inventory matches", () => {
   for (const [name, version] of Object.entries(expected)) {
     assert.match(version, /^\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?$/);
-    assert.ok(readme.includes(`| \`${name}\` | \`${version}\` |`));
+    const repository = `https://github.com/llblab/${name.split("/")[1]}`;
+    assert.ok(readme.includes(`| [\`${name}\`](${repository}) | \`${version}\` |`));
   }
 });
 
 test("installed package versions and declared resources match", async () => {
+  const declared = { extensions: [], skills: [] };
   for (const [name, version] of Object.entries(expected)) {
     const installed = JSON.parse(await readFile(new URL(`node_modules/${name}/package.json`, root), "utf8"));
     assert.equal(installed.version, version, `${name} must resolve to its exact pin`);
+    for (const kind of Object.keys(declared)) {
+      for (const resource of installed.pi?.[kind] ?? []) {
+        declared[kind].push(`./node_modules/${name}/${resource.replace(/^\.\//, "")}`);
+      }
+    }
   }
+  assert.deepEqual(manifest.pi.extensions, declared.extensions);
+  assert.deepEqual(manifest.pi.skills, declared.skills);
   for (const resource of [...expectedExtensions, ...expectedSkills]) {
     const url = new URL(resource.replace(/^\.\//, ""), root);
     await assert.doesNotReject(readFileOrDirectory(url), `${resource} must exist`);
