@@ -2,6 +2,10 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.5.2 - 2026-09-06
+
+- `Telegram Ordering Hotfix`: Advances the exact Telegram pin to `0.43.2`, bringing bounded threadless command lifetime, causal final/artifact/compaction publication order, stale-delivery fencing, and suppression of voice replay after uncertain acknowledgement. Other pins and the resource inventory remain unchanged; operator-coordinated live smoke follows release.
+
 ## 0.5.1 - 2026-09-06
 
 - `Telegram Continuity Hotfix`: Advances the exact Telegram pin to `0.43.1`, bringing bounded persistent polling-conflict stand-down with accepted queue preservation, missing/null system-prompt normalization, and authority-fenced preview cleanup without changing the resource inventory.
