@@ -2,6 +2,10 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.6.0 - 2026-09-06
+
+- `Current Distribution`: Advances Telegram to `0.44.0`, Grow Loop to `0.7.5`, and Skills to `1.14.1`. The kit now includes reliable default-on Telegram draft previews and prompt anchors, unambiguous `grow-loop` runtime status, and ABCd contiguous-list validation while preserving the existing package set, resource inventory, and load order.
+
 ## 0.5.2 - 2026-09-06
 
 - `Telegram Ordering Hotfix`: Advances the exact Telegram pin to `0.43.2`, bringing bounded threadless command lifetime, causal final/artifact/compaction publication order, stale-delivery fencing, and suppression of voice replay after uncertain acknowledgement. Other pins and the resource inventory remain unchanged; operator-coordinated live smoke follows release.

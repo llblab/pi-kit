@@ -9,10 +9,10 @@ const expected = {
   "@llblab/pi-actors": "0.52.1",
   "@llblab/pi-clean-room": "0.1.1",
   "@llblab/pi-codex-usage": "0.9.4",
-  "@llblab/pi-grow-loop": "0.7.4",
+  "@llblab/pi-grow-loop": "0.7.5",
   "@llblab/pi-state-flow": "0.3.0",
-  "@llblab/pi-telegram": "0.43.2",
-  "@llblab/skills": "1.14.0",
+  "@llblab/pi-telegram": "0.44.0",
+  "@llblab/skills": "1.14.1",
 };
 const expectedExtensions = [
   "./node_modules/@llblab/pi-actors/dist/pi-actors/index.js",
