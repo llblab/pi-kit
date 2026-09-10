@@ -2,6 +2,10 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.7.0 - 2026-09-10
+
+- `Current Distribution`: Advances Actors to `0.53.0`, State Flow to `0.6.0`, Telegram to `0.45.0`, and Skills to `1.15.0`. The kit now includes durable Workspace-bound Telegram Threads, expanded run orchestration, current opt-in state handoffs, and the latest portable workflows while preserving the package set, resource inventory, and explicit load order.
+
 ## 0.6.0 - 2026-09-06
 
 - `Current Distribution`: Advances Telegram to `0.44.0`, Grow Loop to `0.7.5`, and Skills to `1.14.1`. The kit now includes reliable default-on Telegram draft previews and prompt anchors, unambiguous `grow-loop` runtime status, and ABCd contiguous-list validation while preserving the existing package set, resource inventory, and load order.
