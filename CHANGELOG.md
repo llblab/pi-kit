@@ -2,6 +2,10 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.10.5 - 2026-09-11
+
+- `State Flow Telegram Surface`: Advances the exact State Flow pin to `0.9.6`, so the submenu help line is exactly what State Flow records and when a new session resumes from the last committed point, and the state value (`off` or `#N`) renders in monospace. The package set, resource inventory, and explicit load order remain unchanged.
+
 ## 0.10.4 - 2026-09-11
 
 - `State Flow Telegram Surface`: Advances the exact State Flow pin to `0.9.5`, so the submenu help line opens directly with what State Flow records and when to start or stop it, without the former introductory prefix. The package set, resource inventory, and explicit load order remain unchanged.
