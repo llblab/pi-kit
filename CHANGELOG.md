@@ -2,6 +2,10 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.8.1 - 2026-09-11
+
+- `Telegram Schema Hotfix`: Advances the exact Telegram pin to `0.45.2`, whose bounded-depth `telegram_bind` argument schema is accepted by OpenAI and Gemini tool APIs again, restoring working agent requests while the bridge is connected. The package set, resource inventory, and explicit load order remain unchanged.
+
 ## 0.8.0 - 2026-09-11
 
 - `State Flow Resolution`: Advances the exact State Flow pin to `0.7.0`, bringing explicit PATCH/UNCHANGED resolution, bounded passive-stop continuation, runtime-owned artifact provenance, fixed hot history, local-first activation, asynchronous publication, and opt-in diagnostics while preserving the package set and resource order.
