@@ -2,6 +2,12 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.10.1 - 2026-09-11
+
+- `State Flow Telegram Surface`: Advances the exact State Flow pin to `0.9.2`, so State Flow appears in Telegram exactly once: the pre-Settings section button carries the live status (`🌀 State Flow: #N`, `⚫️ State Flow` while off) and the duplicated Status-screen row is removed. The package set, resource inventory, and explicit load order remain unchanged.
+- `Grow Loop Status Text`: Advances the exact Grow Loop pin to `0.8.1`, mirroring the terminal status literally as `Grow Loop ∞N` with no waiting, running, or countdown decoration. The package set, resource inventory, and explicit load order remain unchanged.
+- `Queue Refresh Icon`: Advances the exact Telegram pin to `0.45.5`, so the queue menu's Refresh button renders `🔄 Refresh` while `🌀` stays the State Flow identity. The package set, resource inventory, and explicit load order remain unchanged.
+
 ## 0.10.0 - 2026-09-11
 
 - `State Flow Telegram Surface`: Advances the exact State Flow pin to `0.9.0`, adding the optional fail-open Telegram status line (`State Flow: on · step #N`) and the inline main-menu section button before Settings with Start, Stop, Refresh, and deferred-start control for the current session branch. The package set, resource inventory, and explicit load order remain unchanged.
