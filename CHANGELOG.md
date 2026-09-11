@@ -2,6 +2,10 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.7.1 - 2026-09-11
+
+- `Telegram Hotfix`: Advances the exact Telegram pin to `0.45.1`, bringing immediate editable Guest Mode acknowledgements, concise guest delivery guidance, environment-backed bot-token references, and durable photo/video channel publication with caption edits and retry-safe media identity. The package set and resource order remain unchanged.
+
 ## 0.7.0 - 2026-09-10
 
 - `Current Distribution`: Advances Actors to `0.53.0`, State Flow to `0.6.0`, Telegram to `0.45.0`, and Skills to `1.15.0`. The kit now includes durable Workspace-bound Telegram Threads, expanded run orchestration, current opt-in state handoffs, and the latest portable workflows while preserving the package set, resource inventory, and explicit load order.
