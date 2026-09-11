@@ -2,6 +2,10 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.10.6 - 2026-09-12
+
+- `Guest Placeholder And Delivery`: Advances the exact Telegram pin to `0.45.6`, so the guest ACK rotates the globe placeholder in whole cycles and holds `🌏 Working on it...`, guest answers are still delivered when a companion extension suppresses the final assistant message, `429` retry waits are recorded as `api` runtime events, the Thread display settings card drops the manual `/name` hint, and empty-queue headings carry no trailing period. The package set, resource inventory, and explicit load order remain unchanged.
+
 ## 0.10.5 - 2026-09-11
 
 - `State Flow Telegram Surface`: Advances the exact State Flow pin to `0.9.6`, so the submenu help line is exactly what State Flow records and when a new session resumes from the last committed point, and the state value (`off` or `#N`) renders in monospace. The package set, resource inventory, and explicit load order remain unchanged.
