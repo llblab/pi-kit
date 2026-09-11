@@ -2,6 +2,10 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.9.0 - 2026-09-11
+
+- `State Flow Atomic Cohorts`: Advances the exact State Flow pin to `0.8.0`, replacing the single-scope PATCH/UNCHANGED protocol with one `patch_state({global?, cwd?, session?, final?})` primitive whose supplied scopes commit as one atomic transition, turning `final:true` into an ephemeral per-iteration terminal-eligibility latch with bounded three-attempt steering, and retaining exact rejected-call arguments in opt-in diagnostics while preserving the package set, resource inventory, and explicit load order.
+
 ## 0.8.1 - 2026-09-11
 
 - `Telegram Schema Hotfix`: Advances the exact Telegram pin to `0.45.2`, whose bounded-depth `telegram_bind` argument schema is accepted by OpenAI and Gemini tool APIs again, restoring working agent requests while the bridge is connected. The package set, resource inventory, and explicit load order remain unchanged.
