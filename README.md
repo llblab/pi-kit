@@ -13,8 +13,8 @@ Package links lead to the owning repositories for usage, documentation, issues, 
 | [`@llblab/pi-actors`](https://github.com/llblab/pi-actors) | `0.53.0` | Inspectable local Runs, reusable Recipes, persistent tools, and delegation Skills |
 | [`@llblab/pi-clean-room`](https://github.com/llblab/pi-clean-room) | `0.1.1` | Isolated nested Pi TUI with explicitly selected extensions |
 | [`@llblab/pi-codex-usage`](https://github.com/llblab/pi-codex-usage) | `0.9.4` | Compact Codex/Spark subscription-limit status |
-| [`@llblab/pi-grow-loop`](https://github.com/llblab/pi-grow-loop) | `0.7.5` | Visible continuation scheduling and bounded worker Skills |
-| [`@llblab/pi-state-flow`](https://github.com/llblab/pi-state-flow) | `0.8.1` | Atomic scoped state cohorts with final-eligibility resolution |
+| [`@llblab/pi-grow-loop`](https://github.com/llblab/pi-grow-loop) | `0.8.0` | Visible continuation scheduling and bounded worker Skills |
+| [`@llblab/pi-state-flow`](https://github.com/llblab/pi-state-flow) | `0.9.0` | Atomic scoped state cohorts with final-eligibility resolution |
 | [`@llblab/pi-telegram`](https://github.com/llblab/pi-telegram) | `0.45.4` | Telegram companion, queues, files, voice, controls, and Generative Apps guidance |
 | [`@llblab/skills`](https://github.com/llblab/skills) | `1.15.0` | Portable workflows for engineering, review, design, context maintenance, and other focused tasks |
 
