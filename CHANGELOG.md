@@ -2,6 +2,10 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.10.4 - 2026-09-11
+
+- `State Flow Telegram Surface`: Advances the exact State Flow pin to `0.9.5`, so the submenu help line opens directly with what State Flow records and when to start or stop it, without the former introductory prefix. The package set, resource inventory, and explicit load order remain unchanged.
+
 ## 0.10.3 - 2026-09-11
 
 - `State Flow Telegram Surface`: Advances the exact State Flow pin to `0.9.4`, so the pre-Settings section button always carries the spiral identity and the live value (`🌀 State Flow: off`, `🌀 State Flow: #N`), and its submenu repeats that state line, follows it with a short explanation of what State Flow is, and exposes one wide `Start` or `Stop` action instead of Start, Refresh, and Cancel start. The package set, resource inventory, and explicit load order remain unchanged.
