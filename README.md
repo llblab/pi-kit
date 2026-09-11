@@ -14,7 +14,7 @@ Package links lead to the owning repositories for usage, documentation, issues, 
 | [`@llblab/pi-clean-room`](https://github.com/llblab/pi-clean-room) | `0.1.1` | Isolated nested Pi TUI with explicitly selected extensions |
 | [`@llblab/pi-codex-usage`](https://github.com/llblab/pi-codex-usage) | `0.9.4` | Compact Codex/Spark subscription-limit status |
 | [`@llblab/pi-grow-loop`](https://github.com/llblab/pi-grow-loop) | `0.7.5` | Visible continuation scheduling and bounded worker Skills |
-| [`@llblab/pi-state-flow`](https://github.com/llblab/pi-state-flow) | `0.6.0` | Opt-in validated state handoffs between agent runs |
+| [`@llblab/pi-state-flow`](https://github.com/llblab/pi-state-flow) | `0.7.0` | Explicit scoped state resolution and bounded session continuation |
 | [`@llblab/pi-telegram`](https://github.com/llblab/pi-telegram) | `0.45.1` | Telegram companion, queues, files, voice, controls, and Generative Apps guidance |
 | [`@llblab/skills`](https://github.com/llblab/skills) | `1.15.0` | Portable workflows for engineering, review, design, context maintenance, and other focused tasks |
 

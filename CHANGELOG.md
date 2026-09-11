@@ -2,6 +2,10 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.8.0 - 2026-09-11
+
+- `State Flow Resolution`: Advances the exact State Flow pin to `0.7.0`, bringing explicit PATCH/UNCHANGED resolution, bounded passive-stop continuation, runtime-owned artifact provenance, fixed hot history, local-first activation, asynchronous publication, and opt-in diagnostics while preserving the package set and resource order.
+
 ## 0.7.1 - 2026-09-11
 
 - `Telegram Hotfix`: Advances the exact Telegram pin to `0.45.1`, bringing immediate editable Guest Mode acknowledgements, concise guest delivery guidance, environment-backed bot-token references, and durable photo/video channel publication with caption edits and retry-safe media identity. The package set and resource order remain unchanged.
