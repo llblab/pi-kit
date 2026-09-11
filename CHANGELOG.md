@@ -2,6 +2,11 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.10.0 - 2026-09-11
+
+- `State Flow Telegram Surface`: Advances the exact State Flow pin to `0.9.0`, adding the optional fail-open Telegram status line (`State Flow: on · step #N`) and the inline main-menu section button before Settings with Start, Stop, Refresh, and deferred-start control for the current session branch. The package set, resource inventory, and explicit load order remain unchanged.
+- `Grow Loop Telegram Mirror`: Advances the exact Grow Loop pin to `0.8.0`, mirroring the visible loop rhythm (`Grow Loop: #N · waiting`, `#N · Ns`, `#N · running`) into the Telegram status screen with the same fail-open, no-scheduling-change guarantees. The package set, resource inventory, and explicit load order remain unchanged.
+
 ## 0.9.1 - 2026-09-11
 
 - `Telegram Draft Cadence`: Advances the exact Telegram pin to `0.45.4`, so each preview segment holds its first frame for one full two-second interval from its first visible text; the opening draft is an accumulated passage instead of a single streamed word, later frames keep the trailing cadence, and rollover after tool work reopens the window while sealing or final publication still cancels pending timers. The package set, resource inventory, and explicit load order remain unchanged.
