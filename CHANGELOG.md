@@ -2,6 +2,10 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.10.2 - 2026-09-11
+
+- `State Flow Publication`: Advances the exact State Flow pin to `0.9.3`, syncing the publication-queue lineage-rewrite hotfix. A queued target orphaned by a reset or re-initialized journal now retargets the live lineage instead of failing every `turn_end`, and deferred remote publication is reported accurately. The package set, resource inventory, and explicit load order remain unchanged.
+
 ## 0.10.1 - 2026-09-11
 
 - `State Flow Telegram Surface`: Advances the exact State Flow pin to `0.9.2`, so State Flow appears in Telegram exactly once: the pre-Settings section button carries the live status (`🌀 State Flow: #N`, `⚫️ State Flow` while off) and the duplicated Status-screen row is removed. The package set, resource inventory, and explicit load order remain unchanged.
