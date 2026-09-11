@@ -2,6 +2,11 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.9.1 - 2026-09-11
+
+- `Telegram Draft Cadence`: Advances the exact Telegram pin to `0.45.4`, so each preview segment holds its first frame for one full two-second interval from its first visible text; the opening draft is an accumulated passage instead of a single streamed word, later frames keep the trailing cadence, and rollover after tool work reopens the window while sealing or final publication still cancels pending timers. The package set, resource inventory, and explicit load order remain unchanged.
+- `State Flow Preserved Answers`: Advances the exact State Flow pin to `0.8.1`, preserving the first terminal draft as the runtime-owned response even without `final:true` and bounding same-run fallback turns to eliciting the final patch without replacing the visible answer. The package set, resource inventory, and explicit load order remain unchanged.
+
 ## 0.9.0 - 2026-09-11
 
 - `State Flow Atomic Cohorts`: Advances the exact State Flow pin to `0.8.0`, replacing the single-scope PATCH/UNCHANGED protocol with one `patch_state({global?, cwd?, session?, final?})` primitive whose supplied scopes commit as one atomic transition, turning `final:true` into an ephemeral per-iteration terminal-eligibility latch with bounded three-attempt steering, and retaining exact rejected-call arguments in opt-in diagnostics while preserving the package set, resource inventory, and explicit load order.
