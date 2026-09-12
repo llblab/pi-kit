@@ -2,6 +2,10 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.10.7 - 2026-09-12
+
+- `Queue Enqueue`: Advances the exact Telegram pin to `0.45.7`, preventing asynchronous voice/file preparation from restoring consumed prompts or overwriting newer queue changes. Surviving history and receipts follow current queue state; an already-wedged in-memory queue still requires separately authorized recovery. The package set, resource inventory, and load order remain unchanged.
+
 ## 0.10.6 - 2026-09-12
 
 - `Guest Placeholder And Delivery`: Advances the exact Telegram pin to `0.45.6`, so the guest ACK rotates the globe placeholder in whole cycles and holds `🌏 Working on it...`, guest answers are still delivered when a companion extension suppresses the final assistant message, `429` retry waits are recorded as `api` runtime events, the Thread display settings card drops the manual `/name` hint, and empty-queue headings carry no trailing period. The package set, resource inventory, and explicit load order remain unchanged.
