@@ -2,6 +2,10 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.10.8 - 2026-09-13
+
+- `Follower Forwarding`: Advances the exact Telegram pin to `0.45.8`, so cached-ownership forwarding uses current registration protocol evidence for voice/message and edit retries, message-only callbacks, and reactions. Exact generation, binding, protocol, and durable-receipt checks remain enforced. The package set, resource inventory, and load order remain unchanged.
+
 ## 0.10.7 - 2026-09-12
 
 - `Queue Enqueue`: Advances the exact Telegram pin to `0.45.7`, preventing asynchronous voice/file preparation from restoring consumed prompts or overwriting newer queue changes. Surviving history and receipts follow current queue state; an already-wedged in-memory queue still requires separately authorized recovery. The package set, resource inventory, and load order remain unchanged.
