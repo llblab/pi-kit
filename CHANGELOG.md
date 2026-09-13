@@ -2,6 +2,10 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.11.2 - 2026-09-13
+
+- `State Flow Compaction And Resilience`: Advances the exact State Flow pin to `0.10.2`, replacing byte-based early-compaction readiness with public context-token usage, retaining the complete latest accepted iteration after shortening, accepting unambiguous non-terminal `final:false`, and strengthening bounded memory stewardship. The package set, resource inventory, and explicit load order remain unchanged.
+
 ## 0.11.1 - 2026-09-13
 
 - `State Flow Filesystem Recovery`: Advances the exact State Flow pin to `0.10.1`, adding transactional self-healing when a complete live global or CWD checkpoint pair disappears, exact private-session reconstruction from retained Git evidence, and precise fail-closed handling for partial or unsafe storage loss. The package set, resource inventory, and explicit load order remain unchanged.
