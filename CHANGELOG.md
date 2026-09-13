@@ -2,6 +2,11 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.11.4 - 2026-09-14
+
+- `State Flow Inspection Hierarchy`: Advances the exact State Flow pin to `0.11.1`, placing Show state below Start/Stop, presenting Back and the four scope choices as one vertical composition axis, and rendering a fixed scope heading above four top-level disclosures.
+- `Companion Ownership`: Advances the exact Telegram pin to `0.45.11`, retaining generic Rich Message headings while removing State Flow-specific scope semantics from the transport-owned UI registry. The package set, resource inventory, and explicit load order remain unchanged.
+
 ## 0.11.3 - 2026-09-14
 
 - `Telegram Rich Sections And Queue Continuation`: Advances the exact Telegram pin to `0.45.9`, adding callback-targeted Native Rich Messages for companion sections and binding `/next` notices to the exact dispatchable queue item across concurrent readiness, admission, mutation, reordering, clearing, and transport changes.
