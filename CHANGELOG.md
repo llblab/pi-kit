@@ -2,6 +2,11 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.11.3 - 2026-09-14
+
+- `Telegram Rich Sections And Queue Continuation`: Advances the exact Telegram pin to `0.45.9`, adding callback-targeted Native Rich Messages for companion sections and binding `/next` notices to the exact dispatchable queue item across concurrent readiness, admission, mutation, reordering, clearing, and transport changes.
+- `State Flow Inspection`: Advances the exact State Flow pin to `0.11.0`, adding read-only Global, CWD, Session, and Effective state inspection through the Telegram submenu with bounded collapsible Native Rich Message rendering. The package set, resource inventory, and explicit load order remain unchanged.
+
 ## 0.11.2 - 2026-09-13
 
 - `State Flow Compaction And Resilience`: Advances the exact State Flow pin to `0.10.2`, replacing byte-based early-compaction readiness with public context-token usage, retaining the complete latest accepted iteration after shortening, accepting unambiguous non-terminal `final:false`, and strengthening bounded memory stewardship. The package set, resource inventory, and explicit load order remain unchanged.
