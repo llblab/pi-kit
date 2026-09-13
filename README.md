@@ -14,8 +14,8 @@ Package links lead to the owning repositories for usage, documentation, issues, 
 | [`@llblab/pi-clean-room`](https://github.com/llblab/pi-clean-room) | `0.1.1` | Isolated nested Pi TUI with explicitly selected extensions |
 | [`@llblab/pi-codex-usage`](https://github.com/llblab/pi-codex-usage) | `0.9.4` | Compact Codex/Spark subscription-limit status |
 | [`@llblab/pi-grow-loop`](https://github.com/llblab/pi-grow-loop) | `0.8.1` | Visible continuation scheduling and bounded worker Skills |
-| [`@llblab/pi-state-flow`](https://github.com/llblab/pi-state-flow) | `0.10.2` | Durable scoped state with native session compaction and exact publication |
-| [`@llblab/pi-telegram`](https://github.com/llblab/pi-telegram) | `0.45.8` | Telegram companion, queues, files, voice, controls, and Generative Apps guidance |
+| [`@llblab/pi-state-flow`](https://github.com/llblab/pi-state-flow) | `0.11.0` | Durable scoped state with native session compaction, exact publication, and read-only Telegram inspection |
+| [`@llblab/pi-telegram`](https://github.com/llblab/pi-telegram) | `0.45.9` | Telegram companion with exact queues, Rich section messages, files, voice, controls, and Generative Apps guidance |
 | [`@llblab/skills`](https://github.com/llblab/skills) | `1.15.0` | Portable workflows for engineering, review, design, context maintenance, and other focused tasks |
 
 Versions are exact by design. An upstream release does not change an installed kit until this repository explicitly advances the dependency and publishes a new kit version. Runtime defects and package-specific feature requests belong in the linked repository; package selection and kit installation issues belong here.
