@@ -2,6 +2,10 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.11.1 - 2026-09-13
+
+- `State Flow Filesystem Recovery`: Advances the exact State Flow pin to `0.10.1`, adding transactional self-healing when a complete live global or CWD checkpoint pair disappears, exact private-session reconstruction from retained Git evidence, and precise fail-closed handling for partial or unsafe storage loss. The package set, resource inventory, and explicit load order remain unchanged.
+
 ## 0.11.0 - 2026-09-13
 
 - `State Flow Maturation`: Advances the exact State Flow pin to `0.10.0`, adding safe native compaction of sufficiently large completed histories, effective-memory-only status JSON, stronger fork/recovery and concurrent publication guarantees, and lower repeated Git/session restoration work while preserving full Pi session traces and exact state lineage. The package set, resource inventory, and explicit load order remain unchanged.
