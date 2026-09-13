@@ -2,6 +2,10 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.11.0 - 2026-09-13
+
+- `State Flow Maturation`: Advances the exact State Flow pin to `0.10.0`, adding safe native compaction of sufficiently large completed histories, effective-memory-only status JSON, stronger fork/recovery and concurrent publication guarantees, and lower repeated Git/session restoration work while preserving full Pi session traces and exact state lineage. The package set, resource inventory, and explicit load order remain unchanged.
+
 ## 0.10.8 - 2026-09-13
 
 - `Follower Forwarding`: Advances the exact Telegram pin to `0.45.8`, so cached-ownership forwarding uses current registration protocol evidence for voice/message and edit retries, message-only callbacks, and reactions. Exact generation, binding, protocol, and durable-receipt checks remain enforced. The package set, resource inventory, and load order remain unchanged.
