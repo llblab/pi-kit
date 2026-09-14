@@ -2,6 +2,10 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.12.1 - 2026-09-14
+
+- `State Flow Navigation Hotfix`: Advances the exact State Flow pin to `0.11.2`, removing the duplicate chooser-owned Back button from Show state. The transport-owned `⬆️ Back` row is now the only navigation control and returns directly to the State Flow section; scope choices and read-only inspection remain unchanged.
+
 ## 0.12.0 - 2026-09-14
 
 - `Session-aware Workspace Threads`: Advances the exact Telegram pin to `0.46.0`, restoring the same Telegram Thread and letter for a resumed Pi session while keeping distinct sessions in one directory independently bound. Protocol v2 rejects mixed 0.45.x peers before provisioning; all participating instances must be updated together. The package set, resource inventory, and explicit load order remain unchanged.
