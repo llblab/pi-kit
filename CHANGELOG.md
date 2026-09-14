@@ -2,6 +2,10 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.12.0 - 2026-09-14
+
+- `Session-aware Workspace Threads`: Advances the exact Telegram pin to `0.46.0`, restoring the same Telegram Thread and letter for a resumed Pi session while keeping distinct sessions in one directory independently bound. Protocol v2 rejects mixed 0.45.x peers before provisioning; all participating instances must be updated together. The package set, resource inventory, and explicit load order remain unchanged.
+
 ## 0.11.4 - 2026-09-14
 
 - `State Flow Inspection Hierarchy`: Advances the exact State Flow pin to `0.11.1`, placing Show state below Start/Stop, presenting Back and the four scope choices as one vertical composition axis, and rendering a fixed scope heading above four top-level disclosures.
