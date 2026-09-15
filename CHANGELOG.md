@@ -2,6 +2,10 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.14.0 - 2026-09-15
+
+- `State Flow Semantic Runtime`: Advances the exact State Flow pin to `0.13.2`, adopting semantic-only checkpoint and patch storage with adjacent lineage metadata, compiled distributive runtime and Skills, clearer state inspection hierarchy, and guarded automatic compaction that avoids benign native `Nothing to compact` failures caused by system-prompt-only pressure. The package set and explicit load order remain unchanged.
+
 ## 0.13.0 - 2026-09-15
 
 - `Telegram Runtime And Recovery`: Advances the exact Telegram pin to `0.48.2`, loading its compiled distributive runtime and Skills, adding unified activity plus adaptive Thread display, preserving truthful queue counts, and containing failed follower promotion as bounded recovery instead of a process-terminating exception. The package set and explicit load order remain unchanged.
