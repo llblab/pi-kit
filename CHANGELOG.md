@@ -2,6 +2,10 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.13.0 - 2026-09-15
+
+- `Telegram Runtime And Recovery`: Advances the exact Telegram pin to `0.48.2`, loading its compiled distributive runtime and Skills, adding unified activity plus adaptive Thread display, preserving truthful queue counts, and containing failed follower promotion as bounded recovery instead of a process-terminating exception. The package set and explicit load order remain unchanged.
+
 ## 0.12.1 - 2026-09-14
 
 - `State Flow Navigation Hotfix`: Advances the exact State Flow pin to `0.11.2`, removing the duplicate chooser-owned Back button from Show state. The transport-owned `⬆️ Back` row is now the only navigation control and returns directly to the State Flow section; scope choices and read-only inspection remain unchanged.
