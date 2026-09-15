@@ -10,7 +10,7 @@ const expected = {
   "@llblab/pi-clean-room": "0.1.1",
   "@llblab/pi-codex-usage": "0.9.4",
   "@llblab/pi-grow-loop": "0.8.1",
-  "@llblab/pi-state-flow": "0.11.2",
+  "@llblab/pi-state-flow": "0.13.2",
   "@llblab/pi-telegram": "0.48.2",
   "@llblab/skills": "1.15.0",
 };
@@ -19,13 +19,13 @@ const expectedExtensions = [
   "./node_modules/@llblab/pi-clean-room/index.ts",
   "./node_modules/@llblab/pi-codex-usage/index.ts",
   "./node_modules/@llblab/pi-grow-loop/index.ts",
-  "./node_modules/@llblab/pi-state-flow/index.ts",
+  "./node_modules/@llblab/pi-state-flow/dist/pi-state-flow/index.js",
   "./node_modules/@llblab/pi-telegram/dist/pi-telegram/index.js",
 ];
 const expectedSkills = [
   "./node_modules/@llblab/pi-actors/dist/skills",
   "./node_modules/@llblab/pi-grow-loop/skills",
-  "./node_modules/@llblab/pi-state-flow/skills",
+  "./node_modules/@llblab/pi-state-flow/dist/skills",
   "./node_modules/@llblab/pi-telegram/dist/skills",
   "./node_modules/@llblab/skills/",
 ];
