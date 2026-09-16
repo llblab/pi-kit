@@ -2,6 +2,10 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.14.1 - 2026-09-16
+
+- `State Flow Telegram Discovery Hotfix`: Advances the exact State Flow pin to `0.13.3`, restoring its Telegram main-menu control when Pi loads the compiled sibling extension layout while retaining package-export discovery and optional fail-open behavior. The package set and explicit load order remain unchanged.
+
 ## 0.14.0 - 2026-09-15
 
 - `State Flow Semantic Runtime`: Advances the exact State Flow pin to `0.13.2`, adopting semantic-only checkpoint and patch storage with adjacent lineage metadata, compiled distributive runtime and Skills, clearer state inspection hierarchy, and guarded automatic compaction that avoids benign native `Nothing to compact` failures caused by system-prompt-only pressure. The package set and explicit load order remain unchanged.
