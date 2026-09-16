@@ -12,10 +12,10 @@ Package links lead to the owning repositories for usage, documentation, issues, 
 | --- | ---: | --- |
 | [`@llblab/pi-actors`](https://github.com/llblab/pi-actors) | `0.53.0` | Inspectable local Runs, reusable Recipes, persistent tools, and delegation Skills |
 | [`@llblab/pi-clean-room`](https://github.com/llblab/pi-clean-room) | `0.1.1` | Isolated nested Pi TUI with explicitly selected extensions |
-| [`@llblab/pi-codex-usage`](https://github.com/llblab/pi-codex-usage) | `0.9.4` | Compact Codex/Spark subscription-limit status |
+| [`@llblab/pi-codex-usage`](https://github.com/llblab/pi-codex-usage) | `0.10.0` | Compact Codex/Spark subscription-limit and Business credit-usage status |
 | [`@llblab/pi-grow-loop`](https://github.com/llblab/pi-grow-loop) | `0.8.1` | Visible continuation scheduling and bounded worker Skills |
 | [`@llblab/pi-state-flow`](https://github.com/llblab/pi-state-flow) | `0.13.3` | Incremental scoped state, context, and memory with semantic storage, compiled runtime delivery, safe compaction, exact publication, and reliable Telegram section discovery |
-| [`@llblab/pi-telegram`](https://github.com/llblab/pi-telegram) | `0.48.2` | Telegram companion with built runtime delivery, resilient follower promotion, truthful terminal queue counts, adaptive Thread display, exact queues, files, voice, controls, and Generative Apps guidance |
+| [`@llblab/pi-telegram`](https://github.com/llblab/pi-telegram) | `0.48.3` | Telegram companion with built runtime delivery, State Flow recovery deduplication, adaptive Thread display, exact queues, files, voice, controls, and Generative Apps guidance |
 | [`@llblab/skills`](https://github.com/llblab/skills) | `1.15.0` | Portable workflows for engineering, review, design, context maintenance, and other focused tasks |
 
 Versions are exact by design. An upstream release does not change an installed kit until this repository explicitly advances the dependency and publishes a new kit version. Runtime defects and package-specific feature requests belong in the linked repository; package selection and kit installation issues belong here.

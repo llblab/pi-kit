@@ -2,6 +2,11 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.15.0 - 2026-09-16
+
+- `Business Credit Usage`: Advances the exact Codex Usage pin to `0.10.0`, adding Business-account credit usage with normalized display, precise reset countdown updates, and cache reuse.
+- `State Flow Recovery Delivery`: Advances the exact Telegram pin to `0.48.3`, suppressing duplicate preserved-answer recovery only when matching intermediate text was admitted in the same Telegram turn while preserving equal answers in later turns. Thread restore and reclaim also use the current Workspace display title.
+
 ## 0.14.1 - 2026-09-16
 
 - `State Flow Telegram Discovery Hotfix`: Advances the exact State Flow pin to `0.13.3`, restoring its Telegram main-menu control when Pi loads the compiled sibling extension layout while retaining package-export discovery and optional fail-open behavior. The package set and explicit load order remain unchanged.
