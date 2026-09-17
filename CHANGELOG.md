@@ -2,6 +2,12 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.16.0 - 2026-09-17
+
+- `Canonical Knowledge Memory`: Advances the exact State Flow pin to `0.14.0`, making Global Lazy the sole canonical Knowledge store and removing the former Markdown Knowledge layer while preserving scoped semantic compilation and recovery.
+- `Telegram Fresh Sessions`: Advances the exact Telegram pin to `0.49.0`, adding lifecycle-safe `/new` session replacement with durable update settlement, same-chat or same-Thread continuity, and terminal result notifications.
+- `Package Cohort`: Confirms every other bundled package already matches its latest published npm version; the package set, resource inventory, and explicit load order remain unchanged.
+
 ## 0.15.0 - 2026-09-16
 
 - `Business Credit Usage`: Advances the exact Codex Usage pin to `0.10.0`, adding Business-account credit usage with normalized display, precise reset countdown updates, and cache reuse.
