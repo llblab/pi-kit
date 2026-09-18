@@ -2,6 +2,11 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.17.1 - 2026-09-18
+
+- `State Flow Activation Hotfixes`: Advances the exact State Flow pin to `0.16.2`, allowing resumed activation to reassert its selected session cohort and allowing passive global memory before a new CWD has materialized, while retaining fail-closed handling for genuinely incomplete ownership.
+- `Package Cohort`: Keeps every other bundled package at its current exact version; the package set, resource inventory, and explicit load order remain unchanged.
+
 ## 0.17.0 - 2026-09-18
 
 - `Proportional State Flow Guidance`: Advances the exact State Flow pin to `0.16.0`, adding the focused operational Skill, compacting memory curation guidance, and returning bounded reactive diagnostics for missing paths with durable references.

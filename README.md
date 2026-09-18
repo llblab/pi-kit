@@ -14,7 +14,7 @@ Package links lead to the owning repositories for usage, documentation, issues, 
 | [`@llblab/pi-clean-room`](https://github.com/llblab/pi-clean-room) | `0.1.1` | Isolated nested Pi TUI with explicitly selected extensions |
 | [`@llblab/pi-codex-usage`](https://github.com/llblab/pi-codex-usage) | `0.10.0` | Compact Codex/Spark subscription-limit and Business credit-usage status |
 | [`@llblab/pi-grow-loop`](https://github.com/llblab/pi-grow-loop) | `0.8.1` | Visible continuation scheduling and bounded worker Skills |
-| [`@llblab/pi-state-flow`](https://github.com/llblab/pi-state-flow) | `0.16.0` | Incremental scoped state/context/memory compiler with proportional operational guidance, intentional agency, reactive dangling-reference diagnostics, compiled runtime delivery, safe compaction, and exact publication |
+| [`@llblab/pi-state-flow`](https://github.com/llblab/pi-state-flow) | `0.16.2` | Incremental scoped state/context/memory compiler with proportional operational guidance, intentional agency, reactive dangling-reference diagnostics, compiled runtime delivery, safe compaction, and exact publication |
 | [`@llblab/pi-telegram`](https://github.com/llblab/pi-telegram) | `0.49.0` | Telegram companion with native fresh-session replacement, adaptive Thread continuity, exact queues, files, voice, controls, and Generative Apps guidance |
 | [`@llblab/skills`](https://github.com/llblab/skills) | `1.15.0` | Portable workflows for engineering, review, design, context maintenance, and other focused tasks |
 
