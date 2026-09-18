@@ -2,6 +2,12 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.18.0 - 2026-09-18
+
+- `Telegram Lifecycle Gateway`: Advances the exact Telegram pin to `0.50.0`, replacing the session-specific technical command with one guarded internal gateway for runtime-armed lifecycle actions while preserving `/new` settlement, continuity, and terminal-result guarantees.
+- `Thinking Cadence`: Buffers the first Telegram thinking frame for two seconds and throttles later updates to the same two-second cadence as answer drafts, while still flushing remaining reasoning when the block completes.
+- `Package Cohort`: Keeps every other bundled package at its current exact version; the package set, resource inventory, and explicit load order remain unchanged.
+
 ## 0.17.1 - 2026-09-18
 
 - `State Flow Activation Hotfixes`: Advances the exact State Flow pin to `0.16.2`, allowing resumed activation to reassert its selected session cohort and allowing passive global memory before a new CWD has materialized, while retaining fail-closed handling for genuinely incomplete ownership.
