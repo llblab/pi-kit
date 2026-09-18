@@ -2,6 +2,12 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.17.0 - 2026-09-18
+
+- `Proportional State Flow Guidance`: Advances the exact State Flow pin to `0.16.0`, adding the focused operational Skill, compacting memory curation guidance, and returning bounded reactive diagnostics for missing paths with durable references.
+- `Intentional Agency`: Includes State Flow 0.15.0 hot scoped intents for selected future commitments, explicit references to supporting Lazy memory, complete lifecycle and migration semantics, and read-only Telegram inspection without introducing scheduling or automatic execution.
+- `Package Cohort`: Keeps every other bundled package at its current exact version; the package set, resource inventory, and explicit load order remain unchanged.
+
 ## 0.16.0 - 2026-09-17
 
 - `Canonical Knowledge Memory`: Advances the exact State Flow pin to `0.14.0`, making Global Lazy the sole canonical Knowledge store and removing the former Markdown Knowledge layer while preserving scoped semantic compilation and recovery.
