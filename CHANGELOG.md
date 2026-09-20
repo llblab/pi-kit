@@ -2,6 +2,12 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.18.1 - 2026-09-20
+
+- `Passive State Flow Guidance`: Advances the exact State Flow pin to `0.16.3`, requiring finalization barriers only in active episodes while preventing gratuitous final-only patches during passive memory use.
+- `Compatibility Contract`: Carries the minimum Pi SDK version `0.84.4` without an artificial upper peer-dependency bound and removes stale compatibility evidence without dropping supported storage migrations or current safety checks.
+- `Package Cohort`: Keeps every other bundled package at its current exact version; the package set, resource inventory, and explicit load order remain unchanged.
+
 ## 0.18.0 - 2026-09-18
 
 - `Telegram Lifecycle Gateway`: Advances the exact Telegram pin to `0.50.0`, replacing the session-specific technical command with one guarded internal gateway for runtime-armed lifecycle actions while preserving `/new` settlement, continuity, and terminal-result guarantees.
