@@ -14,13 +14,15 @@ Package links lead to the owning repositories for usage, documentation, issues, 
 | [`@llblab/pi-clean-room`](https://github.com/llblab/pi-clean-room) | `0.1.1` | Isolated nested Pi TUI with explicitly selected extensions |
 | [`@llblab/pi-codex-usage`](https://github.com/llblab/pi-codex-usage) | `0.10.0` | Compact Codex/Spark subscription-limit and Business credit-usage status |
 | [`@llblab/pi-grow-loop`](https://github.com/llblab/pi-grow-loop) | `0.8.1` | Visible continuation scheduling and bounded worker Skills |
-| [`@llblab/pi-state-flow`](https://github.com/llblab/pi-state-flow) | `0.16.3` | Incremental scoped state/context/memory compiler with mode-aware passive guidance, proportional operational guidance, intentional agency, reactive dangling-reference diagnostics, safe compaction, and exact publication |
+| [`@llblab/pi-state-flow`](https://github.com/llblab/pi-state-flow) | `0.17.2` | Incremental scoped context/memory compiler with canonical file persistence, optional Git backups, native working context within each run, and targeted historical reads |
 | [`@llblab/pi-telegram`](https://github.com/llblab/pi-telegram) | `0.50.1` | Telegram companion with guarded lifecycle actions, recoverable Workspace slots, immediate Guest queue Skip, concise Pi command hints, adaptive Thread continuity, exact queues, files, voice, controls, and Generative Apps guidance |
 | [`@llblab/skills`](https://github.com/llblab/skills) | `1.15.0` | Portable workflows for engineering, review, design, context maintenance, and other focused tasks |
 
 Versions are exact by design. An upstream release does not change an installed kit until this repository explicitly advances the dependency and publishes a new kit version. Runtime defects and package-specific feature requests belong in the linked repository; package selection and kit installation issues belong here.
 
 ## Install
+
+Requires **Pi 0.87.0+** and **Node.js 22.19.0+**. State Flow 0.17 introduces a breaking storage-format boundary with no in-place predecessor converter. Preserve existing State Flow stores and review the [owning package's storage guidance](https://github.com/llblab/pi-state-flow/blob/v0.17.2/docs/usage.md#moving-a-store-and-the-017-format-boundary) before upgrading from an earlier kit.
 
 From npm:
 
