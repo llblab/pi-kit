@@ -2,6 +2,12 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.18.2 - 2026-09-22
+
+- `Telegram Operational Hotfixes`: Advances the exact Telegram pin to `0.50.1`, restoring follower registration when canonical Workspace binding deduplication changes a provisional slot and letting the busy leader permanently skip queued Guest prompts while visually clearing their inline placeholders.
+- `Lifecycle And Command Safety`: Adds one-use authorization to armed internal lifecycle actions, prevents Thread naming from Pi commands, and aligns concise autocomplete hints with Pi's argument-first style.
+- `Package Cohort`: Keeps every other bundled package at its current exact version; the package set, resource inventory, and explicit load order remain unchanged.
+
 ## 0.18.1 - 2026-09-20
 
 - `Passive State Flow Guidance`: Advances the exact State Flow pin to `0.16.3`, requiring finalization barriers only in active episodes while preventing gratuitous final-only patches during passive memory use.

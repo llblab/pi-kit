@@ -15,7 +15,7 @@ Package links lead to the owning repositories for usage, documentation, issues, 
 | [`@llblab/pi-codex-usage`](https://github.com/llblab/pi-codex-usage) | `0.10.0` | Compact Codex/Spark subscription-limit and Business credit-usage status |
 | [`@llblab/pi-grow-loop`](https://github.com/llblab/pi-grow-loop) | `0.8.1` | Visible continuation scheduling and bounded worker Skills |
 | [`@llblab/pi-state-flow`](https://github.com/llblab/pi-state-flow) | `0.16.3` | Incremental scoped state/context/memory compiler with mode-aware passive guidance, proportional operational guidance, intentional agency, reactive dangling-reference diagnostics, safe compaction, and exact publication |
-| [`@llblab/pi-telegram`](https://github.com/llblab/pi-telegram) | `0.50.0` | Telegram companion with native fresh-session replacement, a guarded internal lifecycle gateway, buffered thinking cadence, adaptive Thread continuity, exact queues, files, voice, controls, and Generative Apps guidance |
+| [`@llblab/pi-telegram`](https://github.com/llblab/pi-telegram) | `0.50.1` | Telegram companion with guarded lifecycle actions, recoverable Workspace slots, immediate Guest queue Skip, concise Pi command hints, adaptive Thread continuity, exact queues, files, voice, controls, and Generative Apps guidance |
 | [`@llblab/skills`](https://github.com/llblab/skills) | `1.15.0` | Portable workflows for engineering, review, design, context maintenance, and other focused tasks |
 
 Versions are exact by design. An upstream release does not change an installed kit until this repository explicitly advances the dependency and publishes a new kit version. Runtime defects and package-specific feature requests belong in the linked repository; package selection and kit installation issues belong here.
