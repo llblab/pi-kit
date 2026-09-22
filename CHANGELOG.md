@@ -2,6 +2,12 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.19.0 - 2026-09-23
+
+- `Incremental State Flow`: Advances the exact State Flow pin to `0.17.2`, carrying durable scoped memory between user runs while retaining Pi's native working trajectory within each run. Includes bounded historical reads, ordinary answer completion without a separate finalization loop, precise unknown-key diagnostics, and the revised README.
+- `Persistence And Compatibility`: Canonical files now own accepted state; optional Git backup failure cannot reject or roll back an accepted update. Requires Pi `0.87.0+`; State Flow's 0.17 storage format has no in-place predecessor converter. Preserve existing stores and follow the owning package's storage guidance before upgrading.
+- `Package Cohort`: Keeps every other bundled package at its current exact version; the package set, resource inventory, and explicit load order remain unchanged.
+
 ## 0.18.2 - 2026-09-22
 
 - `Telegram Operational Hotfixes`: Advances the exact Telegram pin to `0.50.1`, restoring follower registration when canonical Workspace binding deduplication changes a provisional slot and letting the busy leader permanently skip queued Guest prompts while visually clearing their inline placeholders.
