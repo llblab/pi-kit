@@ -2,6 +2,11 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.19.1 - 2026-09-23
+
+- `Passive State Flow Concurrency`: Advances the exact State Flow pin to `0.17.3`. First passive semantic or compilation-evidence writes now adopt untouched shared-scope updates from another session, while stale writes to changed target scopes and competing private-session writes remain rejected. No automatic patch replay or storage-format change is introduced.
+- `Package Cohort`: Keeps every other bundled package at its current exact version; the package set, resource inventory, explicit load order and Pi minimum remain unchanged.
+
 ## 0.19.0 - 2026-09-23
 
 - `Incremental State Flow`: Advances the exact State Flow pin to `0.17.2`, carrying durable scoped memory between user runs while retaining Pi's native working trajectory within each run. Includes bounded historical reads, ordinary answer completion without a separate finalization loop, precise unknown-key diagnostics, and the revised README.
