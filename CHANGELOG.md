@@ -2,6 +2,12 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.21.1 - 2026-09-23
+
+- `Queue Transition Reliability`: Advances the exact Telegram pin to `0.51.1`. Busy `/next` now reports the interrupted turn and exact selected queued prompt in order, preserves one reply-header owner through agent start, keeps rapid ordinary messages separate, and lets `/abort` or `/stop` cancel stale notices without allowing notice failures to block dispatch.
+- `Follower Heartbeat Stability`: Uses a dedicated eight-second follower heartbeat response deadline aligned with leader stale-liveness policy, preventing ordinary multi-second Pi/TUI event-loop stalls from destroying a healthy socket, producing leader `EPIPE` noise, or cycling registration status.
+- `Package Cohort`: Keeps every other bundled package at its current exact version. Package membership, resource paths, load order, Pi minimum, and bundled Skill ownership remain unchanged.
+
 ## 0.21.0 - 2026-09-23
 
 - `Independent Scope Revisions`: Advances the exact State Flow pin to `0.18.0`. Global, CWD, and Session now persist independent semantic revision counters, Effective displays the truthful `G#/C#/S#` vector, and Session exclusively owns response state while Global and CWD retain only their structural placeholders.
