@@ -1,6 +1,6 @@
 {
   "name": "@llblab/pi-kit",
-  "version": "0.21.0",
+  "version": "0.21.1",
   "private": false,
   "publishConfig": {
     "access": "public"
@@ -45,7 +45,7 @@
     "@llblab/pi-codex-usage": "0.10.0",
     "@llblab/pi-grow-loop": "0.8.1",
     "@llblab/pi-state-flow": "0.18.0",
-    "@llblab/pi-telegram": "0.51.0",
+    "@llblab/pi-telegram": "0.51.1",
     "@llblab/skills": "1.15.0"
   },
   "bundledDependencies": [
