@@ -2,6 +2,13 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.21.0 - 2026-09-23
+
+- `Independent Scope Revisions`: Advances the exact State Flow pin to `0.18.0`. Global, CWD, and Session now persist independent semantic revision counters, Effective displays the truthful `G#/C#/S#` vector, and Session exclusively owns response state while Global and CWD retain only their structural placeholders.
+- `Progressive Backup Replication`: Settled-turn backup attempts asynchronously push the exact current commit to the attached branch's explicitly configured remote/ref without force. Canonical acceptance and response delivery never wait for or roll back on push failure, and a later accepted turn retries the latest backup.
+- `Lifecycle And Status`: Empty ordinary completions now finalize normally and preserve preceding state transitions. Active terminal status uses `state-flow G#/C#/S#`, while Telegram keeps `State Flow: G#/C#/S#`; passive terminal status remains absent and Telegram reports State Flow as off.
+- `Package Cohort`: Keeps every other bundled package at its current exact version. Package membership, resource paths, load order, Pi minimum, and the single bundled `show-me` ownership path remain unchanged.
+
 ## 0.20.0 - 2026-09-23
 
 - `Telegram Workspace Safety`: Advances the exact Telegram pin to `0.51.0`, adding demand-only A–Z slot rotation with dead-owner custody proof, protected inactivity preservation, durable rejection recovery, canonical profile storage paths, and settled leader-election display reconciliation.
