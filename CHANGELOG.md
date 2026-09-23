@@ -2,6 +2,12 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.22.0 - 2026-09-23
+
+- `Named npm Extensions`: Advances the exact Clean Room pin to `0.2.0`. `/clean-room <package-name>` now loads installed npm Pi extensions by name, including scoped packages, while preserving explicit resource isolation and project-local precedence.
+- `Model Selection`: Starting an empty clean room from a model registered by an excluded extension no longer fails. When built-in models remain in scope, the child receives only valid entries instead of warnings for stale or excluded-provider patterns; other model providers remain selectable through `/model` when loaded explicitly.
+- `Package Cohort`: Keeps every other bundled package at its current exact version. Package membership, entrypoint order, Skill ownership, and the Pi minimum remain unchanged.
+
 ## 0.21.2 - 2026-09-23
 
 - `Backup Push Reliability`: Advances the exact State Flow pin to `0.18.1`. Backup replication permits one in-flight push per repository; overlapping attempts are skipped until a later accepted turn, while session shutdown waits for the active process to close. Canonical state acceptance remains independent of Git replication.
