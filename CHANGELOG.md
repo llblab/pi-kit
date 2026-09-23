@@ -2,6 +2,12 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.19.2 - 2026-09-23
+
+- `Scope-Aware Skill Acquisition`: Advances the exact State Flow pin to `0.17.4`. Registered Pi Skills now derive global/CWD/session artifact ownership from public user/project/temporary source metadata; current hashes need no repeat compilation, and uncompiled reads no longer block unrelated patches or completion.
+- `Passive Observability`: Keeps the shared `state-flow #N` counter visible while active mode is off. Telegram retains global/CWD/session/effective inspection after Stop and may read existing shared state when passive model tools are disabled, without initializing or mutating canonical storage.
+- `Package Cohort`: Keeps every other bundled package at its current exact version; the package set, resource inventory, explicit load order and Pi minimum remain unchanged.
+
 ## 0.19.1 - 2026-09-23
 
 - `Passive State Flow Concurrency`: Advances the exact State Flow pin to `0.17.3`. First passive semantic or compilation-evidence writes now adopt untouched shared-scope updates from another session, while stale writes to changed target scopes and competing private-session writes remain rejected. No automatic patch replay or storage-format change is introduced.
