@@ -2,6 +2,12 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.21.2 - 2026-09-23
+
+- `Backup Push Reliability`: Advances the exact State Flow pin to `0.18.1`. Backup replication permits one in-flight push per repository; overlapping attempts are skipped until a later accepted turn, while session shutdown waits for the active process to close. Canonical state acceptance remains independent of Git replication.
+- `Failure Diagnostics`: Push failures warn once per streak and retain redacted Git detail in the local diagnostic log even when general logging is off; a successful push resets warning suppression. If logging fails, the warning includes the available detail instead.
+- `Prompt-Prefix Evidence`: The State Flow v3 synthetic benchmark now measures serialized per-inference context and within-run shared prefixes, including isolated resume probes. It does not change model projection or claim provider cache gains.
+
 ## 0.21.1 - 2026-09-23
 
 - `Queue Transition Reliability`: Advances the exact Telegram pin to `0.51.1`. Busy `/next` now reports the interrupted turn and exact selected queued prompt in order, preserves one reply-header owner through agent start, keeps rapid ordinary messages separate, and lets `/abort` or `/stop` cancel stale notices without allowing notice failures to block dispatch.
