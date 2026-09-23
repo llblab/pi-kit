@@ -11,7 +11,7 @@ const expected = {
   "@llblab/pi-codex-usage": "0.10.0",
   "@llblab/pi-grow-loop": "0.8.1",
   "@llblab/pi-state-flow": "0.17.4",
-  "@llblab/pi-telegram": "0.50.1",
+  "@llblab/pi-telegram": "0.51.0",
   "@llblab/skills": "1.15.0",
 };
 const expectedExtensions = [
@@ -62,6 +62,17 @@ test("installed package versions and declared resources match", async () => {
     const url = new URL(resource.replace(/^\.\//, ""), root);
     await assert.doesNotReject(readFileOrDirectory(url), `${resource} must exist`);
   }
+});
+
+test("show-me has one bundled provider", async () => {
+  await assert.doesNotReject(readFile(
+    new URL("node_modules/@llblab/pi-telegram/dist/skills/show-me/SKILL.md", root),
+    "utf8",
+  ));
+  await assert.rejects(
+    readFile(new URL("node_modules/@llblab/skills/show-me/SKILL.md", root), "utf8"),
+    { code: "ENOENT" },
+  );
 });
 
 async function readFileOrDirectory(url) {

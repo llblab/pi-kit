@@ -2,6 +2,12 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.20.0 - 2026-09-23
+
+- `Telegram Workspace Safety`: Advances the exact Telegram pin to `0.51.0`, adding demand-only A–Z slot rotation with dead-owner custody proof, protected inactivity preservation, durable rejection recovery, canonical profile storage paths, and settled leader-election display reconciliation.
+- `Follower And Queue Authority`: Carries renewed worker capabilities, current registration/context/session gates, post-await completion fences, exact receipt acknowledgements, serial control handoff, immutable exclusion drain, and same-turn duplicate final-answer suppression while production v3 custody remains disabled.
+- `Package Cohort`: Keeps every other bundled package at its current exact version. Package membership, resource paths, load order, Pi minimum, and the single bundled `show-me` ownership path remain unchanged.
+
 ## 0.19.2 - 2026-09-23
 
 - `Scope-Aware Skill Acquisition`: Advances the exact State Flow pin to `0.17.4`. Registered Pi Skills now derive global/CWD/session artifact ownership from public user/project/temporary source metadata; current hashes need no repeat compilation, and uncompiled reads no longer block unrelated patches or completion.
