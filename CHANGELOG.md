@@ -2,6 +2,13 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.23.0 - 2026-09-24
+
+- `Awaited State Flow Memory`: Pins State Flow to `0.19.0`. Shared patches preserve independent changes, repeats avoid extra revisions, and state acceptance precedes the next provider request. Start/Stop select workflow policy without cancelling restoration or fork copying; unfinished context and private session ownership survive mode changes. Library callers must await inspection results; six synchronous runtime methods remain supported.
+- `Compiled Grow Loop Resources`: Pins Grow Loop to `0.8.2` and loads its declared `dist/pi-grow-loop/index.js` and `dist/skills` resources. Manifest-owned Skill discovery preserves package filters and provenance, while the package supplies drift-checked compiled output.
+- `Resolver-Owned Telegram Skills`: Pins Telegram to `0.51.4`. Manifest-loaded kit resources retain Skill filters and provenance without duplicate checkout discovery; the owning package supplies a committed, drift-checked runtime and Skill distribution.
+- `Package Cohort`: Preserves all seven package members, exact pins for the other four packages, extension load order and the Pi minimum. Runtime behavior and Skill ownership remain with their independently released packages.
+
 ## 0.22.2 - 2026-09-24
 
 - `Follower Registration Recovery`: Advances the exact Telegram pin to `0.51.3`. Followers whose retained target record contains a stale Workspace slot now reconcile to the authenticated canonical claim before binding commit, durably repairing their record without disturbing an unrelated binding that owns the old letter or making unnecessary Bot API calls.
