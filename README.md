@@ -10,7 +10,7 @@ Package links lead to the owning repositories for usage, documentation, issues, 
 
 | Package | Version | Purpose |
 | --- | ---: | --- |
-| [`@llblab/pi-actors`](https://github.com/llblab/pi-actors) | `0.53.0` | Inspectable local Runs, reusable Recipes, persistent tools, and delegation Skills |
+| [`@llblab/pi-actors`](https://github.com/llblab/pi-actors) | `0.53.2` | Inspectable local Runs, reusable Recipes, persistent tools, and delegation Skills |
 | [`@llblab/pi-clean-room`](https://github.com/llblab/pi-clean-room) | `0.2.0` | Isolated nested Pi TUI with named npm extensions and compatible model selection |
 | [`@llblab/pi-codex-usage`](https://github.com/llblab/pi-codex-usage) | `0.10.0` | Compact Codex/Spark subscription-limit and Business credit-usage status |
 | [`@llblab/pi-grow-loop`](https://github.com/llblab/pi-grow-loop) | `0.8.2` | Visible continuation scheduling and bounded worker Skills through compiled, manifest-owned resources |

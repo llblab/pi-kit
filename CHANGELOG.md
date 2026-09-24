@@ -2,6 +2,11 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.23.1 - 2026-09-24
+
+- `Current Actors`: Advances the exact Actors pin to `0.53.2`. Packaged Skills respect Pi filters and provenance across managed installs while direct extension checkouts retain source discovery; Actor Inspector Trace rows keep stable source sequences beyond `#99` and across retained compaction without changing persisted Trace events or public JSON.
+- `Current Package Cohort`: Confirms all seven exact dependency pins match their latest public npm versions while preserving package membership, bundled resources, explicit extension load order, Skill ownership, and the Pi minimum.
+
 ## 0.23.0 - 2026-09-24
 
 - `Awaited State Flow Memory`: Pins State Flow to `0.19.0`. Shared patches preserve independent changes, repeats avoid extra revisions, and state acceptance precedes the next provider request. Start/Stop select workflow policy without cancelling restoration or fork copying; unfinished context and private session ownership survive mode changes. Library callers must await inspection results; six synchronous runtime methods remain supported.
