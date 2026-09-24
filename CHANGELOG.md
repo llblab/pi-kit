@@ -2,6 +2,12 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.22.2 - 2026-09-24
+
+- `Follower Registration Recovery`: Advances the exact Telegram pin to `0.51.3`. Followers whose retained target record contains a stale Workspace slot now reconcile to the authenticated canonical claim before binding commit, durably repairing their record without disturbing an unrelated binding that owns the old letter or making unnecessary Bot API calls.
+- `Filterable Packaged Skills`: Installed npm/git packages now leave Telegram Skill discovery to the manifest so Pi resource filters are honored. Raw TypeScript checkouts under Pi's extensions directory retain adjacent source-Skill discovery without creating a duplicate packaged discovery path.
+- `Package Cohort`: Keeps every other bundled package at its current exact version. Package membership, resource paths, load order, Pi minimum, and bundled Skill inventory remain unchanged.
+
 ## 0.22.1 - 2026-09-24
 
 - `In-Flight Model Switching`: Advances the exact Telegram pin to `0.51.2`. Telegram model selection can stop, switch, and continue any interruptible run in the current Pi session, including local/TUI work, while preserving the authorized chat, Thread, and reply target and deferring abort until active tools settle.
