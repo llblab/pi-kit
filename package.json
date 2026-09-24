@@ -1,6 +1,6 @@
 {
   "name": "@llblab/pi-kit",
-  "version": "0.23.1",
+  "version": "0.23.2",
   "private": false,
   "publishConfig": {
     "access": "public"
@@ -37,14 +37,15 @@
     "AGENTS.md",
     "BACKLOG.md",
     "CHANGELOG.md",
-    "LICENSE"
+    "LICENSE",
+    "banner.jpg"
   ],
   "dependencies": {
     "@llblab/pi-actors": "0.53.2",
     "@llblab/pi-clean-room": "0.2.0",
     "@llblab/pi-codex-usage": "0.10.0",
     "@llblab/pi-grow-loop": "0.8.2",
-    "@llblab/pi-state-flow": "0.19.0",
+    "@llblab/pi-state-flow": "0.19.1",
     "@llblab/pi-telegram": "0.51.4",
     "@llblab/skills": "1.15.0"
   },
@@ -72,7 +73,8 @@
       "./node_modules/@llblab/pi-state-flow/dist/skills",
       "./node_modules/@llblab/pi-telegram/dist/skills",
       "./node_modules/@llblab/skills/"
-    ]
+    ],
+    "image": "https://raw.githubusercontent.com/llblab/pi-kit/main/banner.jpg"
   },
   "bundleDependencies": [
     "@llblab/pi-actors",

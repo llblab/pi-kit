@@ -2,6 +2,11 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.23.2 - 2026-09-24
+
+- `State Flow Memory`: Advances the exact State Flow pin to `0.19.1`. Automatic recent transitions exclude lazy patches, including deletions, without changing canonical history or explicit reads; targeted historical reads remain available when useful to the task, without resurrecting deleted memory.
+- `Package Banner`: Exposes the repository banner through the Pi package image URL and bundles the JPEG in the npm distribution. All other package pins, resources, and load order remain unchanged.
+
 ## 0.23.1 - 2026-09-24
 
 - `Current Actors`: Advances the exact Actors pin to `0.53.2`. Packaged Skills respect Pi filters and provenance across managed installs while direct extension checkouts retain source discovery; Actor Inspector Trace rows keep stable source sequences beyond `#99` and across retained compaction without changing persisted Trace events or public JSON.

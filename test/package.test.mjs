@@ -10,7 +10,7 @@ const expected = {
   "@llblab/pi-clean-room": "0.2.0",
   "@llblab/pi-codex-usage": "0.10.0",
   "@llblab/pi-grow-loop": "0.8.2",
-  "@llblab/pi-state-flow": "0.19.0",
+  "@llblab/pi-state-flow": "0.19.1",
   "@llblab/pi-telegram": "0.51.4",
   "@llblab/skills": "1.15.0",
 };
@@ -62,6 +62,12 @@ test("installed package versions and declared resources match", async () => {
     const url = new URL(resource.replace(/^\.\//, ""), root);
     await assert.doesNotReject(readFileOrDirectory(url), `${resource} must exist`);
   }
+});
+
+test("package banner is declared and present", async () => {
+  assert.equal(manifest.pi.image, "https://raw.githubusercontent.com/llblab/pi-kit/main/banner.jpg");
+  assert.ok(manifest.files.includes("banner.jpg"));
+  await assert.doesNotReject(readFile(new URL("banner.jpg", root)));
 });
 
 test("show-me has one bundled provider", async () => {
