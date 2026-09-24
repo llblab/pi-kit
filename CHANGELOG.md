@@ -2,6 +2,12 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.22.1 - 2026-09-24
+
+- `In-Flight Model Switching`: Advances the exact Telegram pin to `0.51.2`. Telegram model selection can stop, switch, and continue any interruptible run in the current Pi session, including local/TUI work, while preserving the authorized chat, Thread, and reply target and deferring abort until active tools settle.
+- `Typing Continuity`: Native presence refreshes only the assigned Thread, coalesces concurrent chat actions, shares Telegram cooldown across Thread keys, and preserves an existing agent typing loop through compaction. Best-effort typing failures no longer replace healthy leader/follower status with an error.
+- `Package Cohort`: Keeps every other bundled package at its current exact version. Package membership, resource paths, load order, Pi minimum, and bundled Skill ownership remain unchanged.
+
 ## 0.22.0 - 2026-09-23
 
 - `Named npm Extensions`: Advances the exact Clean Room pin to `0.2.0`. `/clean-room <package-name>` now loads installed npm Pi extensions by name, including scoped packages, while preserving explicit resource isolation and project-local precedence.
