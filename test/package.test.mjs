@@ -6,7 +6,7 @@ const root = new URL("../", import.meta.url);
 const manifest = JSON.parse(await readFile(new URL("package.json", root), "utf8"));
 const readme = await readFile(new URL("README.md", root), "utf8");
 const expected = {
-  "@llblab/pi-actors": "0.53.0",
+  "@llblab/pi-actors": "0.53.2",
   "@llblab/pi-clean-room": "0.2.0",
   "@llblab/pi-codex-usage": "0.10.0",
   "@llblab/pi-grow-loop": "0.8.2",
