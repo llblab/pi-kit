@@ -9,22 +9,22 @@ const expected = {
   "@llblab/pi-actors": "0.53.0",
   "@llblab/pi-clean-room": "0.2.0",
   "@llblab/pi-codex-usage": "0.10.0",
-  "@llblab/pi-grow-loop": "0.8.1",
-  "@llblab/pi-state-flow": "0.18.1",
-  "@llblab/pi-telegram": "0.51.3",
+  "@llblab/pi-grow-loop": "0.8.2",
+  "@llblab/pi-state-flow": "0.19.0",
+  "@llblab/pi-telegram": "0.51.4",
   "@llblab/skills": "1.15.0",
 };
 const expectedExtensions = [
   "./node_modules/@llblab/pi-actors/dist/pi-actors/index.js",
   "./node_modules/@llblab/pi-clean-room/index.ts",
   "./node_modules/@llblab/pi-codex-usage/index.ts",
-  "./node_modules/@llblab/pi-grow-loop/index.ts",
+  "./node_modules/@llblab/pi-grow-loop/dist/pi-grow-loop/index.js",
   "./node_modules/@llblab/pi-state-flow/dist/pi-state-flow/index.js",
   "./node_modules/@llblab/pi-telegram/dist/pi-telegram/index.js",
 ];
 const expectedSkills = [
   "./node_modules/@llblab/pi-actors/dist/skills",
-  "./node_modules/@llblab/pi-grow-loop/skills",
+  "./node_modules/@llblab/pi-grow-loop/dist/skills",
   "./node_modules/@llblab/pi-state-flow/dist/skills",
   "./node_modules/@llblab/pi-telegram/dist/skills",
   "./node_modules/@llblab/skills/",
