@@ -2,6 +2,10 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.24.0 - 2026-09-25
+
+- `Minimal State Flow Reconciliation`: Advances the exact State Flow pin to `0.21.0`. Frozen context heads retain cache-stable prefixes while predictable accepted writes omit redundant semantic tails. Shared drift, changed hints and unknown fallback still reconcile; lazy bodies and provenance remain hidden. Artifact prediction cannot reject an already accepted patch. Canonical storage, other package pins, resources and load order are unchanged.
+
 ## 0.23.2 - 2026-09-24
 
 - `State Flow Memory`: Advances the exact State Flow pin to `0.19.1`. Automatic recent transitions exclude lazy patches, including deletions, without changing canonical history or explicit reads; targeted historical reads remain available when useful to the task, without resurrecting deleted memory.
