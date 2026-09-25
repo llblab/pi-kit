@@ -2,6 +2,10 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.24.1 - 2026-09-26
+
+- `Follower Thread Hotfix`: Advances the exact Telegram pin to `0.51.5`. Telegram `/new` in a follower Thread now replaces that follower's session while the leader durably authorizes the Thread binding handoff; automatic follower restore reports why it could not reconnect. Package membership, load order, and other pins remain unchanged.
+
 ## 0.24.0 - 2026-09-25
 
 - `Minimal State Flow Reconciliation`: Advances the exact State Flow pin to `0.21.0`. Frozen context heads retain cache-stable prefixes while predictable accepted writes omit redundant semantic tails. Shared drift, changed hints and unknown fallback still reconcile; lazy bodies and provenance remain hidden. Artifact prediction cannot reject an already accepted patch. Canonical storage, other package pins, resources and load order are unchanged.
