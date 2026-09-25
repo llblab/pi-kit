@@ -16,7 +16,7 @@ Package links lead to the owning repositories for usage, documentation, issues, 
 | [`@llblab/pi-clean-room`](https://github.com/llblab/pi-clean-room) | `0.2.0` | Isolated nested Pi TUI with named npm extensions and compatible model selection |
 | [`@llblab/pi-codex-usage`](https://github.com/llblab/pi-codex-usage) | `0.10.0` | Compact Codex/Spark subscription-limit and Business credit-usage status |
 | [`@llblab/pi-grow-loop`](https://github.com/llblab/pi-grow-loop) | `0.8.2` | Visible continuation scheduling and bounded worker Skills through compiled, manifest-owned resources |
-| [`@llblab/pi-state-flow`](https://github.com/llblab/pi-state-flow) | `0.19.1` | Incremental scoped context/memory compiler with lazy projection isolation, task-driven history lookup, private fork memory, and optional Git backup |
+| [`@llblab/pi-state-flow`](https://github.com/llblab/pi-state-flow) | `0.21.0` | Incremental scoped context/memory compiler with cache-stable heads, sparse acceptance reconciliation, lazy isolation, private fork memory, and optional Git backup |
 | [`@llblab/pi-telegram`](https://github.com/llblab/pi-telegram) | `0.51.4` | Telegram companion with resolver-owned filterable Skills, compiled distribution, self-healing follower registration, in-flight model switching, files, voice, and controls |
 | [`@llblab/skills`](https://github.com/llblab/skills) | `1.15.0` | Portable workflows for engineering, review, design, context maintenance, and other focused tasks |
 
