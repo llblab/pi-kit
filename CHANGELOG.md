@@ -2,6 +2,12 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.25.0 - 2026-10-02
+
+- `State Flow Modes`: Advances the exact State Flow pin from `0.21.0` to `0.23.0`. Adds sparse-state handling and session-owned modes; new sessions now default to Off while retained choices and explicit global policy survive. Telegram adds mode radios and scope explanations, with opt-in barrier diagnostics. No State Flow memory is erased by switching modes.
+- `Claude Subscription Usage`: Adds the independently released `@llblab/pi-claude-usage@0.1.1` as an eighth bundled member and seventh extension entrypoint. It shows Claude Pro/Max quota windows using Pi Anthropic OAuth, with shared cross-instance refresh and optional Telegram status. Existing Codex Usage stays at `0.10.0`.
+- `Host Peer Isolation`: Repository-local npm peer settings keep Pi-provided packages out of the kit lockfile and validation audit; Pi continues to supply them at runtime. The six unchanged member pins, existing resource order, Skill ownership and Pi minimum remain unchanged; the new Claude entrypoint is inserted explicitly.
+
 ## 0.24.1 - 2026-09-26
 
 - `Follower Thread Hotfix`: Advances the exact Telegram pin to `0.51.5`. Telegram `/new` in a follower Thread now replaces that follower's session while the leader durably authorizes the Thread binding handoff; automatic follower restore reports why it could not reconnect. Package membership, load order, and other pins remain unchanged.

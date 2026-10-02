@@ -7,15 +7,17 @@ const manifest = JSON.parse(await readFile(new URL("package.json", root), "utf8"
 const readme = await readFile(new URL("README.md", root), "utf8");
 const expected = {
   "@llblab/pi-actors": "0.53.2",
+  "@llblab/pi-claude-usage": "0.1.1",
   "@llblab/pi-clean-room": "0.2.0",
   "@llblab/pi-codex-usage": "0.10.0",
   "@llblab/pi-grow-loop": "0.8.2",
-  "@llblab/pi-state-flow": "0.21.0",
+  "@llblab/pi-state-flow": "0.23.0",
   "@llblab/pi-telegram": "0.51.5",
   "@llblab/skills": "1.15.0",
 };
 const expectedExtensions = [
   "./node_modules/@llblab/pi-actors/dist/pi-actors/index.js",
+  "./node_modules/@llblab/pi-claude-usage/index.ts",
   "./node_modules/@llblab/pi-clean-room/index.ts",
   "./node_modules/@llblab/pi-codex-usage/index.ts",
   "./node_modules/@llblab/pi-grow-loop/dist/pi-grow-loop/index.js",
@@ -42,6 +44,14 @@ test("pins are exact and the public inventory matches", () => {
     assert.match(version, /^\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?$/);
     const repository = `https://github.com/llblab/${name.split("/")[1]}`;
     assert.ok(readme.includes(`| [\`${name}\`](${repository}) | \`${version}\` |`));
+  }
+});
+
+test("Pi host peers stay outside the kit lockfile", async () => {
+  assert.equal(await readFile(new URL(".npmrc", root), "utf8"), "legacy-peer-deps=true\n");
+  const lock = JSON.parse(await readFile(new URL("package-lock.json", root), "utf8"));
+  for (const name of ["@earendil-works/pi-ai", "@earendil-works/pi-agent-core", "@earendil-works/pi-coding-agent", "@earendil-works/pi-tui", "typebox"]) {
+    assert.equal(lock.packages[`node_modules/${name}`], undefined, `${name} is supplied by Pi, not the kit`);
   }
 });
 

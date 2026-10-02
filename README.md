@@ -13,10 +13,11 @@ Package links lead to the owning repositories for usage, documentation, issues, 
 | Package | Version | Purpose |
 | --- | ---: | --- |
 | [`@llblab/pi-actors`](https://github.com/llblab/pi-actors) | `0.53.2` | Inspectable local Runs, reusable Recipes, persistent tools, and delegation Skills |
+| [`@llblab/pi-claude-usage`](https://github.com/llblab/pi-claude-usage) | `0.1.1` | Claude Pro/Max subscription quota status using Pi's Anthropic OAuth login |
 | [`@llblab/pi-clean-room`](https://github.com/llblab/pi-clean-room) | `0.2.0` | Isolated nested Pi TUI with named npm extensions and compatible model selection |
 | [`@llblab/pi-codex-usage`](https://github.com/llblab/pi-codex-usage) | `0.10.0` | Compact Codex/Spark subscription-limit and Business credit-usage status |
 | [`@llblab/pi-grow-loop`](https://github.com/llblab/pi-grow-loop) | `0.8.2` | Visible continuation scheduling and bounded worker Skills through compiled, manifest-owned resources |
-| [`@llblab/pi-state-flow`](https://github.com/llblab/pi-state-flow) | `0.21.0` | Incremental scoped context/memory compiler with cache-stable heads, sparse acceptance reconciliation, lazy isolation, private fork memory, and optional Git backup |
+| [`@llblab/pi-state-flow`](https://github.com/llblab/pi-state-flow) | `0.23.0` | Scoped context/memory compiler; new sessions default to Off with opt-in Passive/Active and Telegram mode controls |
 | [`@llblab/pi-telegram`](https://github.com/llblab/pi-telegram) | `0.51.5` | Telegram companion with follower Thread `/new`, restore diagnostics, filterable Skills, files, voice, and controls |
 | [`@llblab/skills`](https://github.com/llblab/skills) | `1.15.0` | Portable workflows for engineering, review, design, context maintenance, and other focused tasks |
 
@@ -24,7 +25,7 @@ Versions are exact by design. An upstream release does not change an installed k
 
 ## Install
 
-Requires **Pi 0.87.0+** and **Node.js 22.19.0+**. State Flow requires its canonical checkpoint/tail storage format and does not convert unsupported stores in place. Preserve existing stores and consult the [owning package's storage guidance](https://github.com/llblab/pi-state-flow/blob/v0.19.0/docs/usage.md#moving-a-store-and-the-017-format-boundary) before changing installations.
+Requires **Pi 0.87.0+** and **Node.js 22.19.0+**. State Flow requires its canonical checkpoint/tail storage format and does not convert unsupported stores in place. Preserve existing stores and consult the [owning package's storage guidance](https://github.com/llblab/pi-state-flow/blob/v0.23.0/docs/usage.md#moving-a-store-and-the-017-format-boundary) before changing installations.
 
 From npm:
 
@@ -38,7 +39,7 @@ From GitHub:
 pi install git:github.com/llblab/pi-kit
 ```
 
-Pi loads the six extension entrypoints and the Skill resources explicitly declared by the kit. The kit adds no runtime behavior and does not copy the packages' source or instructions into a new owner. State Flow remains opt-in; bundling it does not enable its state handoff mode.
+Pi loads the seven extension entrypoints and the Skill resources explicitly declared by the kit. The kit adds no runtime behavior and does not copy the packages' source or instructions into a new owner. State Flow remains opt-in; bundling it does not enable its state handoff mode.
 
 Prefer the kit instead of separately loading the same packages. If you already use individual installations or local Skill copies, use `pi config` to disable duplicate resources. Installing the kit does not remove or rewrite those installations.
 
@@ -49,7 +50,7 @@ npm install
 npm run validate
 ```
 
-To advance an included package, update its exact version in `dependencies`, run `npm install`, synchronize bundled dependencies, declared resource paths, tests, the table above, and the changelog, then validate the packed artifact. Expose only resources declared by the published owning package; do not use version ranges or unpublished local paths.
+The repository-local `.npmrc` keeps Pi-provided peer packages out of the kit's lockfile; Pi supplies those peers at runtime. To advance an included package, update its exact version in `dependencies`, run `npm install`, synchronize bundled dependencies, declared resource paths, tests, the table above, and the changelog, then validate the packed artifact. Expose only resources declared by the published owning package; do not use version ranges or unpublished local paths.
 
 ## Security
 
