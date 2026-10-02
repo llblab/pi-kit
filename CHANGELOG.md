@@ -2,6 +2,12 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.26.0: Pi 1.0 Cohort and Memory-Inert State Flow
+
+- `Usage and Fast`: Advances Codex Usage to `0.12.0` and Claude Usage to `0.2.0`, sharing one persistent `/fast` command. Codex uses provider-level priority preference; Claude permits the Opus family. Both preserve quota coordination and redraw the terminal status without a quota request; backend capability and billing still apply.
+- `Pi 1.0 Cohort`: Advances Actors to `0.54.0`, Clean Room to `0.3.0` and Grow Loop to `0.9.0`, requiring Pi 1.0.0 or newer and including their MIT licenses. Exact pins, bundled packages, explicit resource order and runtime ownership remain intact; Telegram and portable Skills retain their existing pins.
+- `Memory-Inert State Flow`: Advances the exact State Flow pin to published `0.24.0`, fixing Pi 1.0 token-estimation compatibility. Off performs no automatic memory work and cancels owned pending operations without erasing accepted data. Read-only inspections validate current private authority; superseded Active preserves Passive's selected history. MIT LICENSE is included in the member package.
+
 ## 0.25.0 - 2026-10-02
 
 - `State Flow Modes`: Advances the exact State Flow pin from `0.21.0` to `0.23.0`. Adds sparse-state handling and session-owned modes; new sessions now default to Off while retained choices and explicit global policy survive. Telegram adds mode radios and scope explanations, with opt-in barrier diagnostics. No State Flow memory is erased by switching modes.

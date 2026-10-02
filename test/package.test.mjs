@@ -6,12 +6,12 @@ const root = new URL("../", import.meta.url);
 const manifest = JSON.parse(await readFile(new URL("package.json", root), "utf8"));
 const readme = await readFile(new URL("README.md", root), "utf8");
 const expected = {
-  "@llblab/pi-actors": "0.53.2",
-  "@llblab/pi-claude-usage": "0.1.1",
-  "@llblab/pi-clean-room": "0.2.0",
-  "@llblab/pi-codex-usage": "0.10.0",
-  "@llblab/pi-grow-loop": "0.8.2",
-  "@llblab/pi-state-flow": "0.23.0",
+  "@llblab/pi-actors": "0.54.0",
+  "@llblab/pi-claude-usage": "0.2.0",
+  "@llblab/pi-clean-room": "0.3.0",
+  "@llblab/pi-codex-usage": "0.12.0",
+  "@llblab/pi-grow-loop": "0.9.0",
+  "@llblab/pi-state-flow": "0.24.0",
   "@llblab/pi-telegram": "0.51.5",
   "@llblab/skills": "1.15.0",
 };
@@ -72,6 +72,16 @@ test("installed package versions and declared resources match", async () => {
     const url = new URL(resource.replace(/^\.\//, ""), root);
     await assert.doesNotReject(readFileOrDirectory(url), `${resource} must exist`);
   }
+});
+
+test("shared Fast is an installed runtime library, not an extra Pi resource", async () => {
+  const library = JSON.parse(await readFile(new URL("node_modules/@llblab/pi-command-fast/package.json", root), "utf8"));
+  assert.equal(library.name, "@llblab/pi-command-fast");
+  assert.equal(library.version, "0.1.0");
+  assert.equal(library.pi, undefined);
+  await assert.doesNotReject(readFile(new URL("node_modules/@llblab/pi-command-fast/dist/index.js", root)));
+  assert.equal(manifest.pi.extensions.some(path => path.includes("pi-command-fast")), false);
+  assert.ok(readme.includes("Pi 1.0.0+"));
 });
 
 test("package banner is declared and present", async () => {
