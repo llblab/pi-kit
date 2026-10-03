@@ -2,6 +2,11 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.27.0: Intent-Owned State Flow Memory
+
+- `Intent-Owned Memory`: Advances the exact State Flow pin to published `0.25.0`. Deleting an intent removes the same-scope `working`/`lazy` keys it owns through structured `$ref`, so agents that work from intents keep memory self-cleaning. `/state-flow-status` shows per-scope plane sizes and intent-owned shares; lifecycle internals were consolidated without behaviour changes.
+- `Telegram Connection Resume`: Advances the exact Telegram pin to `0.51.6`, carrying an in-flight or connected bridge into resumed sessions, recovering exhausted Workspace slots and isolating Thread bindings per session. Other pins, resources and load order are unchanged.
+
 ## 0.26.0: Pi 1.0 Cohort and Memory-Inert State Flow
 
 - `Usage and Fast`: Advances Codex Usage to `0.12.0` and Claude Usage to `0.2.0`, sharing one persistent `/fast` command. Codex uses provider-level priority preference; Claude permits the Opus family. Both preserve quota coordination and redraw the terminal status without a quota request; backend capability and billing still apply.

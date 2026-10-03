@@ -17,15 +17,15 @@ Package links lead to the owning repositories for usage, documentation, issues, 
 | [`@llblab/pi-clean-room`](https://github.com/llblab/pi-clean-room) | `0.3.0` | Isolated nested Pi TUI with named npm extensions and compatible model selection |
 | [`@llblab/pi-codex-usage`](https://github.com/llblab/pi-codex-usage) | `0.12.0` | Shared Codex quota/Business credit status and persistent priority Fast toggle |
 | [`@llblab/pi-grow-loop`](https://github.com/llblab/pi-grow-loop) | `0.9.0` | Visible continuation scheduling and bounded worker Skills through compiled, manifest-owned resources |
-| [`@llblab/pi-state-flow`](https://github.com/llblab/pi-state-flow) | `0.24.0` | Scoped context/memory compiler with memory-inert Off, safe Passive/Active reacquisition, and read-only Telegram inspections |
-| [`@llblab/pi-telegram`](https://github.com/llblab/pi-telegram) | `0.51.5` | Telegram companion with follower Thread `/new`, restore diagnostics, filterable Skills, files, voice, and controls |
+| [`@llblab/pi-state-flow`](https://github.com/llblab/pi-state-flow) | `0.25.0` | Scoped context/memory compiler with intent-owned self-cleaning memory, memory-inert Off and ownership status |
+| [`@llblab/pi-telegram`](https://github.com/llblab/pi-telegram) | `0.51.6` | Telegram companion with connection resume, Workspace slot recovery, follower Threads, filterable Skills, files, voice, and controls |
 | [`@llblab/skills`](https://github.com/llblab/skills) | `1.15.0` | Portable workflows for engineering, review, design, context maintenance, and other focused tasks |
 
 Versions are exact by design. An upstream release does not change an installed kit until this repository explicitly advances the dependency and publishes a new kit version. Runtime defects and package-specific feature requests belong in the linked repository; package selection and kit installation issues belong here.
 
 ## Install
 
-Requires **Pi 1.0.0+** and **Node.js 22.19.0+**. State Flow requires its canonical checkpoint/tail storage format and does not convert unsupported stores in place. Preserve existing stores and consult the [owning package's storage guidance](https://github.com/llblab/pi-state-flow/blob/v0.24.0/docs/usage.md#moving-a-store-and-the-017-format-boundary) before changing installations.
+Requires **Pi 1.0.0+** and **Node.js 22.19.0+**. State Flow requires its canonical checkpoint/tail storage format and does not convert unsupported stores in place. Preserve existing stores and consult the [owning package's storage guidance](https://github.com/llblab/pi-state-flow/blob/v0.25.0/docs/usage.md#moving-a-store-and-supported-formats) before changing installations.
 
 From npm:
 
@@ -45,7 +45,7 @@ Prefer the kit instead of separately loading the same packages. If you already u
 
 ## Development
 
-The `0.26.0` composition includes published Actors `0.54.0` and State Flow `0.24.0` alongside the Pi 1.0 usage, Clean Room and Grow Loop cohort. The packed bundle loads all seven extensions on Pi 1.0.0 and exercises Fast, State Flow modes and token estimation in disposable storage with no credentials or external requests. This does not certify installed-client rendering; carried checks remain in [Backlog](./BACKLOG.md).
+The `0.27.0` composition includes published State Flow `0.25.0` and Telegram `0.51.6` alongside the Pi 1.0 Actors, usage, Clean Room and Grow Loop cohort. The packed bundle loads all seven extensions on Pi 1.0.0 with no credentials or external requests. This does not certify installed-client rendering; carried checks remain in [Backlog](./BACKLOG.md).
 
 ```bash
 npm install
