@@ -2,6 +2,10 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.27.2: State Flow Cascade Receipts
+
+- `Cascade Receipts`: Advances the exact State Flow pin to published `0.25.1`. Accepted receipts now list every intent-cascaded owner path, including nested lazy keys, without exposing bodies or eliding the list as predictable. The lifecycle-state ceiling also counts const-bound operation slots and lifetimes. Other pins, resources, load order and storage semantics are unchanged.
+
 ## 0.27.1: Telegram Fast Status
 
 - `Telegram Fast Status`: Advances Codex Usage to `0.12.1` and Claude Usage to `0.2.1`. Their Telegram rows now show the active model's Fast preference alongside quota, or alone when quota is unavailable, and reread it at menu render time. Claude retains Opus-only eligibility. Other pins, resource order and quota coordination are unchanged.
