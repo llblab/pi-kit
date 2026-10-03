@@ -13,9 +13,9 @@ Package links lead to the owning repositories for usage, documentation, issues, 
 | Package | Version | Purpose |
 | --- | ---: | --- |
 | [`@llblab/pi-actors`](https://github.com/llblab/pi-actors) | `0.54.0` | Inspectable local Runs, reusable Recipes, persistent tools, and delegation Skills |
-| [`@llblab/pi-claude-usage`](https://github.com/llblab/pi-claude-usage) | `0.2.0` | Claude subscription quota status and shared per-model Fast toggle for Opus |
+| [`@llblab/pi-claude-usage`](https://github.com/llblab/pi-claude-usage) | `0.2.1` | Claude subscription quota status and shared per-model Fast toggle for Opus, mirrored in Telegram |
 | [`@llblab/pi-clean-room`](https://github.com/llblab/pi-clean-room) | `0.3.0` | Isolated nested Pi TUI with named npm extensions and compatible model selection |
-| [`@llblab/pi-codex-usage`](https://github.com/llblab/pi-codex-usage) | `0.12.0` | Shared Codex quota/Business credit status and persistent priority Fast toggle |
+| [`@llblab/pi-codex-usage`](https://github.com/llblab/pi-codex-usage) | `0.12.1` | Shared Codex quota/Business credit status and persistent priority Fast toggle, mirrored in Telegram |
 | [`@llblab/pi-grow-loop`](https://github.com/llblab/pi-grow-loop) | `0.9.0` | Visible continuation scheduling and bounded worker Skills through compiled, manifest-owned resources |
 | [`@llblab/pi-state-flow`](https://github.com/llblab/pi-state-flow) | `0.25.0` | Scoped context/memory compiler with intent-owned self-cleaning memory, memory-inert Off and ownership status |
 | [`@llblab/pi-telegram`](https://github.com/llblab/pi-telegram) | `0.51.6` | Telegram companion with connection resume, Workspace slot recovery, follower Threads, filterable Skills, files, voice, and controls |
@@ -45,7 +45,7 @@ Prefer the kit instead of separately loading the same packages. If you already u
 
 ## Development
 
-The `0.27.0` composition includes published State Flow `0.25.0` and Telegram `0.51.6` alongside the Pi 1.0 Actors, usage, Clean Room and Grow Loop cohort. The packed bundle loads all seven extensions on Pi 1.0.0 with no credentials or external requests. This does not certify installed-client rendering; carried checks remain in [Backlog](./BACKLOG.md).
+The `0.27.1` composition includes published Codex Usage `0.12.1` and Claude Usage `0.2.1` with Telegram Fast status, alongside State Flow `0.25.0`, Telegram `0.51.6` and the Pi 1.0 cohort. The packed bundle loads all seven extensions on Pi 1.0.0 with no credentials or external requests. This does not certify installed-client rendering; carried checks remain in [Backlog](./BACKLOG.md).
 
 ```bash
 npm install

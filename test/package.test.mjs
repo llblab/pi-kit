@@ -7,9 +7,9 @@ const manifest = JSON.parse(await readFile(new URL("package.json", root), "utf8"
 const readme = await readFile(new URL("README.md", root), "utf8");
 const expected = {
   "@llblab/pi-actors": "0.54.0",
-  "@llblab/pi-claude-usage": "0.2.0",
+  "@llblab/pi-claude-usage": "0.2.1",
   "@llblab/pi-clean-room": "0.3.0",
-  "@llblab/pi-codex-usage": "0.12.0",
+  "@llblab/pi-codex-usage": "0.12.1",
   "@llblab/pi-grow-loop": "0.9.0",
   "@llblab/pi-state-flow": "0.25.0",
   "@llblab/pi-telegram": "0.51.6",

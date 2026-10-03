@@ -2,6 +2,10 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.27.1: Telegram Fast Status
+
+- `Telegram Fast Status`: Advances Codex Usage to `0.12.1` and Claude Usage to `0.2.1`. Their Telegram rows now show the active model's Fast preference alongside quota, or alone when quota is unavailable, and reread it at menu render time. Claude retains Opus-only eligibility. Other pins, resource order and quota coordination are unchanged.
+
 ## 0.27.0: Intent-Owned State Flow Memory
 
 - `Intent-Owned Memory`: Advances the exact State Flow pin to published `0.25.0`. Deleting an intent removes the same-scope `working`/`lazy` keys it owns through structured `$ref`, so agents that work from intents keep memory self-cleaning. `/state-flow-status` shows per-scope plane sizes and intent-owned shares; lifecycle internals were consolidated without behaviour changes.
