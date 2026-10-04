@@ -1,10 +1,6 @@
 # Backlog
 
-The 0.27.6 composition is recorded in [CHANGELOG.md](./CHANGELOG.md). Package pins, resource order and bundled runtime ownership remain authoritative in `package.json`.
-
-## Release acceptance
-
-- **Publication:** Once State Flow 0.25.5 is verified on npm, install its exact pin, validate the packed kit and run the exact-tag workflow; verify GitHub Release and npm identity.
+The 0.27.6 composition is published (exact-tag workflow, GitHub Release and npm commit verified) and recorded in [CHANGELOG.md](./CHANGELOG.md). Package pins, resource order and bundled runtime ownership remain authoritative in `package.json`.
 
 ## Carried checks
 
