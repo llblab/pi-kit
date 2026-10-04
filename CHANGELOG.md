@@ -2,6 +2,10 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.27.6: State Flow Restoration Fence and Codemode Compaction
+
+- `Restoration and Compaction`: Advances the exact State Flow pin to `0.25.5`. Failed Active restoration blocks inference before the provider rather than exposing native history; valid selection, accepted Start or explicit Passive/Off permits recovery. Native Codemode metadata no longer blocks completed-history compaction, while values/deletions survive compaction and resume. Unknown metadata and visible custom context stay protected. Other pins, resources and load order are unchanged.
+
 ## 0.27.5: State Flow Cleanup and Deletion Hints
 
 - `Cleanup and Deletion Hints`: Advances the exact State Flow pin to `0.25.4`. Accepted scopes recursively drop empty object fields without shifting array slots; cleanup may reveal inherited values. Missing authored deletions report their target and first unavailable component without blocking useful writes or creating revisions. Exact history and untouched scopes stay unchanged. Other pins, resources and load order are unchanged.

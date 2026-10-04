@@ -17,7 +17,7 @@ Package links lead to the owning repositories for usage, documentation, issues, 
 | [`@llblab/pi-clean-room`](https://github.com/llblab/pi-clean-room) | `0.3.0` | Isolated nested Pi TUI with named npm extensions and compatible model selection |
 | [`@llblab/pi-codex-usage`](https://github.com/llblab/pi-codex-usage) | `0.12.1` | Shared Codex quota/Business credit status and persistent priority Fast toggle, mirrored in Telegram |
 | [`@llblab/pi-grow-loop`](https://github.com/llblab/pi-grow-loop) | `0.9.0` | Visible continuation scheduling and bounded worker Skills through compiled, manifest-owned resources |
-| [`@llblab/pi-state-flow`](https://github.com/llblab/pi-state-flow) | `0.25.4` | Scoped context/memory compiler with intent-owned memory, recursive empty-object cleanup, missing-deletion hints and readable Telegram inspection |
+| [`@llblab/pi-state-flow`](https://github.com/llblab/pi-state-flow) | `0.25.5` | Scoped context/memory compiler with intent-owned memory, failed Active restoration fencing and Codemode-safe compaction |
 | [`@llblab/pi-telegram`](https://github.com/llblab/pi-telegram) | `0.51.6` | Telegram companion with connection resume, Workspace slot recovery, follower Threads, filterable Skills, files, voice, and controls |
 | [`@llblab/skills`](https://github.com/llblab/skills) | `1.15.0` | Portable workflows for engineering, review, design, context maintenance, and other focused tasks |
 
@@ -25,7 +25,7 @@ Versions are exact by design. An upstream release does not change an installed k
 
 ## Install
 
-Requires **Pi 1.0.0+** and **Node.js 22.19.0+**. State Flow requires its canonical checkpoint/tail storage format and does not convert unsupported stores in place. Preserve existing stores and consult the [owning package's storage guidance](https://github.com/llblab/pi-state-flow/blob/v0.25.4/docs/usage.md#moving-a-store-and-supported-formats) before changing installations.
+Requires **Pi 1.0.0+** and **Node.js 22.19.0+**. State Flow requires its canonical checkpoint/tail storage format and does not convert unsupported stores in place. Preserve existing stores and consult the [owning package's storage guidance](https://github.com/llblab/pi-state-flow/blob/v0.25.5/docs/usage.md#moving-a-store-and-supported-formats) before changing installations.
 
 From npm:
 
@@ -45,7 +45,7 @@ Prefer the kit instead of separately loading the same packages. If you already u
 
 ## Development
 
-The `0.27.5` composition includes State Flow `0.25.4` with recursive empty-object cleanup and missing-deletion hints; all other pins, resources and load order remain unchanged. `npm run validate` checks exact installed pins, declared resources, dependency audit and bundled inventory. It does not certify installed-client rendering; carried checks remain in [Backlog](./BACKLOG.md).
+The `0.27.6` composition includes State Flow `0.25.5` with failed Active restoration fencing and Codemode-safe compaction; all other pins, resources and load order remain unchanged. `npm run validate` checks exact installed pins, declared resources, dependency audit and bundled inventory. It does not certify installed-client rendering; carried checks remain in [Backlog](./BACKLOG.md).
 
 ```bash
 npm install
