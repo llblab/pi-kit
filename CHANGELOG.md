@@ -2,6 +2,10 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.27.5: State Flow Cleanup and Deletion Hints
+
+- `Cleanup and Deletion Hints`: Advances the exact State Flow pin to `0.25.4`. Accepted scopes recursively drop empty object fields without shifting array slots; cleanup may reveal inherited values. Missing authored deletions report their target and first unavailable component without blocking useful writes or creating revisions. Exact history and untouched scopes stay unchanged. Other pins, resources and load order are unchanged.
+
 ## 0.27.4: Readable State Flow Inspection
 
 - `Readable Inspection`: Advances the exact State Flow pin to published `0.25.3`. Large Telegram inspection fields now show pretty-printed JSON prefixes directly, with separate truncation notices instead of escaped `preview` strings. Genuine JSON string escapes and storage semantics are preserved. Other pins, resources and load order are unchanged.
