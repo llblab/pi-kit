@@ -20,6 +20,7 @@
 
 - Start work from `BACKLOG.md` and inspect the included package manifests before changing pins or resource paths.
 - Keep `dependencies`, `bundledDependencies`, Pi resource paths, README inventory, tests, and lockfile synchronized.
+- An explicitly requested bundled-extension release also authorizes synchronizing and releasing the kit in the same task; do not stop at local preparation. Follow the guarded repository release flow. Installation and live-client reload remain separately authorized.
 - Bundle every included Pi package so npm installation is self-contained under this package's module root. Keep repository-local `legacy-peer-deps=true` so host-provided Pi peers are not resolved into the kit's lockfile; Pi supplies them at runtime.
 - Expose only resources declared by each included package. Prefer published distribution entrypoints over source entrypoints when both exist.
 - Do not copy extension source, Skills, or documentation into this repository.

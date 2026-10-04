@@ -2,6 +2,10 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.27.3: State Flow Single Patch Display
+
+- `Single Patch Display`: Advances the exact State Flow pin to published `0.25.2`. Interactive patch rows show JSON arguments once, followed by the actual acceptance, no-op or error acknowledgement. Compact configuration still hides successful arguments. Other pins, resources, load order and storage semantics are unchanged.
+
 ## 0.27.2: State Flow Cascade Receipts
 
 - `Cascade Receipts`: Advances the exact State Flow pin to published `0.25.1`. Accepted receipts now list every intent-cascaded owner path, including nested lazy keys, without exposing bodies or eliding the list as predictable. The lifecycle-state ceiling also counts const-bound operation slots and lifetimes. Other pins, resources, load order and storage semantics are unchanged.
