@@ -2,6 +2,10 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.29.0: State Flow Stable Modes
+
+- `Step-independent memory`: Advances the exact State Flow pin to `0.26.0`. Memory no longer depends on the Pi step: startup, reload, resume and `/tree` attach current same-session memory, old branch points never block or rewind it, and forks copy the parent's current memory. Passive stays writable across reload; unreadable memory under Active shows `active (blocked)`. Other pins, resources and load order are unchanged.
+
 ## 0.28.0: Telegram Workspace Restore and Runtime Resilience
 
 - `Workspace and Routing`: Advances Telegram to `0.52.0` with conservative Workspace Restore, shared Reroute/Restore/Cancel controls, temporary-Thread lifetimes and 60-minute prompt choice expiry. Strict journal proofs remain required; Windows Restore fails closed. Other pins, resource ownership and load order are unchanged.
