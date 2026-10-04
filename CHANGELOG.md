@@ -2,6 +2,10 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.27.4: Readable State Flow Inspection
+
+- `Readable Inspection`: Advances the exact State Flow pin to published `0.25.3`. Large Telegram inspection fields now show pretty-printed JSON prefixes directly, with separate truncation notices instead of escaped `preview` strings. Genuine JSON string escapes and storage semantics are preserved. Other pins, resources and load order are unchanged.
+
 ## 0.27.3: State Flow Single Patch Display
 
 - `Single Patch Display`: Advances the exact State Flow pin to published `0.25.2`. Interactive patch rows show JSON arguments once, followed by the actual acceptance, no-op or error acknowledgement. Compact configuration still hides successful arguments. Other pins, resources, load order and storage semantics are unchanged.

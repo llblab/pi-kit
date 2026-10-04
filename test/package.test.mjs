@@ -11,7 +11,7 @@ const expected = {
   "@llblab/pi-clean-room": "0.3.0",
   "@llblab/pi-codex-usage": "0.12.1",
   "@llblab/pi-grow-loop": "0.9.0",
-  "@llblab/pi-state-flow": "0.25.2",
+  "@llblab/pi-state-flow": "0.25.3",
   "@llblab/pi-telegram": "0.51.6",
   "@llblab/skills": "1.15.0",
 };
