@@ -18,7 +18,7 @@ Package links lead to the owning repositories for usage, documentation, issues, 
 | [`@llblab/pi-codex-usage`](https://github.com/llblab/pi-codex-usage) | `0.12.1` | Shared Codex quota/Business credit status and persistent priority Fast toggle, mirrored in Telegram |
 | [`@llblab/pi-grow-loop`](https://github.com/llblab/pi-grow-loop) | `0.9.0` | Visible continuation scheduling and bounded worker Skills through compiled, manifest-owned resources |
 | [`@llblab/pi-state-flow`](https://github.com/llblab/pi-state-flow) | `0.25.5` | Scoped context/memory compiler with intent-owned memory, failed Active restoration fencing and Codemode-safe compaction |
-| [`@llblab/pi-telegram`](https://github.com/llblab/pi-telegram) | `0.51.6` | Telegram companion with connection resume, Workspace slot recovery, follower Threads, filterable Skills, files, voice, and controls |
+| [`@llblab/pi-telegram`](https://github.com/llblab/pi-telegram) | `0.52.0` | Telegram companion with Workspace Restore, routing lifetime, resilient runtime storage, follower Threads, files, voice, and controls |
 | [`@llblab/skills`](https://github.com/llblab/skills) | `1.15.0` | Portable workflows for engineering, review, design, context maintenance, and other focused tasks |
 
 Versions are exact by design. An upstream release does not change an installed kit until this repository explicitly advances the dependency and publishes a new kit version. Runtime defects and package-specific feature requests belong in the linked repository; package selection and kit installation issues belong here.
@@ -45,7 +45,7 @@ Prefer the kit instead of separately loading the same packages. If you already u
 
 ## Development
 
-The `0.27.6` composition includes State Flow `0.25.5` with failed Active restoration fencing and Codemode-safe compaction; all other pins, resources and load order remain unchanged. `npm run validate` checks exact installed pins, declared resources, dependency audit and bundled inventory. It does not certify installed-client rendering; carried checks remain in [Backlog](./BACKLOG.md).
+The `0.28.0` composition includes Telegram `0.52.0` with Workspace Restore, bounded delivery replay protection and damaged-state reset; all other pins, resources and load order remain unchanged. Telegram runtime storage now uses `tmp/pi-telegram` without migrating the old directory. Drain the prompt queue or accept losing waiting work before reload/restart; damaged-state reset discards all profiles' runtime continuity. Windows Restore remains fail-closed without strict journal evidence. `npm run validate` checks exact installed pins, declared resources, dependency audit and bundled inventory. It does not certify installed-client rendering; carried checks remain in [Backlog](./BACKLOG.md).
 
 ```bash
 npm install

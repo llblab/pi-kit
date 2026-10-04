@@ -2,6 +2,11 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.28.0: Telegram Workspace Restore and Runtime Resilience
+
+- `Workspace and Routing`: Advances Telegram to `0.52.0` with conservative Workspace Restore, shared Reroute/Restore/Cancel controls, temporary-Thread lifetimes and 60-minute prompt choice expiry. Strict journal proofs remain required; Windows Restore fails closed. Other pins, resource ownership and load order are unchanged.
+- `Runtime Resilience`: Telegram uses `tmp/pi-telegram` without migrating old storage, absorbs repeated follower delivery within a bounded process-local window and resets damaged shared state on connection, discarding all profiles' runtime continuity. Queues remain session-local: drain or accept waiting-work loss before reload/restart. Animated stickers no longer enter image payloads.
+
 ## 0.27.6: State Flow Restoration Fence and Codemode Compaction
 
 - `Restoration and Compaction`: Advances the exact State Flow pin to `0.25.5`. Failed Active restoration blocks inference before the provider rather than exposing native history; valid selection, accepted Start or explicit Passive/Off permits recovery. Native Codemode metadata no longer blocks completed-history compaction, while values/deletions survive compaction and resume. Unknown metadata and visible custom context stay protected. Other pins, resources and load order are unchanged.

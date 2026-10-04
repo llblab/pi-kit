@@ -1,9 +1,10 @@
 # Backlog
 
-The 0.27.6 composition is published (exact-tag workflow, GitHub Release and npm commit verified) and recorded in [CHANGELOG.md](./CHANGELOG.md). Package pins, resource order and bundled runtime ownership remain authoritative in `package.json`.
+The 0.28.0 composition advances Telegram to 0.52.0; package pins, resource order and bundled runtime ownership remain authoritative in `package.json`. Release outcomes belong in [CHANGELOG.md](./CHANGELOG.md).
 
 ## Carried checks
 
+- **Installed 0.28.0 Telegram smoke (operator-owned):** After separately authorized installation/reload and queue drain or accepted waiting-work loss, confirm Restore/routing controls and follower delivery with disposable runtime storage. Do not test damaged-state reset against live shared state. Windows Restore remains fail-closed without strict evidence; packed validation does not certify installed clients.
 - **Installed 0.27.6 restoration/compaction smoke (operator-owned):** After separately authorized installation/reload, use disposable storage to confirm failed Active restoration blocks provider inference across tree/reload, explicit mode recovery remains available, and native Codemode values/deletions survive completed-history compaction. Packed validation does not certify installed clients.
 - **Installed 0.27.5 cleanup smoke (operator-owned):** After separately authorized installation/reload, confirm State Flow missing-deletion hints, recursive empty-object cleanup, inherited fallback and preserved array slots in disposable storage. Packed validation does not certify installed clients.
 - **Installed 0.27.4 inspection smoke (operator-owned):** After separately authorized installation/reload, inspect a large nested State Flow field in disposable storage. Confirm readable JSON layout, separate truncation notices and intact genuine string escapes. Packed validation does not certify installed Telegram clients.
