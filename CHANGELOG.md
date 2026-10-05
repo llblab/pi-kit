@@ -2,6 +2,10 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.29.1: State Flow Temporary Paths and Mode Colors
+
+- `State Flow Consistency`: Advances the exact State Flow pin to `0.26.1`. New diagnostics and Git push failure logs use `tmp/pi-state-flow` without moving old logs or canonical memory. Selected Telegram modes use 🟣 Off, 🟡 Passive and 🟢 Active; unselected options remain ⚫️. Other pins, resources and load order are unchanged.
+
 ## 0.29.0: State Flow Stable Modes
 
 - `Step-independent memory`: Advances the exact State Flow pin to `0.26.0`. Memory no longer depends on the Pi step: startup, reload, resume and `/tree` attach current same-session memory, old branch points never block or rewind it, and forks copy the parent's current memory. Passive stays writable across reload; unreadable memory under Active shows `active (blocked)`. Other pins, resources and load order are unchanged.

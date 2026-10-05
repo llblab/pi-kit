@@ -1,9 +1,10 @@
 # Backlog
 
-The 0.29.0 composition advances State Flow to 0.26.0; package pins, resource order and bundled runtime ownership remain authoritative in `package.json`. Release outcomes belong in [CHANGELOG.md](./CHANGELOG.md).
+The 0.29.1 composition advances State Flow to 0.26.1; package pins, resource order and bundled runtime ownership remain authoritative in `package.json`. Release outcomes belong in [CHANGELOG.md](./CHANGELOG.md).
 
 ## Carried checks
 
+- **Installed 0.29.1 State Flow smoke (operator-owned):** After separately authorized installation/reload, use disposable storage to confirm new diagnostics use `tmp/pi-state-flow`, old `tmp/state-flow` logs and canonical memory stay untouched, and selected Telegram modes show 🟣 Off, 🟡 Passive and 🟢 Active. Packed validation does not certify installed clients.
 - **Installed 0.29.0 State Flow smoke (operator-owned):** After separately authorized installation/reload, use disposable storage to confirm `/tree` to an old step and reload keep current memory writable in Active and Passive, a fork copies the parent's current memory, and unreadable current files show `active (blocked)` with Passive retry and Off releasing inference only. Packed validation does not certify installed clients.
 - **Installed 0.28.0 Telegram smoke (operator-owned):** After separately authorized installation/reload and queue drain or accepted waiting-work loss, confirm Restore/routing controls and follower delivery with disposable runtime storage. Do not test damaged-state reset against live shared state. Windows Restore remains fail-closed without strict evidence; packed validation does not certify installed clients.
 - **Installed 0.27.6 restoration/compaction smoke (operator-owned):** After separately authorized installation/reload, use disposable storage to confirm failed Active restoration blocks provider inference across tree/reload, explicit mode recovery remains available, and native Codemode values/deletions survive completed-history compaction. Packed validation does not certify installed clients.

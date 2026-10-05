@@ -17,7 +17,7 @@ Package links lead to the owning repositories for usage, documentation, issues, 
 | [`@llblab/pi-clean-room`](https://github.com/llblab/pi-clean-room) | `0.3.0` | Isolated nested Pi TUI with named npm extensions and compatible model selection |
 | [`@llblab/pi-codex-usage`](https://github.com/llblab/pi-codex-usage) | `0.12.1` | Shared Codex quota/Business credit status and persistent priority Fast toggle, mirrored in Telegram |
 | [`@llblab/pi-grow-loop`](https://github.com/llblab/pi-grow-loop) | `0.9.0` | Visible continuation scheduling and bounded worker Skills through compiled, manifest-owned resources |
-| [`@llblab/pi-state-flow`](https://github.com/llblab/pi-state-flow) | `0.26.0` | Scoped context/memory compiler with step-independent current memory, stable Passive/Active modes and visible blocked-state status |
+| [`@llblab/pi-state-flow`](https://github.com/llblab/pi-state-flow) | `0.26.1` | Scoped context/memory compiler with step-independent current memory, stable Passive/Active modes and visible blocked-state status |
 | [`@llblab/pi-telegram`](https://github.com/llblab/pi-telegram) | `0.52.0` | Telegram companion with Workspace Restore, routing lifetime, resilient runtime storage, follower Threads, files, voice, and controls |
 | [`@llblab/skills`](https://github.com/llblab/skills) | `1.15.0` | Portable workflows for engineering, review, design, context maintenance, and other focused tasks |
 
@@ -25,7 +25,7 @@ Versions are exact by design. An upstream release does not change an installed k
 
 ## Install
 
-Requires **Pi 1.0.0+** and **Node.js 22.19.0+**. State Flow requires its canonical checkpoint/tail storage format and does not convert unsupported stores in place. Preserve existing stores and consult the [owning package's storage guidance](https://github.com/llblab/pi-state-flow/blob/v0.26.0/docs/usage.md#moving-a-store-and-supported-formats) before changing installations.
+Requires **Pi 1.0.0+** and **Node.js 22.19.0+**. State Flow requires its canonical checkpoint/tail storage format and does not convert unsupported stores in place. Preserve existing stores and consult the [owning package's storage guidance](https://github.com/llblab/pi-state-flow/blob/v0.26.1/docs/usage.md#moving-a-store-and-supported-formats) before changing installations.
 
 From npm:
 
@@ -45,7 +45,7 @@ Prefer the kit instead of separately loading the same packages. If you already u
 
 ## Development
 
-The `0.29.0` composition includes State Flow `0.26.0` with step-independent current memory and stable modes; all other pins, resources and load order remain unchanged. Telegram runtime storage now uses `tmp/pi-telegram` without migrating the old directory. Drain the prompt queue or accept losing waiting work before reload/restart; damaged-state reset discards all profiles' runtime continuity. Windows Restore remains fail-closed without strict journal evidence. `npm run validate` checks exact installed pins, declared resources, dependency audit and bundled inventory. It does not certify installed-client rendering; carried checks remain in [Backlog](./BACKLOG.md).
+The `0.29.1` composition includes State Flow `0.26.1` with logs under `tmp/pi-state-flow` and selected Telegram mode colors 🟣 Off, 🟡 Passive and 🟢 Active. Current memory and stable modes are preserved; all other pins, resources and load order remain unchanged. Telegram runtime storage now uses `tmp/pi-telegram` without migrating the old directory. Drain the prompt queue or accept losing waiting work before reload/restart; damaged-state reset discards all profiles' runtime continuity. Windows Restore remains fail-closed without strict journal evidence. `npm run validate` checks exact installed pins, declared resources, dependency audit and bundled inventory. It does not certify installed-client rendering; carried checks remain in [Backlog](./BACKLOG.md).
 
 ```bash
 npm install
