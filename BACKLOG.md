@@ -1,9 +1,10 @@
 # Backlog
 
-The 0.29.1 composition advances State Flow to 0.26.1; package pins, resource order and bundled runtime ownership remain authoritative in `package.json`. Release outcomes belong in [CHANGELOG.md](./CHANGELOG.md).
+The 0.29.2 composition advances State Flow to 0.26.4 and Telegram to 0.52.2; package pins, resource order and bundled runtime ownership remain authoritative in `package.json`. Release outcomes belong in [CHANGELOG.md](./CHANGELOG.md).
 
 ## Carried checks
 
+- **Installed 0.29.2 continuity/recovery smoke (operator-owned):** After separately authorized installation/reload, use disposable sessions/storage to confirm idle Stop followed by native compaction preserves the summary and tool results through Passive reload/resume, without replaying effects. Confirm Telegram outage recovery and unconfirmed-disconnect reporting on a disposable setup. Packed validation does not certify running clients or authorize live fault injection.
 - **Installed 0.29.1 State Flow smoke (operator-owned):** After separately authorized installation/reload, use disposable storage to confirm new diagnostics use `tmp/pi-state-flow`, old `tmp/state-flow` logs and canonical memory stay untouched, and selected Telegram modes show 🟣 Off, 🟡 Passive and 🟢 Active. Packed validation does not certify installed clients.
 - **Installed 0.29.0 State Flow smoke (operator-owned):** After separately authorized installation/reload, use disposable storage to confirm `/tree` to an old step and reload keep current memory writable in Active and Passive, a fork copies the parent's current memory, and unreadable current files show `active (blocked)` with Passive retry and Off releasing inference only. Packed validation does not certify installed clients.
 - **Installed 0.28.0 Telegram smoke (operator-owned):** After separately authorized installation/reload and queue drain or accepted waiting-work loss, confirm Restore/routing controls and follower delivery with disposable runtime storage. Do not test damaged-state reset against live shared state. Windows Restore remains fail-closed without strict evidence; packed validation does not certify installed clients.

@@ -2,6 +2,11 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.29.2: State Flow Continuity and Telegram Recovery
+
+- `State Flow Continuity`: Advances the exact State Flow pin to `0.26.4`. Passive retains native summaries and tool calls/results after idle Stop and split-turn compaction, including through reload/resume. Automatic Passive memory omits stored answers; Active response guidance keeps answer ownership with the runtime. No memory migration or configuration change is required.
+- `Telegram Recovery`: Advances the exact Telegram pin to `0.52.2`, adding finite chooser lifetimes, waiting-continue cancellation, polling recovery, replacement-safe disconnect and bounded Windows attachment publication retries. Unconfirmed cleanup remains explicit. Other pins, package membership, resources and load order are unchanged.
+
 ## 0.29.1: State Flow Temporary Paths and Mode Colors
 
 - `State Flow Consistency`: Advances the exact State Flow pin to `0.26.1`. New diagnostics and Git push failure logs use `tmp/pi-state-flow` without moving old logs or canonical memory. Selected Telegram modes use 🟣 Off, 🟡 Passive and 🟢 Active; unselected options remain ⚫️. Other pins, resources and load order are unchanged.
