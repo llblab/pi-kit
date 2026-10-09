@@ -2,6 +2,10 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.31.1: Telegram Mobile Routing Tab
+
+- `Telegram Mobile Routing`: Advances the exact Telegram pin to `0.54.3`. Sending a command or prompt from `All` in mobile Telegram no longer leaves an extra tab named after the input next to the routing tab; the native tab the mobile client creates is adopted as the routing tab. Other pins, package membership, resources and load order are unchanged.
+
 ## 0.31.0: Telegram Idle Runtime And Bus Liveness
 
 - `Telegram 0.54`: Advances the exact Telegram pin to `0.54.2`. Idle connected sessions make no periodic disk writes: the update journal no longer borrows the `telegram.json` lock and the leader proves liveness over the bus instead of a two-second `state.json` heartbeat. Bus protocol v3 requires updating every Pi process together.
