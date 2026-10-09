@@ -18,7 +18,7 @@ Package links lead to the owning repositories for usage, documentation, issues, 
 | [`@llblab/pi-codex-usage`](https://github.com/llblab/pi-codex-usage) | `0.12.1` | Shared Codex quota/Business credit status and persistent priority Fast toggle, mirrored in Telegram |
 | [`@llblab/pi-grow-loop`](https://github.com/llblab/pi-grow-loop) | `0.9.0` | Visible continuation scheduling and bounded worker Skills through compiled, manifest-owned resources |
 | [`@llblab/pi-state-flow`](https://github.com/llblab/pi-state-flow) | `0.26.4` | Scoped context/memory compiler with step-independent current memory, stable Passive/Active modes and visible blocked-state status |
-| [`@llblab/pi-telegram`](https://github.com/llblab/pi-telegram) | `0.53.0` | Telegram companion with live Thread rebinding, temporary routing tabs, Workspace Restore, follower Threads, Windows support, files, voice, and controls |
+| [`@llblab/pi-telegram`](https://github.com/llblab/pi-telegram) | `0.53.1` | Telegram companion with live Thread rebinding, temporary routing tabs, Workspace Restore, follower Threads, Windows support, files, voice, and controls |
 | [`@llblab/skills`](https://github.com/llblab/skills) | `1.15.0` | Portable workflows for engineering, review, design, context maintenance, and other focused tasks |
 
 Versions are exact by design. An upstream release does not change an installed kit until this repository explicitly advances the dependency and publishes a new kit version. Runtime defects and package-specific feature requests belong in the linked repository; package selection and kit installation issues belong here.
@@ -45,7 +45,7 @@ Prefer the kit instead of separately loading the same packages. If you already u
 
 ## Development
 
-The `0.30.0` composition advances Telegram to `0.53.0`: same-session live Thread rebinding for prompts and supported commands, temporary routing tabs that disappear right after Cancel, and full Windows support for Restore, live rebinding and cleanup through the same strict journal reads. State Flow stays at `0.26.4`; all other pins, resources and load order remain unchanged. Telegram runtime storage stays in `tmp/pi-telegram`. Drain the prompt queue or accept losing waiting work before reload/restart; damaged-state reset discards all profiles' runtime continuity. `npm run validate` checks exact installed pins, declared resources, dependency audit and bundled inventory. It does not certify installed-client rendering; carried checks remain in [Backlog](./BACKLOG.md).
+The `0.30.1` composition carries Telegram `0.53.1`, which stops plain text replies from recording false voice-delivery errors, on top of `0.53.0`: same-session live Thread rebinding for prompts and supported commands, temporary routing tabs that disappear right after Cancel, and full Windows support for Restore, live rebinding and cleanup through the same strict journal reads. State Flow stays at `0.26.4`; all other pins, resources and load order remain unchanged. Telegram runtime storage stays in `tmp/pi-telegram`. Drain the prompt queue or accept losing waiting work before reload/restart; damaged-state reset discards all profiles' runtime continuity. `npm run validate` checks exact installed pins, declared resources, dependency audit and bundled inventory. It does not certify installed-client rendering; carried checks remain in [Backlog](./BACKLOG.md).
 
 ```bash
 npm install

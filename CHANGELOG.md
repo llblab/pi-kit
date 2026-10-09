@@ -2,6 +2,10 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.30.1: Telegram Text Reply Diagnostics
+
+- `Telegram Voice Artifacts`: Advances the exact Telegram pin to `0.53.1`. Plain text replies no longer record a false "every voice synthesis provider failed" delivery error when a reply carries no voice content; genuine voice failures still fall back to text. Other pins, package membership, resources and load order are unchanged.
+
 ## 0.30.0: Telegram Live Rebinding and Windows Support
 
 - `Telegram Live Rebinding`: Advances the exact Telegram pin to `0.53.0`. Restore moves a held prompt or supported command to another Pi through one same-session save/apply/release channel with bounded old-Thread cleanup. Temporary routing tabs are named 🚦 Routing, Cancel removes the tab and any All copy right away, and a restart revives a still-waiting chooser. Toasts are plain text and navigation answers silently.
