@@ -2,6 +2,11 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.31.0: Telegram Idle Runtime And Bus Liveness
+
+- `Telegram 0.54`: Advances the exact Telegram pin to `0.54.2`. Idle connected sessions make no periodic disk writes: the update journal no longer borrows the `telegram.json` lock and the leader proves liveness over the bus instead of a two-second `state.json` heartbeat. Bus protocol v3 requires updating every Pi process together.
+- `Telegram fixes`: Followers go offline instead of looping when Threaded Mode is switched off, unverifiable ownership checks are recorded and tolerated before standing down, and cancelled Generative App methods cannot leave processes behind. Other pins, package membership, resources and load order are unchanged.
+
 ## 0.30.1: Telegram Text Reply Diagnostics
 
 - `Telegram Voice Artifacts`: Advances the exact Telegram pin to `0.53.1`. Plain text replies no longer record a false "every voice synthesis provider failed" delivery error when a reply carries no voice content; genuine voice failures still fall back to text. Other pins, package membership, resources and load order are unchanged.
