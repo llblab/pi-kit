@@ -2,6 +2,11 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.30.0: Telegram Live Rebinding and Windows Support
+
+- `Telegram Live Rebinding`: Advances the exact Telegram pin to `0.53.0`. Restore moves a held prompt or supported command to another Pi through one same-session save/apply/release channel with bounded old-Thread cleanup. Temporary routing tabs are named 🚦 Routing, Cancel removes the tab and any All copy right away, and a restart revives a still-waiting chooser. Toasts are plain text and navigation answers silently.
+- `Windows Support`: Telegram Restore, live rebinding, cleanup census and scoped queue receipts now run on Windows through the same strict journal reads, with process-birth proof, sharing-violation retries for Workspace files and eight-second follower control replies. Other pins, package membership, resources and load order are unchanged.
+
 ## 0.29.2: State Flow Continuity and Telegram Recovery
 
 - `State Flow Continuity`: Advances the exact State Flow pin to `0.26.4`. Passive retains native summaries and tool calls/results after idle Stop and split-turn compaction, including through reload/resume. Automatic Passive memory omits stored answers; Active response guidance keeps answer ownership with the runtime. No memory migration or configuration change is required.
