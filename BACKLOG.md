@@ -1,6 +1,6 @@
 # Backlog
 
-The 0.31.1 composition advances Telegram to 0.54.3; package pins, resource order and bundled runtime ownership remain authoritative in `package.json`. Release outcomes belong in [CHANGELOG.md](./CHANGELOG.md).
+The 0.31.2 composition advances Telegram to 0.54.4; package pins, resource order and bundled runtime ownership remain authoritative in `package.json`. Release outcomes belong in [CHANGELOG.md](./CHANGELOG.md).
 
 ## Carried checks
 

@@ -2,6 +2,10 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.31.2: Telegram Restore Flow
+
+- `Telegram Restore Flow`: Advances the exact Telegram pin to `0.54.4`. Restoring a Pi into a routing tab renames the tab to that Pi's Thread title and keeps the prompt it answers, since an input sent from `All` now moves into its routing tab on desktop and mobile alike. Routing menus disappear after every final choice, every client ends with one routing tab per `All` input, and the old tab is removed right after Pi answers. Other pins, package membership, resources and load order are unchanged.
+
 ## 0.31.1: Telegram Mobile Routing Tab
 
 - `Telegram Mobile Routing`: Advances the exact Telegram pin to `0.54.3`. Sending a command or prompt from `All` in mobile Telegram no longer leaves an extra tab named after the input next to the routing tab; the native tab the mobile client creates is adopted as the routing tab. Other pins, package membership, resources and load order are unchanged.
