@@ -2,6 +2,10 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.32.0: OpenAI Subscription Quota Support
+
+- `OpenAI Subscription Support`: Advances Codex Usage to `0.13.0`. ChatGPT subscription OAuth under `openai` now fetches Codex quotas without the legacy `openai-codex` provider; ordinary API-key auth is skipped. Both providers support terminal and Telegram status plus `/fast`, with preferences isolated by provider/model. Other pins, package membership, resources and load order are unchanged.
+
 ## 0.31.2: Telegram Restore Flow
 
 - `Telegram Restore Flow`: Advances the exact Telegram pin to `0.54.4`. Restoring a Pi into a routing tab renames the tab to that Pi's Thread title and keeps the prompt it answers, since an input sent from `All` now moves into its routing tab on desktop and mobile alike. Routing menus disappear after every final choice, every client ends with one routing tab per `All` input, and the old tab is removed right after Pi answers. Other pins, package membership, resources and load order are unchanged.

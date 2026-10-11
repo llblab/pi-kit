@@ -9,7 +9,7 @@ const expected = {
   "@llblab/pi-actors": "0.54.0",
   "@llblab/pi-claude-usage": "0.2.1",
   "@llblab/pi-clean-room": "0.3.0",
-  "@llblab/pi-codex-usage": "0.12.1",
+  "@llblab/pi-codex-usage": "0.13.0",
   "@llblab/pi-grow-loop": "0.9.0",
   "@llblab/pi-state-flow": "0.26.4",
   "@llblab/pi-telegram": "0.54.4",
