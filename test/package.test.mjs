@@ -12,7 +12,7 @@ const expected = {
   "@llblab/pi-codex-usage": "0.13.0",
   "@llblab/pi-grow-loop": "0.9.0",
   "@llblab/pi-state-flow": "0.26.4",
-  "@llblab/pi-telegram": "0.55.0",
+  "@llblab/pi-telegram": "0.55.1",
   "@llblab/skills": "1.15.0",
 };
 const expectedExtensions = [

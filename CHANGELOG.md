@@ -2,6 +2,10 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.33.1: Telegram Reroute Visibility and Follower Cleanup
+
+- `Telegram Reroute`: Advances only the exact Telegram pin to `0.55.1`. Temporary Reroute forwards prompts into the selected Thread before native admission and anchors answers to confirmed copies. Follower cleanup reobserves resolved temporary tabs after receipt protection clears, including retained completed membership after runtime replacement; issued or unknown deletion never repeats. Other pins, package membership, resource paths and load order are unchanged.
+
 ## 0.33.0: Telegram Native Restore and Lifecycle Fences
 
 - `Telegram 0.55`: Advances the exact Telegram pin to `0.55.0`. Native Restore confirms its new binding and decides old-tab cleanup before retained input runs. All is input-only; preview, typing and reconnect reject stale lifecycle work. Exact Linux/macOS home displays as Home/home without changing routing identity. Compatible Restore capabilities are negotiated separately from bus protocol v3. Other pins, package membership, resources and load order are unchanged.
