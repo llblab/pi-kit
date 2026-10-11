@@ -2,6 +2,10 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.33.0: Telegram Native Restore and Lifecycle Fences
+
+- `Telegram 0.55`: Advances the exact Telegram pin to `0.55.0`. Native Restore confirms its new binding and decides old-tab cleanup before retained input runs. All is input-only; preview, typing and reconnect reject stale lifecycle work. Exact Linux/macOS home displays as Home/home without changing routing identity. Compatible Restore capabilities are negotiated separately from bus protocol v3. Other pins, package membership, resources and load order are unchanged.
+
 ## 0.32.0: OpenAI Subscription Quota Support
 
 - `OpenAI Subscription Support`: Advances Codex Usage to `0.13.0`. ChatGPT subscription OAuth under `openai` now fetches Codex quotas without the legacy `openai-codex` provider; ordinary API-key auth is skipped. Both providers support terminal and Telegram status plus `/fast`, with preferences isolated by provider/model. Other pins, package membership, resources and load order are unchanged.
