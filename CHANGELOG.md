@@ -2,6 +2,10 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.34.1: Canonical Telegram Reactions
+
+- `Telegram reactions`: Advances only the exact Telegram pin to `0.56.2`. Only thumbs-up selects Priority, thumbs-down selects Skip, and fire selects Steer; retired aliases no longer flush or control queued input. Queue badges use canonical emoji without rewriting accepted state. Other pins, package membership, resources and load order are unchanged.
+
 ## 0.34.0: Telegram Steer and Connection Recovery
 
 - `Telegram Steer`: Advances only the exact Telegram pin to `0.56.1`, adding per-prompt Steer through fire reactions or the queue menu while Normal remains the default. Ready corrections enter at model-step boundaries without replacing the Telegram queue or replaying uncertain input. Other pins, package membership, resources and load order are unchanged.
