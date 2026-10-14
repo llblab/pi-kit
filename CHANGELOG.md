@@ -2,6 +2,11 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.34.0: Telegram Steer and Connection Recovery
+
+- `Telegram Steer`: Advances only the exact Telegram pin to `0.56.1`, adding per-prompt Steer through fire reactions or the queue menu while Normal remains the default. Ready corrections enter at model-step boundaries without replacing the Telegram queue or replaying uncertain input. Other pins, package membership, resources and load order are unchanged.
+- `Connection and Restore`: Includes explicit recovery of interrupted creation, message-based checks for deleted follower tabs, negotiated follower `/start` and `/help` Restore, and first-click leader command-ACK observation. Both peers must support the relevant capabilities; unknown creation may leave an extra tab, and old-tab cleanup remains independently protected.
+
 ## 0.33.1: Telegram Reroute Visibility and Follower Cleanup
 
 - `Telegram Reroute`: Advances only the exact Telegram pin to `0.55.1`. Temporary Reroute forwards prompts into the selected Thread before native admission and anchors answers to confirmed copies. Follower cleanup reobserves resolved temporary tabs after receipt protection clears, including retained completed membership after runtime replacement; issued or unknown deletion never repeats. Other pins, package membership, resource paths and load order are unchanged.

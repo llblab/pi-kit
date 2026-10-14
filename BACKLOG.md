@@ -1,9 +1,10 @@
 # Backlog
 
-The 0.33.1 composition advances only Telegram to 0.55.1; package pins, resource order and bundled runtime ownership remain authoritative in `package.json`. Release outcomes belong in [CHANGELOG.md](./CHANGELOG.md).
+Package pins, resource order and bundled runtime ownership remain authoritative in `package.json`. Release outcomes belong in [CHANGELOG.md](./CHANGELOG.md).
 
 ## Carried checks
 
+- **Installed 0.34.0 Telegram smoke (operator-owned):** After separately authorized installation/reload of both peers, verify per-prompt Steer, reconnection after a deleted tab, follower `/start` Restore and first-click leader Restore confirmation with separately proven old-tab cleanup. Unknown creation can leave an extra tab; do not erase accepted work or replay uncertain input. Package/CI validation does not certify live clients.
 - **Installed 0.31.0 Telegram smoke (operator-owned):** After separately authorized installation/reload of every Pi process together (bus protocol v3), confirm an idle leader makes no periodic `state.json` or `telegram.json.transaction` writes, a frozen leader is replaced by its follower, and switching Threaded Mode off takes followers offline. Packed validation does not certify running clients.
 - **Installed 0.30.0 Telegram smoke (operator-owned):** After separately authorized installation/reload, confirm live Restore/rebinding in both roles, immediate temporary-tab removal after Cancel and, on Windows, Restore and follower delivery with disposable runtime storage. Packed validation does not certify running clients.
 - **Installed 0.29.2 continuity/recovery smoke (operator-owned):** After separately authorized installation/reload, use disposable sessions/storage to confirm idle Stop followed by native compaction preserves the summary and tool results through Passive reload/resume, without replaying effects. Confirm Telegram outage recovery and unconfirmed-disconnect reporting on a disposable setup. Packed validation does not certify running clients or authorize live fault injection.
