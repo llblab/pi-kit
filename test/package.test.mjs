@@ -7,12 +7,12 @@ const manifest = JSON.parse(await readFile(new URL("package.json", root), "utf8"
 const readme = await readFile(new URL("README.md", root), "utf8");
 const expected = {
   "@llblab/pi-actors": "0.54.0",
-  "@llblab/pi-claude-usage": "0.2.1",
+  "@llblab/pi-claude-usage": "0.2.2",
   "@llblab/pi-clean-room": "0.3.0",
-  "@llblab/pi-codex-usage": "0.13.0",
+  "@llblab/pi-codex-usage": "0.13.1",
   "@llblab/pi-grow-loop": "0.9.0",
   "@llblab/pi-state-flow": "0.26.4",
-  "@llblab/pi-telegram": "0.56.2",
+  "@llblab/pi-telegram": "0.56.3",
   "@llblab/skills": "1.15.0",
 };
 const expectedExtensions = [

@@ -2,6 +2,11 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.34.2: Telegram Compatibility and Windows Usage Updates
+
+- `Telegram`: Advances the exact pin to `0.56.3`, adding adjacent button matrices with preserved row grouping and fixing Pi 1.2 custom-message starts without a user prompt. Legacy prompt events and voice syntax remain supported; no client-rendering fallback is added.
+- `Usage extensions`: Advances Codex Usage to `0.13.1` for native Windows Codex CLI fallback and Claude Usage to `0.2.2` for its Windows-validated release with unchanged runtime. All eight package pins were checked against npm stable releases; other pins, composition and resource order remain unchanged.
+
 ## 0.34.1: Canonical Telegram Reactions
 
 - `Telegram reactions`: Advances only the exact Telegram pin to `0.56.2`. Only thumbs-up selects Priority, thumbs-down selects Skip, and fire selects Steer; retired aliases no longer flush or control queued input. Queue badges use canonical emoji without rewriting accepted state. Other pins, package membership, resources and load order are unchanged.
