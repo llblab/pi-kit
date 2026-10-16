@@ -18,7 +18,7 @@ Package links lead to the owning repositories for usage, documentation, issues, 
 | [`@llblab/pi-codex-usage`](https://github.com/llblab/pi-codex-usage) | `0.13.1` | OpenAI/legacy Codex subscription quota and Business credit status, with persistent priority Fast toggle mirrored in Telegram |
 | [`@llblab/pi-grow-loop`](https://github.com/llblab/pi-grow-loop) | `0.9.0` | Visible continuation scheduling and bounded worker Skills through compiled, manifest-owned resources |
 | [`@llblab/pi-state-flow`](https://github.com/llblab/pi-state-flow) | `0.26.4` | Scoped context/memory compiler with step-independent current memory, stable Passive/Active modes and visible blocked-state status |
-| [`@llblab/pi-telegram`](https://github.com/llblab/pi-telegram) | `0.56.3` | Telegram companion with per-prompt Steer, queued controls, Reroute/Restore, recoverable connections, previews, follower Threads, files, and voice |
+| [`@llblab/pi-telegram`](https://github.com/llblab/pi-telegram) | `0.56.4` | Telegram companion with per-prompt Steer, queued controls, Reroute/Restore, recoverable connections, previews, follower Threads, files, and voice |
 | [`@llblab/skills`](https://github.com/llblab/skills) | `1.15.0` | Portable workflows for engineering, review, design, context maintenance, and other focused tasks |
 
 Versions are exact by design. An upstream release does not change an installed kit until this repository explicitly advances the dependency and publishes a new kit version. Runtime defects and package-specific feature requests belong in the linked repository; package selection and kit installation issues belong here.

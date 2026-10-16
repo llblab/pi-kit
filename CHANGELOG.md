@@ -2,6 +2,10 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.34.3: Telegram Typing Continuity
+
+- `Telegram typing`: Advances only the exact Telegram pin to `0.56.4`. Streaming keepalives preserve the same owner's in-flight typing request, while session, transport and target changes still revoke old authority. Compaction cannot claim an existing agent loop. Other pins, package membership and resource order are unchanged; client-specific typing visibility remains a live check.
+
 ## 0.34.2: Telegram Compatibility and Windows Usage Updates
 
 - `Telegram`: Advances the exact pin to `0.56.3`, adding adjacent button matrices with preserved row grouping and fixing Pi 1.2 custom-message starts without a user prompt. Legacy prompt events and voice syntax remain supported; no client-rendering fallback is added.
