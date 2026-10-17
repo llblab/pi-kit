@@ -2,6 +2,11 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.35.0: Telegram Thread Continuity and Shared Settings
+
+- `Telegram continuity`: Advances only the exact Telegram pin to `0.57.0`. Same-process follower session replacement preserves the Thread, letter slot and acknowledged title without a second connected notice; cross-process handoff notices use the acknowledged title. Other pins, package membership and resource order are unchanged.
+- `Shared settings`: Automatic Thread display now uses top-level `threads.displayMode` for every bot profile. The old profile-scoped key is ignored without migration; configurations without the new key use Letters until Settings saves a choice. Profiles hold only bot identity and the paired owner.
+
 ## 0.34.3: Telegram Typing Continuity
 
 - `Telegram typing`: Advances only the exact Telegram pin to `0.56.4`. Streaming keepalives preserve the same owner's in-flight typing request, while session, transport and target changes still revoke old authority. Compaction cannot claim an existing agent loop. Other pins, package membership and resource order are unchanged; client-specific typing visibility remains a live check.
