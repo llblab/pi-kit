@@ -2,6 +2,11 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.35.1: Telegram Guest Media and Routing Cleanup
+
+- `Telegram cleanup`: Advances only the exact Telegram pin to `0.57.1`. Exhausted Reroute tabs and Restore's old tab are no longer blocked by unrelated targetless creation attempts, while accepted work and uncertain deletion stay protected. Fresh local menu Reroute and supported Restore hold command effects through their cleanup decision. Other pins, package membership and resource order are unchanged.
+- `Guest media`: Queued photos, documents and MP3 now replace an acknowledged Guest Mode placeholder instead of being silently skipped. Confirmed failures report errors, uncertain edits are not replayed, and unsupported OGG/Opus replacement is rejected explicitly. Guest media client acceptance remains a deferred upstream follow-up, not proof supplied by kit validation.
+
 ## 0.35.0: Telegram Thread Continuity and Shared Settings
 
 - `Telegram continuity`: Advances only the exact Telegram pin to `0.57.0`. Same-process follower session replacement preserves the Thread, letter slot and acknowledged title without a second connected notice; cross-process handoff notices use the acknowledged title. Other pins, package membership and resource order are unchanged.
