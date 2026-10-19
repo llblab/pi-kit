@@ -2,6 +2,12 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.35.2: Telegram Connect Latency and Session Identity
+
+- `Telegram connect`: Advances only the exact Telegram pin to `0.57.2`. A new Thread now connects in seconds instead of roughly 20 seconds when every letter slot is occupied: rotation no longer re-reads the shared journal namespace once per binding inside one synchronous pass, while post-fence protection checks still read fresh evidence. Other pins, package membership and resource order are unchanged.
+- `Session identity`: A follower connected with `/telegram-connect` becomes leader when the old leader stops answering, instead of retrying a dead socket indefinitely, because authority now follows the session rather than the exact Pi context object. A promoted follower keeps its Thread, slot and name and still defers to a live lower-slot follower.
+- `Log noise`: Expected-and-recovered failures no longer fill the log. Private-chat graceful cleanup deletes the Thread directly, the restore probe records one lifecycle event instead of an API error, bus attempts record only the first and final failure plus recovery, and repeated heartbeat, capability-probe and typing-presence failures collapse into one record per run with a recovery record. Status diagnostics print the paths of the agent directory in use.
+
 ## 0.35.1: Telegram Guest Media and Routing Cleanup
 
 - `Telegram cleanup`: Advances only the exact Telegram pin to `0.57.1`. Exhausted Reroute tabs and Restore's old tab are no longer blocked by unrelated targetless creation attempts, while accepted work and uncertain deletion stay protected. Fresh local menu Reroute and supported Restore hold command effects through their cleanup decision. Other pins, package membership and resource order are unchanged.
