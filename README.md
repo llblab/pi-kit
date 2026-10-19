@@ -56,7 +56,7 @@ npm install
 npm run validate
 ```
 
-The repository-local `.npmrc` keeps Pi-provided peer packages out of the kit's lockfile; Pi supplies those peers at runtime. To advance an included package, update its exact version in `dependencies`, run `npm install`, synchronize bundled dependencies, each declared extension pointer and its target, declared Skill paths, tests, the table above, and the changelog, then validate the packed artifact. Keep every pointer target identical to the entrypoint its pin declares. Expose only resources declared by the published owning package; do not use version ranges or unpublished local paths.
+The repository-local `.npmrc` keeps Pi-provided peer packages out of the kit's lockfile; Pi supplies those peers at runtime. To advance an included package, update its exact version in `dependencies`, run `npm install`, synchronize bundled dependencies, each declared extension pointer and its target, declared Skill paths, tests, the table above, and the changelog, then validate the packed artifact. Keep every pointer target identical to the entrypoint its pin declares. A bundled package must resolve auxiliary files, workers and sibling packages from its own module URL rather than from the declared entry path, because a pointer redirects only that entry. Expose only resources declared by the published owning package; do not use version ranges or unpublished local paths.
 
 ## Security
 

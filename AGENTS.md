@@ -23,6 +23,7 @@
 - An explicitly requested bundled-extension release also authorizes synchronizing and releasing the kit in the same task; do not stop at local preparation. Follow the guarded repository release flow. Installation and live-client reload remain separately authorized.
 - Bundle every included Pi package so npm installation is self-contained under this package's module root. Keep repository-local `legacy-peer-deps=true` so host-provided Pi peers are not resolved into the kit's lockfile; Pi supplies them at runtime.
 - Expose only resources declared by each included package. Prefer published distribution entrypoints over source entrypoints when both exist.
+- Extension entrypoints are pointers, not copies: every declared extension re-exports the exact bundled entrypoint from `extensions/<name>/index.<ext>`, and that folder is published so Pi shows a compact label. A bundled package must therefore resolve auxiliary files, workers, spawned scripts, sibling packages, and extension-local resources from its own module URL (`import.meta.url`), never from the declared entry path or `process.argv[1]`; only the declared entry is redirected, so anything located from that path breaks.
 - Do not copy extension source, Skills, or documentation into this repository.
 - Preserve package independence: a kit release may advance any subset of included extensions without forcing lockstep extension releases.
 - Adding packages or newly exposed capabilities requires a kit minor bump. For updates to the existing composition, derive the kit version bump from the highest dependency bump in the synchronized release cohort: dependency patch-only updates require a kit patch bump, while any dependency minor update requires a kit minor bump. Do not let lower-level dependency bumps force a larger kit bump.
@@ -34,4 +35,5 @@
 - Run `npm test` after manifest or inventory changes.
 - Run `npm run pack:check` before declaring package readiness.
 - Inspect the dry-run tarball inventory to confirm every package in `bundledDependencies` and its declared resources are present.
+- Confirm that a newly added or advanced package resolves its auxiliary files from `import.meta.url`; a pointer-loaded extension must still start its own workers and scripts.
 - Run `npm run validate` at completion.
