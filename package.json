@@ -1,6 +1,6 @@
 {
   "name": "@llblab/pi-kit",
-  "version": "0.35.2",
+  "version": "0.35.3",
   "private": false,
   "publishConfig": {
     "access": "public"
@@ -33,6 +33,7 @@
     "validate": "npm test && npm run audit && npm run pack:check"
   },
   "files": [
+    "extensions/",
     "README.md",
     "AGENTS.md",
     "BACKLOG.md",
@@ -62,13 +63,13 @@
   ],
   "pi": {
     "extensions": [
-      "./node_modules/@llblab/pi-actors/dist/pi-actors/index.js",
-      "./node_modules/@llblab/pi-claude-usage/index.ts",
-      "./node_modules/@llblab/pi-clean-room/index.ts",
-      "./node_modules/@llblab/pi-codex-usage/index.ts",
-      "./node_modules/@llblab/pi-grow-loop/dist/pi-grow-loop/index.js",
-      "./node_modules/@llblab/pi-state-flow/dist/pi-state-flow/index.js",
-      "./node_modules/@llblab/pi-telegram/dist/pi-telegram/index.js"
+      "./extensions/pi-actors/index.js",
+      "./extensions/pi-claude-usage/index.ts",
+      "./extensions/pi-clean-room/index.ts",
+      "./extensions/pi-codex-usage/index.ts",
+      "./extensions/pi-grow-loop/index.js",
+      "./extensions/pi-state-flow/index.js",
+      "./extensions/pi-telegram/index.js"
     ],
     "skills": [
       "./node_modules/@llblab/pi-actors/dist/skills",

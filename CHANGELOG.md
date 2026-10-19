@@ -2,6 +2,11 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.35.3: Compact Bundled Extension Labels
+
+- `Extension wiring`: Each bundled extension is now declared through a thin pointer at `extensions/<name>/index.js` that re-exports the exact bundled entrypoint, so the Pi startup list and `pi config` show `@llblab/pi-kit:pi-telegram` instead of the full nested path. Pins, load order and package code are unchanged, and an explicit `pi.extensions` still suppresses conventional directory discovery, so nothing loads twice.
+- `Publishing and checks`: `package.json` publishes the pointer folder, and package tests now bind every pin to one pointer, one target and the two re-export statements a pointer may hold. Skill resolution keeps its existing `node_modules` paths. Only the path part of a label shortens; the `@llblab/pi-kit:` prefix remains and changes no runtime behavior.
+
 ## 0.35.2: Telegram Connect Latency and Session Identity
 
 - `Telegram connect`: Advances only the exact Telegram pin to `0.57.2`. A new Thread now connects in seconds instead of roughly 20 seconds when every letter slot is occupied: rotation no longer re-reads the shared journal namespace once per binding inside one synchronous pass, while post-fence protection checks still read fresh evidence. Other pins, package membership and resource order are unchanged.

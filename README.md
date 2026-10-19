@@ -39,7 +39,7 @@ From GitHub:
 pi install git:github.com/llblab/pi-kit
 ```
 
-Pi loads the seven extension entrypoints and the Skill resources explicitly declared by the kit. The kit adds no runtime behavior and does not copy the packages' source or instructions into a new owner. State Flow remains opt-in; bundling it does not enable its state handoff mode.
+Pi loads seven extension entrypoints and the Skill resources explicitly declared by the kit. Each extension entrypoint is a thin pointer inside this package that re-exports the exact bundled entrypoint, so the startup list and `pi config` show a compact label such as `@llblab/pi-kit:pi-telegram` instead of the full nested path. A pointer copies no package source and keeps a single module instance; the `@llblab/pi-kit:` prefix remains and only the path part shortens. The kit adds no runtime behavior and does not copy the packages' source or instructions into a new owner. State Flow remains opt-in; bundling it does not enable its state handoff mode.
 
 Prefer the kit instead of separately loading the same packages. If you already use individual installations or local Skill copies, use `pi config` to disable duplicate resources. Installing the kit does not remove or rewrite those installations.
 
@@ -56,7 +56,7 @@ npm install
 npm run validate
 ```
 
-The repository-local `.npmrc` keeps Pi-provided peer packages out of the kit's lockfile; Pi supplies those peers at runtime. To advance an included package, update its exact version in `dependencies`, run `npm install`, synchronize bundled dependencies, declared resource paths, tests, the table above, and the changelog, then validate the packed artifact. Expose only resources declared by the published owning package; do not use version ranges or unpublished local paths.
+The repository-local `.npmrc` keeps Pi-provided peer packages out of the kit's lockfile; Pi supplies those peers at runtime. To advance an included package, update its exact version in `dependencies`, run `npm install`, synchronize bundled dependencies, each declared extension pointer and its target, declared Skill paths, tests, the table above, and the changelog, then validate the packed artifact. Keep every pointer target identical to the entrypoint its pin declares. Expose only resources declared by the published owning package; do not use version ranges or unpublished local paths.
 
 ## Security
 

@@ -16,14 +16,24 @@ const expected = {
   "@llblab/skills": "1.15.0",
 };
 const expectedExtensions = [
-  "./node_modules/@llblab/pi-actors/dist/pi-actors/index.js",
-  "./node_modules/@llblab/pi-claude-usage/index.ts",
-  "./node_modules/@llblab/pi-clean-room/index.ts",
-  "./node_modules/@llblab/pi-codex-usage/index.ts",
-  "./node_modules/@llblab/pi-grow-loop/dist/pi-grow-loop/index.js",
-  "./node_modules/@llblab/pi-state-flow/dist/pi-state-flow/index.js",
-  "./node_modules/@llblab/pi-telegram/dist/pi-telegram/index.js",
+  "./extensions/pi-actors/index.js",
+  "./extensions/pi-claude-usage/index.ts",
+  "./extensions/pi-clean-room/index.ts",
+  "./extensions/pi-codex-usage/index.ts",
+  "./extensions/pi-grow-loop/index.js",
+  "./extensions/pi-state-flow/index.js",
+  "./extensions/pi-telegram/index.js",
 ];
+/** Exact bundled entrypoint each pointer must re-export. */
+const pointerTargets = {
+  "./extensions/pi-actors/index.js": "node_modules/@llblab/pi-actors/dist/pi-actors/index.js",
+  "./extensions/pi-claude-usage/index.ts": "node_modules/@llblab/pi-claude-usage/index.ts",
+  "./extensions/pi-clean-room/index.ts": "node_modules/@llblab/pi-clean-room/index.ts",
+  "./extensions/pi-codex-usage/index.ts": "node_modules/@llblab/pi-codex-usage/index.ts",
+  "./extensions/pi-grow-loop/index.js": "node_modules/@llblab/pi-grow-loop/dist/pi-grow-loop/index.js",
+  "./extensions/pi-state-flow/index.js": "node_modules/@llblab/pi-state-flow/dist/pi-state-flow/index.js",
+  "./extensions/pi-telegram/index.js": "node_modules/@llblab/pi-telegram/dist/pi-telegram/index.js",
+};
 const expectedSkills = [
   "./node_modules/@llblab/pi-actors/dist/skills",
   "./node_modules/@llblab/pi-grow-loop/dist/skills",
@@ -56,21 +66,55 @@ test("Pi host peers stay outside the kit lockfile", async () => {
 });
 
 test("installed package versions and declared resources match", async () => {
-  const declared = { extensions: [], skills: [] };
+  const declaredSkills = [];
   for (const [name, version] of Object.entries(expected)) {
     const installed = JSON.parse(await readFile(new URL(`node_modules/${name}/package.json`, root), "utf8"));
     assert.equal(installed.version, version, `${name} must resolve to its exact pin`);
-    for (const kind of Object.keys(declared)) {
-      for (const resource of installed.pi?.[kind] ?? []) {
-        declared[kind].push(`./node_modules/${name}/${resource.replace(/^\.\//, "")}`);
-      }
+    for (const resource of installed.pi?.skills ?? []) {
+      declaredSkills.push(`./node_modules/${name}/${resource.replace(/^\.\//, "")}`);
     }
   }
-  assert.deepEqual(manifest.pi.extensions, declared.extensions);
-  assert.deepEqual(manifest.pi.skills, declared.skills);
+  assert.deepEqual(manifest.pi.skills, declaredSkills);
   for (const resource of [...expectedExtensions, ...expectedSkills]) {
     const url = new URL(resource.replace(/^\.\//, ""), root);
     await assert.doesNotReject(readFileOrDirectory(url), `${resource} must exist`);
+  }
+});
+
+test("every bundled extension pointer re-exports its exact bundled entrypoint", async () => {
+  const installedExtensions = [];
+  for (const name of Object.keys(expected)) {
+    const installed = JSON.parse(await readFile(new URL(`node_modules/${name}/package.json`, root), "utf8"));
+    for (const resource of installed.pi?.extensions ?? []) {
+      installedExtensions.push(`node_modules/${name}/${resource.replace(/^\.\//, "")}`);
+    }
+  }
+  // Every resource the pins declare has exactly one pointer, and every pointer has one pin resource.
+  assert.deepEqual(
+    Object.values(pointerTargets).sort(),
+    installedExtensions.sort(),
+  );
+  for (const [pointer, target] of Object.entries(pointerTargets)) {
+    const source = await readFile(new URL(pointer.replace(/^\.\//, ""), root), "utf8");
+    const relative = `../../${target}`;
+    assert.ok(
+      source.includes(`export { default } from "${relative}";`),
+      `${pointer} must re-export the default of ${target}`,
+    );
+    assert.ok(
+      source.includes(`export * from "${relative}";`),
+      `${pointer} must forward named exports of ${target}`,
+    );
+    // A pointer is a re-export only: it must not carry a second copy of package source.
+    assert.equal(
+      source.split("\n").filter((line) => line.startsWith("export ")).length,
+      2,
+      `${pointer} must hold exactly two re-export statements`,
+    );
+    await assert.doesNotReject(
+      readFileOrDirectory(new URL(relative, new URL(pointer, root))),
+      `${target} must exist for ${pointer}`,
+    );
   }
 });
 
@@ -82,6 +126,10 @@ test("shared Fast is an installed runtime library, not an extra Pi resource", as
   await assert.doesNotReject(readFile(new URL("node_modules/@llblab/pi-command-fast/dist/index.js", root)));
   assert.equal(manifest.pi.extensions.some(path => path.includes("pi-command-fast")), false);
   assert.ok(readme.includes("Pi 1.0.0+"));
+});
+
+test("published inventory includes the pointer folder", () => {
+  assert.ok(manifest.files.includes("extensions/"), "the kit must publish its pointer folder");
 });
 
 test("package banner is declared and present", async () => {
