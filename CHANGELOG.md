@@ -2,6 +2,11 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.35.4: Telegram Session Thread Continuity
+
+- `Telegram pin`: Advances only the exact Telegram pin from `0.57.2` to `0.57.3`. A session replaced inside one Pi process now reuses its preserved Thread on every registration path instead of provisioning a second tab, and a new session registering in a folder whose previous session is provably gone adopts that binding's exact target and slot while the predecessor binding is re-keyed. A live predecessor or an ambiguous candidate set keeps ordinary provisioning.
+- `Checks`: The exact-pin test, README inventory and pointer targets now read `0.57.3`; the seven published pointer entrypoints and declared Skill paths are unchanged. Packed validation covers build, types, tests, audit and bundle inventory only, so installed-client behavior remains an operator check in [Backlog](./BACKLOG.md).
+
 ## 0.35.3: Compact Bundled Extension Labels
 
 - `Extension wiring`: Each bundled extension is now declared through a thin pointer at `extensions/<name>/index.js` that re-exports the exact bundled entrypoint, so the Pi startup list and `pi config` show `@llblab/pi-kit:pi-telegram` instead of the full nested path. Pins, load order and package code are unchanged, and an explicit `pi.extensions` still suppresses conventional directory discovery, so nothing loads twice.
