@@ -1,6 +1,6 @@
 {
   "name": "@llblab/pi-kit",
-  "version": "0.35.4",
+  "version": "0.35.5",
   "private": false,
   "publishConfig": {
     "access": "public"
@@ -29,8 +29,10 @@
   "scripts": {
     "test": "node --test test/*.test.mjs",
     "audit": "npm audit --omit=dev",
-    "pack:check": "npm pack --dry-run",
-    "validate": "npm test && npm run audit && npm run pack:check"
+    "deps:check": "node scripts/check-updates.mjs",
+    "check:coherence": "node scripts/validate.mjs",
+    "pack:check": "node scripts/validate.mjs --pack",
+    "validate": "npm run check:coherence && npm test && npm run audit && npm run pack:check"
   },
   "files": [
     "extensions/",

@@ -1,0 +1,81 @@
+name: Publish pi-kit
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - package.json
+  workflow_dispatch:
+
+concurrency:
+  group: pi-kit-publish
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  id-token: write
+
+jobs:
+  publish:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out the exact main event commit and all tags
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Set up Node.js and npm registry authentication
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1  # v7
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+          package-manager-cache: false
+      - name: Check whether the reviewed kit version needs publication
+        id: state
+        run: node scripts/publish-pi-kit.mjs check
+      - name: Check the Trusted Publishing runtime before creating any tag
+        if: steps.state.outputs.publish == 'true'
+        run: node scripts/publish-pi-kit.mjs preflight
+      - name: Install exact dependencies without lifecycle hooks
+        if: steps.state.outputs.publish == 'true'
+        run: npm ci --ignore-scripts --bin-links=false
+      - name: Validate the clean checkout and packed inventory
+        if: steps.state.outputs.publish == 'true'
+        run: npm run validate
+      - name: Create and push the validated tag without overwriting any tag
+        if: steps.state.outputs.publish == 'true'
+        env:
+          TAG: ${{ steps.state.outputs.tag }}
+          RELEASE_TOKEN: ${{ secrets.PI_KIT_PAT || github.token }}
+        run: |
+          git tag "$TAG"
+          auth=$(printf 'x-access-token:%s' "$RELEASE_TOKEN" | base64 -w0)
+          git -c "http.https://github.com/.extraheader=AUTHORIZATION: basic $auth" push origin "refs/tags/$TAG"
+      - name: Publish the tagged package through npm Trusted Publishing
+        if: steps.state.outputs.publish == 'true'
+        run: node scripts/publish-pi-kit.mjs publish
+      - name: Verify the public npm identity and packed inventory
+        if: steps.state.outputs.publish == 'true'
+        run: node scripts/publish-pi-kit.mjs verify
+      - name: Create the GitHub Release after npm publication
+        if: steps.state.outputs.publish == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.state.outputs.tag }}
+        run: |
+          if gh release view "$TAG" --json tagName,isDraft,isPrerelease,publishedAt > "$RUNNER_TEMP/pi-kit-release.json"; then
+            node --input-type=module <<'NODE'
+          import assert from "node:assert/strict";
+          import { readFileSync } from "node:fs";
+          const release = JSON.parse(readFileSync(`${process.env.RUNNER_TEMP}/pi-kit-release.json`, "utf8"));
+          assert.equal(release.tagName, process.env.TAG);
+          assert.equal(release.isDraft, false);
+          assert.equal(release.isPrerelease, false);
+          assert.ok(release.publishedAt);
+          NODE
+          else
+            gh release create "$TAG" --verify-tag --generate-notes
+          fi

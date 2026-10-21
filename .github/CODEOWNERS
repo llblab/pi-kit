@@ -1,0 +1,6 @@
+# CODEOWNERS requests reviews; main must separately require Code Owner approval.
+/.github/CODEOWNERS @llblab
+/.github/workflows/* @llblab
+/package.json @llblab
+/package-lock.json @llblab
+/scripts/ @llblab

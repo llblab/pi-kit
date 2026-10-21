@@ -2,6 +2,13 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.35.5: Reviewed Updates and OIDC Releases
+
+- `Update preparation`: Adds daily/manual npm discovery and one human-reviewed update PR containing exact pins, both bundle aliases, regenerated lockfile, README inventory, kit version and changelog. Preparation is read-only without secrets or dependency hooks/bin links; a fresh write runner accepts only four checked data files. Major/prerelease updates and resource changes remain manual; failed validation prevents PR creation, and no auto-merge is enabled.
+- `Publication`: Replaces tag-triggered publication with a main-only npm Trusted Publisher using short-lived OIDC, without a persistent npm token. It reads the reviewed version, skips an unchanged latest tag, validates before a non-forced tag push, and publishes npm before the GitHub Release. Existing-version recovery requires matching tag/npm commit identity; public packed inventory remains verified. Stage-only permission is rejected, not silently substituted.
+- `Review and evidence`: Adds automation regression tests, executable lock/bundle/tarball coherence checks, CODEOWNERS and maintainer setup/recovery guidance. The npm trust binding and enforced main-branch review protection remain administrator-owned activation steps.
+- `Compatibility`: Keeps all eight dependency pins, bundled resource order and runtime entrypoints unchanged. This patch changes update/release tooling and documentation; it does not install or reload Pi clients.
+
 ## 0.35.4: Telegram Session Thread Continuity
 
 - `Telegram pin`: Advances only the exact Telegram pin from `0.57.2` to `0.57.3`. A session replaced inside one Pi process now reuses its preserved Thread on every registration path instead of provisioning a second tab, and a new session registering in a folder whose previous session is provably gone adopts that binding's exact target and slot while the predecessor binding is re-keyed. A live predecessor or an ambiguous candidate set keeps ordinary provisioning.
