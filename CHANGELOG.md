@@ -2,10 +2,12 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
-## Unreleased
+## 0.36.0: Bundled Package Updates (2026-10-21)
 
 - `Automatic updates`: Replaces the dependency PR/approval step with validated direct-to-main adoption of stable same-major patch/minor releases. Exact pins, bundle aliases, lockfile, README and kit version remain synchronized; preparation stays read-only and a fresh data-only writer rejects unsafe payloads and concurrent main changes.
 - `Release handoff`: Explicitly dispatches the OIDC publisher with the committed SHA because GITHUB_TOKEN pushes do not trigger ordinary push workflows. The publisher rejects a different commit before tagging. No updates means no fabricated commit or release; existing untagged versions can retry a missed handoff. Major/prerelease and composition changes remain manual; packaging checks do not establish extension safety.
+- `Exact pins`: `@llblab/pi-actors` 0.54.0 → 0.55.0.
+- `Packaging`: Synchronizes the lockfile, bundle aliases and README inventory. Package membership and resource order remain unchanged; packed validation does not certify extension safety or installed-client behavior.
 
 ## 0.35.5: Reviewed Updates and OIDC Releases
 

@@ -1,6 +1,6 @@
 {
   "name": "@llblab/pi-kit",
-  "version": "0.35.5",
+  "version": "0.36.0",
   "private": false,
   "publishConfig": {
     "access": "public"
@@ -44,7 +44,7 @@
     "banner.jpg"
   ],
   "dependencies": {
-    "@llblab/pi-actors": "0.54.0",
+    "@llblab/pi-actors": "0.55.0",
     "@llblab/pi-claude-usage": "0.2.2",
     "@llblab/pi-clean-room": "0.3.0",
     "@llblab/pi-codex-usage": "0.13.1",
