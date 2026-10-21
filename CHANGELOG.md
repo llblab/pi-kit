@@ -5,8 +5,8 @@ All notable changes to `@llblab/pi-kit` are documented here.
 ## Unreleased
 
 - `Update preparation`: Adds daily/manual npm discovery and one human-reviewed update PR containing exact pins, both bundle aliases, regenerated lockfile, README inventory, kit version and changelog. Preparation is read-only without secrets or dependency hooks/bin links; a fresh write runner accepts only four checked data files. Major/prerelease updates and resource changes remain manual; failed validation prevents PR creation, and no auto-merge is enabled.
-- `Publication`: Replaces tag-triggered publication with a main-only publisher that reads the reviewed version, skips an unchanged latest tag, validates before a non-forced tag push, and publishes npm before the GitHub Release. Existing-version recovery requires matching tag/npm commit identity; public packed inventory remains verified.
-- `Review and evidence`: Adds automation regression tests, executable lock/bundle/tarball coherence checks, CODEOWNERS and maintainer setup/recovery guidance. Secrets and enforced main-branch review protection remain administrator-owned activation steps.
+- `Publication`: Replaces tag-triggered publication with a main-only npm Trusted Publisher using short-lived OIDC, without a persistent npm token. It reads the reviewed version, skips an unchanged latest tag, validates before a non-forced tag push, and publishes npm before the GitHub Release. Existing-version recovery requires matching tag/npm commit identity; public packed inventory remains verified. Stage-only permission is rejected, not silently substituted.
+- `Review and evidence`: Adds automation regression tests, executable lock/bundle/tarball coherence checks, CODEOWNERS and maintainer setup/recovery guidance. The npm trust binding and enforced main-branch review protection remain administrator-owned activation steps.
 
 ## 0.35.4: Telegram Session Thread Continuity
 

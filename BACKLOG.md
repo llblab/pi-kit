@@ -4,7 +4,8 @@ Package pins, resource order and bundled runtime ownership remain authoritative 
 
 ## Automation activation (administrator-owned)
 
-- Before relying on automated updates/publication, configure the repository settings and secrets described in [Update automation](./README.md#repository-setup-and-secrets): required human Code Owner approval, stale-approval dismissal, the `validate` PR check, no bypass/auto-merge, Actions PR creation permission and `NPM_TOKEN`. Add an automation-account `PI_KIT_PAT` only if downstream checks must trigger automatically. Local validation does not establish these remote settings.
+- Before relying on automated updates/publication, configure the repository settings described in [Update automation](./README.md#repository-setup-and-secrets): required human Code Owner approval, stale-approval dismissal, the `validate` PR check, no bypass/auto-merge and Actions PR creation permission. Add an automation-account `PI_KIT_PAT` only if downstream checks must trigger automatically. Local validation does not establish these remote settings.
+- **First OIDC publication:** The operator created the `publish-pi-kit.yml` npm trusted publisher on October 21, 2026. Confirm direct `npm publish` is permitted and complete the first successful workflow publication before **October 23, 2026 at 18:13 UTC** to validate that binding; otherwise recreate it. Keep the existing `release.yml` connection until success. No `NPM_TOKEN` is required.
 
 ## Carried checks
 
