@@ -14,6 +14,7 @@ concurrency:
 
 permissions:
   contents: write
+  id-token: write
 
 jobs:
   publish:
@@ -35,15 +36,9 @@ jobs:
       - name: Check whether the reviewed kit version needs publication
         id: state
         run: node scripts/publish-pi-kit.mjs check
-      - name: Require npm credentials before creating any tag
+      - name: Check the Trusted Publishing runtime before creating any tag
         if: steps.state.outputs.publish == 'true'
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: |
-          if [ -z "$NODE_AUTH_TOKEN" ]; then
-            echo 'Configure the NPM_TOKEN repository secret before publishing.' >&2
-            exit 1
-          fi
+        run: node scripts/publish-pi-kit.mjs preflight
       - name: Install exact dependencies without lifecycle hooks
         if: steps.state.outputs.publish == 'true'
         run: npm ci --ignore-scripts --bin-links=false
@@ -59,10 +54,8 @@ jobs:
           git tag "$TAG"
           auth=$(printf 'x-access-token:%s' "$RELEASE_TOKEN" | base64 -w0)
           git -c "http.https://github.com/.extraheader=AUTHORIZATION: basic $auth" push origin "refs/tags/$TAG"
-      - name: Publish the tagged package (verify identity on version conflict)
+      - name: Publish the tagged package through npm Trusted Publishing
         if: steps.state.outputs.publish == 'true'
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: node scripts/publish-pi-kit.mjs publish
       - name: Verify the public npm identity and packed inventory
         if: steps.state.outputs.publish == 'true'

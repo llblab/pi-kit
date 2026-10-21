@@ -30,6 +30,19 @@ export async function releaseState(root = process.cwd()) {
   return { publish: true, tag, version: manifest.version, latestTag };
 }
 
+export function verifyOidcEnvironment(env, npmVersion) {
+  const match = npmVersion.match(/^(\d+)\.(\d+)\.(\d+)$/);
+  assert.ok(match, "npm must report a stable CLI version");
+  const [major, minor, patch] = match.slice(1).map(Number);
+  assert.ok(major > 11 || (major === 11 && (minor > 5 || (minor === 5 && patch >= 1))), "npm Trusted Publishing requires npm >= 11.5.1");
+  assert.equal(env.GITHUB_ACTIONS, "true", "Trusted Publishing must run in GitHub Actions");
+  assert.equal(env.RUNNER_ENVIRONMENT, "github-hosted", "npm Trusted Publishing requires a GitHub-hosted runner");
+  assert.equal(env.GITHUB_REPOSITORY, "llblab/pi-kit");
+  assert.equal(env.GITHUB_REF, "refs/heads/main", "publish only from main");
+  assert.equal(env.GITHUB_WORKFLOW_REF, "llblab/pi-kit/.github/workflows/publish-pi-kit.yml@refs/heads/main", "the workflow identity must match the npm trusted publisher");
+  assert.ok(env.ACTIONS_ID_TOKEN_REQUEST_URL && env.ACTIONS_ID_TOKEN_REQUEST_TOKEN, "id-token: write must provide the OIDC request environment");
+}
+
 export function verifyExistingPublication({ tagCommit, headCommit, published, version }) {
   assert.equal(tagCommit, headCommit, "existing release tag must point at the current HEAD");
   assert.equal(published.version, version, "npm must contain the exact version");
@@ -91,10 +104,15 @@ async function main() {
     if (process.env.GITHUB_OUTPUT) await appendFile(process.env.GITHUB_OUTPUT, `publish=${state.publish}\nversion=${state.version}\ntag=${state.tag}\n`);
     return;
   }
+  if (command === "preflight") {
+    verifyOidcEnvironment(process.env, execute("npm", ["--version"]));
+    console.log("Trusted Publishing runtime preflight passed; npm authorization is confirmed only by publication.");
+    return;
+  }
   const manifest = JSON.parse(await readFile("package.json", "utf8"));
   if (command === "publish") publishNpm({ manifest });
   else if (command === "verify") await verifyPublicPackage(manifest);
-  else throw new Error("Usage: node scripts/publish-pi-kit.mjs check|publish|verify");
+  else throw new Error("Usage: node scripts/publish-pi-kit.mjs check|preflight|publish|verify");
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) await main();
