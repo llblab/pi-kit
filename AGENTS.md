@@ -27,6 +27,7 @@
 - Do not copy extension source, Skills, or documentation into this repository.
 - Preserve package independence: a kit release may advance any subset of included extensions without forcing lockstep extension releases.
 - Adding packages or newly exposed capabilities requires a kit minor bump. For updates to the existing composition, derive the kit version bump from the highest dependency bump in the synchronized release cohort: dependency patch-only updates require a kit patch bump, while any dependency minor update requires a kit minor bump. Do not let lower-level dependency bumps force a larger kit bump.
+- Automated dependency updates must remain reviewable PRs with a visible kit version bump; never auto-merge. Keep unreviewed preparation read-only and secret-free, isolate PR writes on a fresh runner, and accept only declared data artifacts without executing them. Publish only the reviewed main commit after clean validation, and never overwrite release tags.
 - Use English for public and repository-facing text.
 - Do not commit, publish, tag, create a remote repository, or mutate Pi settings without explicit authorization.
 

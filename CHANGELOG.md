@@ -2,6 +2,12 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## Unreleased
+
+- `Update preparation`: Adds daily/manual npm discovery and one human-reviewed update PR containing exact pins, both bundle aliases, regenerated lockfile, README inventory, kit version and changelog. Preparation is read-only without secrets or dependency hooks/bin links; a fresh write runner accepts only four checked data files. Major/prerelease updates and resource changes remain manual; failed validation prevents PR creation, and no auto-merge is enabled.
+- `Publication`: Replaces tag-triggered publication with a main-only publisher that reads the reviewed version, skips an unchanged latest tag, validates before a non-forced tag push, and publishes npm before the GitHub Release. Existing-version recovery requires matching tag/npm commit identity; public packed inventory remains verified.
+- `Review and evidence`: Adds automation regression tests, executable lock/bundle/tarball coherence checks, CODEOWNERS and maintainer setup/recovery guidance. Secrets and enforced main-branch review protection remain administrator-owned activation steps.
+
 ## 0.35.4: Telegram Session Thread Continuity
 
 - `Telegram pin`: Advances only the exact Telegram pin from `0.57.2` to `0.57.3`. A session replaced inside one Pi process now reuses its preserved Thread on every registration path instead of provisioning a second tab, and a new session registering in a folder whose previous session is provably gone adopts that binding's exact target and slot while the predecessor binding is re-keyed. A live predecessor or an ambiguous candidate set keeps ordinary provisioning.

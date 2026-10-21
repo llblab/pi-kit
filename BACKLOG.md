@@ -2,6 +2,10 @@
 
 Package pins, resource order and bundled runtime ownership remain authoritative in `package.json`. Release outcomes belong in [CHANGELOG.md](./CHANGELOG.md).
 
+## Automation activation (administrator-owned)
+
+- Before relying on automated updates/publication, configure the repository settings and secrets described in [Update automation](./README.md#repository-setup-and-secrets): required human Code Owner approval, stale-approval dismissal, the `validate` PR check, no bypass/auto-merge, Actions PR creation permission and `NPM_TOKEN`. Add an automation-account `PI_KIT_PAT` only if downstream checks must trigger automatically. Local validation does not establish these remote settings.
+
 ## Carried checks
 
 - **Installed 0.35.4 Telegram smoke (operator-owned):** After separately authorized kit installation/reload of every Pi process together, run `/telegram-new` in one follower instance and confirm the same Thread is reused with a new letter slot and title, with no second tab and no orphan left behind. Then restart that instance, open a new session in the same folder, and confirm it adopts the retained Thread instead of provisioning another. Do not erase accepted work or replay uncertain input. Packed validation does not certify installed clients.
