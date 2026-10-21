@@ -2,6 +2,11 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## Unreleased
+
+- `Automatic updates`: Replaces the dependency PR/approval step with validated direct-to-main adoption of stable same-major patch/minor releases. Exact pins, bundle aliases, lockfile, README and kit version remain synchronized; preparation stays read-only and a fresh data-only writer rejects unsafe payloads and concurrent main changes.
+- `Release handoff`: Explicitly dispatches the OIDC publisher with the committed SHA because GITHUB_TOKEN pushes do not trigger ordinary push workflows. The publisher rejects a different commit before tagging. No updates means no fabricated commit or release; existing untagged versions can retry a missed handoff. Major/prerelease and composition changes remain manual; packaging checks do not establish extension safety.
+
 ## 0.35.5: Reviewed Updates and OIDC Releases
 
 - `Update preparation`: Adds daily/manual npm discovery and one human-reviewed update PR containing exact pins, both bundle aliases, regenerated lockfile, README inventory, kit version and changelog. Preparation is read-only without secrets or dependency hooks/bin links; a fresh write runner accepts only four checked data files. Major/prerelease updates and resource changes remain manual; failed validation prevents PR creation, and no auto-merge is enabled.

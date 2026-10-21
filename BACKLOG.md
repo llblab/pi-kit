@@ -2,9 +2,9 @@
 
 Package pins, resource order and bundled runtime ownership remain authoritative in `package.json`. Release outcomes belong in [CHANGELOG.md](./CHANGELOG.md).
 
-## Automation activation (administrator-owned)
+## Automatic-update operations
 
-- Before relying on automated updates/publication, configure the repository settings described in [Update automation](./README.md#repository-setup-and-secrets): required human Code Owner approval, stale-approval dismissal, the `validate` PR check, no bypass/auto-merge and Actions PR creation permission. Add an automation-account `PI_KIT_PAT` only if downstream checks must trigger automatically. Local validation does not establish these remote settings.
+- **First changed-cohort smoke:** After the first live automatic pin update, confirm the four-file main commit, explicit `workflow_dispatch` to `publish-pi-kit.yml`, matching expected commit, and final npm/tag/GitHub Release identities. No-update runs and local bare-repository tests do not prove this hosted changed-cohort path. Do not fabricate an update or weaken branch protection for a smoke test; inspect the real run or disable the updater on failure.
 
 ## Carried checks
 

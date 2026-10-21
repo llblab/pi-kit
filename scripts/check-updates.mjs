@@ -69,40 +69,34 @@ export function synchronizeChangelog(changelog, plan, date) {
   return history.replace(heading, `${heading}${release}`);
 }
 
-export function pullRequestBody(plan, previousVersion, validated) {
+export function updateReport(plan, previousVersion, validated) {
   const packages = plan.updates.map(({ name, from, to }) => {
     const repository = `https://github.com/llblab/${name.split("/")[1]}`;
     return `| \`${name}\` | \`${from}\` → \`${to}\` | [Release](${repository}/releases/tag/v${to}) · [Compare](${repository}/compare/v${from}...v${to}) |`;
   });
   return [
-    "## Prepared dependency update",
+    "## Prepared automatic dependency update",
     "",
-    `Kit: \`${previousVersion}\` → \`${plan.version}\`. Package membership, pointer targets and resource order are unchanged; incompatible resource changes fail validation instead of being guessed.`,
+    `Kit: \`${previousVersion}\` → \`${plan.version}\`. Package membership, pointer targets and resource order are unchanged.`,
     "",
-    "| Package | Exact pin | Upstream review |",
+    "| Package | Exact pin | Upstream history |",
     "| --- | --- | --- |",
     ...packages,
     "",
     "## Why a custom updater, not Dependabot?",
     "",
-    "Direct npm registry discovery prepares one coherent review cohort: exact pins, both bundle aliases, a regenerated lockfile, the README inventory, kit version and changelog. Dependabot alone does not synchronize those kit-owned artifacts. No extra updater dependency, direct main commit or auto-merge is used.",
+    "Direct npm registry discovery synchronizes one exact-pin cohort: both bundle aliases, regenerated lockfile, README inventory, kit version and changelog. The live workflow commits the validated data directly to main and explicitly dispatches the OIDC publisher. No PR or manual approval is required for supported updates.",
     "",
     "## Validation",
     "",
     validated
-      ? "`npm install --ignore-scripts --bin-links=false`, then `npm ci --ignore-scripts --bin-links=false` and `npm run validate` passed in the read-only preparation job, including bundle/resource inventory checks. Dependency hooks and executable links were disabled. This is packaging evidence, not a security or live-client approval."
-      : "Plan only: installation and validation have NOT run; this report must not be used to open a ready PR.",
+      ? "`npm install --ignore-scripts --bin-links=false`, then `npm ci --ignore-scripts --bin-links=false` and `npm run validate` passed in read-only preparation. The fresh writer accepts only four data files; dependency hooks and executable links were disabled."
+      : "Discovery only: installation and validation have NOT run.",
+    "",
+    "Automatic adoption is an explicit maintainer policy, not a security finding. Extensions execute with the user's permissions; packaging checks and npm audit do not establish safety. Major/prerelease releases and composition/resource changes remain manual. Dry-runs do not commit or publish.",
     ...(plan.skipped.length ? ["", "## Manual follow-up", "", ...plan.skipped.map(item => `- ${item}`)] : []),
     "",
-    "## Maintainer review (required)",
-    "",
-    "See [Security](https://github.com/llblab/pi-kit/blob/main/README.md#security) and [Update automation](https://github.com/llblab/pi-kit/blob/main/README.md#update-automation).",
-    "",
-    "- [ ] Read every upstream release/changelog and compare; investigate breaking changes, especially pre-1.0 minor releases.",
-    "- [ ] Review source and new transitive dependencies, install hooks, workers and auxiliary-file resolution from import.meta.url; extensions run with the user's permissions.",
-    "- [ ] Check exact pins, both bundle aliases, lock integrity, README versions, kit bump and changelog; confirm no unreviewed capabilities or resources were added.",
-    "- [ ] Inspect successful validation logs and packed inventory; run any required isolated runtime/client smoke checks.",
-    "- [ ] Obtain a human approval and merge manually. Automation is not a safety decision; do not enable auto-merge.",
+    "See [Update automation](https://github.com/llblab/pi-kit/blob/main/README.md#update-automation) and [Security](https://github.com/llblab/pi-kit/blob/main/README.md#security).",
     "",
   ].join("\n");
 }
@@ -122,7 +116,7 @@ export async function prepareUpdates({ root = process.cwd(), lookup = latestVers
   const candidates = Object.fromEntries(await Promise.all(Object.keys(manifest.dependencies).map(async name => [name, await lookup(name)])));
   const plan = planUpdates(manifest, candidates);
   console.log(JSON.stringify(plan, null, 2));
-  if (planOnly || !plan.updates.length) return { ...plan, validated: false, body: pullRequestBody(plan, manifest.version, false) };
+  if (planOnly || !plan.updates.length) return { ...plan, validated: false, body: updateReport(plan, manifest.version, false) };
   const previousVersion = manifest.version;
   const readme = synchronizeReadme(await read("README.md"), plan.updates);
   const changelog = synchronizeChangelog(await read("CHANGELOG.md"), plan, date);
@@ -137,7 +131,7 @@ export async function prepareUpdates({ root = process.cwd(), lookup = latestVers
   await execute("npm", ["install", "--ignore-scripts", "--bin-links=false"]);
   await execute("npm", ["ci", "--ignore-scripts", "--bin-links=false"]);
   await execute("npm", ["run", "validate"]);
-  return { ...plan, validated: true, body: pullRequestBody(plan, previousVersion, true) };
+  return { ...plan, validated: true, body: updateReport(plan, previousVersion, true) };
 }
 
 export async function acceptPreparedUpdate({ root = process.cwd(), source }) {
@@ -167,16 +161,35 @@ export async function acceptPreparedUpdate({ root = process.cwd(), source }) {
   assert.equal(contents["CHANGELOG.md"], synchronizeChangelog(await readFile(resolve(root, "CHANGELOG.md"), "utf8"), plan, date), "changelog changes must match the prepared cohort");
   // The privileged job handles data only: never install or execute anything from the artifact.
   for (const file of files) await writeFile(resolve(root, file), contents[file]);
-  return { ...plan, validated: true, date, body: pullRequestBody(plan, base.version, true) };
+  return { ...plan, validated: true, date, body: updateReport(plan, base.version, true) };
+}
+
+export async function applyPreparedUpdate({ root = process.cwd(), source, git } = {}) {
+  const invoke = git ?? ((...args) => execFileSync("git", args, { cwd: root, encoding: "utf8", stdio: ["pipe", "pipe", "pipe"] }).trim());
+  assert.equal(invoke("status", "--porcelain", "--untracked-files=no"), "", "the writer checkout must have no tracked changes");
+  const baseCommit = invoke("rev-parse", "HEAD");
+  invoke("fetch", "origin", "main");
+  assert.equal(invoke("rev-parse", "refs/remotes/origin/main"), baseCommit, "main changed; prepare again instead of overwriting newer work");
+  const result = await acceptPreparedUpdate({ root, source });
+  invoke("add", "--", "package.json", "package-lock.json", "README.md", "CHANGELOG.md");
+  invoke("-c", "user.name=github-actions[bot]", "-c", "user.email=41898282+github-actions[bot]@users.noreply.github.com", "commit", "-m", `chore(deps): bump pi-kit packages ${result.date}`);
+  const commit = invoke("rev-parse", "HEAD");
+  // A concurrent main update must reject the normal push; never force or rebase.
+  invoke("push", "origin", "HEAD:refs/heads/main");
+  return { ...result, commit };
 }
 
 async function main() {
+  const applyIndex = process.argv.indexOf("--apply-prepared");
   const acceptIndex = process.argv.indexOf("--accept-prepared");
-  const result = acceptIndex >= 0
-    ? await acceptPreparedUpdate({ source: process.argv[acceptIndex + 1] })
-    : await prepareUpdates({ planOnly: process.argv.includes("--plan") });
-  if (process.env.GITHUB_STEP_SUMMARY) await appendFile(process.env.GITHUB_STEP_SUMMARY, result.body);
-  if (process.env.PR_BODY_PATH) await writeFile(process.env.PR_BODY_PATH, result.body);
+  const result = applyIndex >= 0
+    ? await applyPreparedUpdate({ source: process.argv[applyIndex + 1] })
+    : acceptIndex >= 0
+      ? await acceptPreparedUpdate({ source: process.argv[acceptIndex + 1] })
+      : await prepareUpdates({ planOnly: process.argv.includes("--plan") });
+  const report = result.body + (result.commit ? `\nApplied commit: \`${result.commit}\`. Publication is a separate workflow.\n` : "");
+  if (process.env.GITHUB_STEP_SUMMARY) await appendFile(process.env.GITHUB_STEP_SUMMARY, report);
+  if (process.env.UPDATE_REPORT_PATH) await writeFile(process.env.UPDATE_REPORT_PATH, report);
   if (process.env.GITHUB_OUTPUT) await appendFile(process.env.GITHUB_OUTPUT, `changed=${result.validated}\ndate=${result.date ?? new Date().toISOString().slice(0, 10)}\n`);
 }
 

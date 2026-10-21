@@ -64,6 +64,20 @@ test("new releases use version sorting, support the first release, and never dow
   await assert.rejects(releaseState(root), /older than/);
 });
 
+test("dispatch requests are bound to one exact commit even when the version would no-op", async t => {
+  const { root, git } = await fixture(t);
+  const original = git("rev-parse", "HEAD");
+  assert.equal((await releaseState(root, original)).publish, true);
+  for (const expected of ["main", original.slice(0, 7), "x".repeat(40)]) await assert.rejects(releaseState(root, expected), /full Git SHA/);
+  git("tag", "v0.35.4");
+  git("-c", "user.name=Fixture", "-c", "user.email=fixture@example.invalid", "commit", "--allow-empty", "-m", "New main tip");
+  await assert.rejects(releaseState(root, original), /main moved/);
+  assert.equal((await releaseState(root, git("rev-parse", "HEAD"))).publish, false);
+  assert.throws(() => execFileSync(process.execPath, [fileURLToPath(new URL("../scripts/publish-pi-kit.mjs", import.meta.url)), "check"], {
+    cwd: root, stdio: "pipe", env: { ...process.env, EXPECTED_COMMIT: original },
+  }), /main moved/);
+});
+
 test("OIDC preflight requires a supported npm and the exact hosted main-workflow identity", () => {
   const env = {
     GITHUB_ACTIONS: "true", RUNNER_ENVIRONMENT: "github-hosted", GITHUB_REPOSITORY: "llblab/pi-kit",
@@ -84,6 +98,7 @@ test("OIDC preflight requires a supported npm and the exact hosted main-workflow
 test("the publisher requests OIDC instead of npm secrets and preflights before any tag", async () => {
   const workflow = await readFile(new URL("../.github/workflows/publish-pi-kit.yml", import.meta.url), "utf8");
   assert.match(workflow, /id-token: write/);
+  assert.match(workflow, /EXPECTED_COMMIT: \$\{\{ inputs\.expected_commit \}\}/);
   assert.match(workflow, /runs-on: ubuntu-latest/);
   assert.ok(!workflow.includes("NPM_TOKEN"));
   assert.ok(!workflow.includes("NODE_AUTH_TOKEN"));

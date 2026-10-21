@@ -7,6 +7,13 @@ on:
     paths:
       - package.json
   workflow_dispatch:
+    inputs:
+      expected_commit:
+        description: Optional exact main commit requested by the automatic updater
+        type: string
+        default: ''
+
+run-name: Publish pi-kit ${{ inputs.expected_commit || github.sha }}
 
 concurrency:
   group: pi-kit-publish
@@ -33,8 +40,10 @@ jobs:
           node-version: 24
           registry-url: https://registry.npmjs.org
           package-manager-cache: false
-      - name: Check whether the reviewed kit version needs publication
+      - name: Check whether the exact main kit version needs publication
         id: state
+        env:
+          EXPECTED_COMMIT: ${{ inputs.expected_commit }}
         run: node scripts/publish-pi-kit.mjs check
       - name: Check the Trusted Publishing runtime before creating any tag
         if: steps.state.outputs.publish == 'true'
