@@ -186,6 +186,30 @@ test("artifact intake rejects extra paths, symlinks, executable manifest changes
   }
 });
 
+test("artifact intake rejects a coherent mixed upgrade/downgrade even when its report hides the rollback", async t => {
+  const { root, source } = await preparedFixture(t);
+  const other = "@llblab/skills";
+  for (const [directory, version] of [[root, "1.15.0"], [source, "1.14.0"]]) {
+    const pkg = JSON.parse(await readFile(join(directory, "package.json")));
+    pkg.dependencies[other] = version;
+    pkg.bundledDependencies.push(other);
+    pkg.bundleDependencies.push(other);
+    const pkgLock = JSON.parse(await readFile(join(directory, "package-lock.json")));
+    pkgLock.packages[""].dependencies = pkg.dependencies;
+    pkgLock.packages[""].bundleDependencies.push(other);
+    pkgLock.packages[`node_modules/${other}`] = { version, inBundle: true };
+    await writeFile(join(directory, "package.json"), JSON.stringify(pkg));
+    await writeFile(join(directory, "package-lock.json"), JSON.stringify(pkgLock));
+    const inventory = await readFile(join(directory, "README.md"), "utf8");
+    await writeFile(join(directory, "README.md"), `${inventory}| [\`${other}\`](https://github.com/llblab/skills) | \`1.15.0\` | Skills |\n`);
+    validateCoherence(pkg, pkgLock);
+  }
+  const files = ["package.json", "package-lock.json", "README.md", "CHANGELOG.md"];
+  const before = await Promise.all(files.map(file => readFile(join(root, file), "utf8")));
+  await assert.rejects(acceptPreparedUpdate({ root, source }), /only the reported upgrades/);
+  assert.deepEqual(await Promise.all(files.map(file => readFile(join(root, file), "utf8"))), before);
+});
+
 test("dependency node/npm bins cannot shadow validation commands when install and ci disable binary links", async t => {
   const root = await fixture(t);
   const hostile = join(root, "hostile");

@@ -157,6 +157,9 @@ export async function acceptPreparedUpdate({ root = process.cwd(), source }) {
   assert.deepEqual({ ...candidate, version: base.version, dependencies: base.dependencies, bundledDependencies: base.bundledDependencies, bundleDependencies: base.bundleDependencies }, base, "prepared manifests may change only the kit version and exact pins");
   const plan = planUpdates(base, candidate.dependencies);
   assert.ok(plan.updates.length > 0 && plan.skipped.length === 0, "prepared pins must be an allowed patch/minor cohort");
+  const expectedDependencies = { ...base.dependencies };
+  for (const { name, to } of plan.updates) expectedDependencies[name] = to;
+  assert.deepEqual(candidate.dependencies, expectedDependencies, "prepared pins must contain only the reported upgrades");
   assert.equal(candidate.version, plan.version, "prepared kit bump must match the cohort");
   const date = contents["CHANGELOG.md"].match(new RegExp(`^## ${plan.version.replaceAll(".", "\\.")}: Bundled Package Updates \\((\\d{4}-\\d{2}-\\d{2})\\)`, "m"))?.[1];
   assert.ok(date && new Date(date).toISOString().slice(0, 10) === date, "prepared release date must be an ISO day");
