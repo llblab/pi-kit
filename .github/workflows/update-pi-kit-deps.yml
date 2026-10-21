@@ -1,0 +1,70 @@
+name: Update pi-kit dependencies
+
+on:
+  schedule:
+    - cron: '0 3 * * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: Prepare and validate the full diff without creating or updating a PR
+        type: boolean
+        default: true
+
+concurrency:
+  group: pi-kit-dependency-update
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  prepare:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out main without persistent credentials
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7
+        with:
+          persist-credentials: false
+      - name: Set up Node.js
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1  # v7
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+          package-manager-cache: false
+      - name: Discover, synchronize, install and validate updates
+        id: prepare
+        env:
+          PR_BODY_PATH: ${{ runner.temp }}/pi-kit-update-body.md
+        run: node scripts/check-updates.mjs
+      - name: Show the complete prepared diff
+        if: steps.prepare.outputs.changed == 'true'
+        run: git diff -- package.json package-lock.json README.md CHANGELOG.md
+      - name: Ensure PR labels exist
+        if: steps.prepare.outputs.changed == 'true' && !inputs.dry_run
+        env:
+          GH_TOKEN: ${{ secrets.PI_KIT_PAT || github.token }}
+        run: |
+          gh label create dependencies --color 0366d6 --description 'Dependency updates' --force
+          gh label create automated --color ededed --description 'Prepared by automation; human review required' --force
+      - name: Open or refresh the review PR (never merge)
+        if: steps.prepare.outputs.changed == 'true' && !inputs.dry_run
+        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1  # v8.1.1
+        with:
+          token: ${{ secrets.PI_KIT_PAT || github.token }}
+          base: main
+          branch: chore/pi-kit-deps
+          delete-branch: true
+          commit-message: 'chore(deps): bump pi-kit packages ${{ steps.prepare.outputs.date }}'
+          title: 'chore(deps): bump pi-kit packages ${{ steps.prepare.outputs.date }}'
+          body-path: ${{ runner.temp }}/pi-kit-update-body.md
+          labels: |
+            dependencies
+            automated
+          add-paths: |
+            package.json
+            package-lock.json
+            README.md
+            CHANGELOG.md
