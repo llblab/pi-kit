@@ -46,7 +46,7 @@ jobs:
           fi
       - name: Install exact dependencies without lifecycle hooks
         if: steps.state.outputs.publish == 'true'
-        run: npm ci --ignore-scripts
+        run: npm ci --ignore-scripts --bin-links=false
       - name: Validate the clean checkout and packed inventory
         if: steps.state.outputs.publish == 'true'
         run: npm run validate

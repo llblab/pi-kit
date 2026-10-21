@@ -29,6 +29,6 @@ jobs:
           registry-url: https://registry.npmjs.org
           package-manager-cache: false
       - name: Install exact dependencies without lifecycle hooks
-        run: npm ci --ignore-scripts
+        run: npm ci --ignore-scripts --bin-links=false
       - name: Validate package and packed inventory
         run: npm run validate
