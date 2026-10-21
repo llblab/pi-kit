@@ -4,7 +4,7 @@ import { lstat, mkdtemp, mkdir, readFile, rm, symlink, writeFile } from "node:fs
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { test } from "node:test";
-import { acceptPreparedUpdate, planUpdates, prepareUpdates, synchronizeChangelog, synchronizeReadme } from "../scripts/check-updates.mjs";
+import { acceptPreparedUpdate, applyPreparedUpdate, planUpdates, prepareUpdates, synchronizeChangelog, synchronizeReadme } from "../scripts/check-updates.mjs";
 import { validateCoherence, validatePack } from "../scripts/validate.mjs";
 
 const name = "@llblab/pi-example";
@@ -85,7 +85,7 @@ test("plan-only and no-update runs leave every tracked artifact untouched and ru
   assert.deepEqual(await Promise.all(files.map(file => readFile(join(root, file), "utf8"))), before);
 });
 
-test("a prepared PR has the complete coherent diff and is ready only after install, clean install and validation", async t => {
+test("a prepared update has the complete coherent diff only after install, clean install and validation", async t => {
   const root = await fixture(t);
   const commands = [];
   const result = await prepareUpdates({ ...options(root), run: async (command, args) => {
@@ -112,10 +112,10 @@ test("a prepared PR has the complete coherent diff and is ready only after insta
   assert.match(result.body, /releases\/tag\/v0\.2\.4/);
   assert.match(result.body, /npm run validate.*passed/);
   assert.match(result.body, /Why a custom updater, not Dependabot/);
-  assert.match(result.body, /human approval/);
+  assert.match(result.body, /No PR or manual approval is required/);
 });
 
-test("install or validation failure never returns a PR-ready result", async t => {
+test("install or validation failure never returns an applicable update", async t => {
   for (const failure of ["install", "ci", "run"]) {
     const root = await fixture(t);
     const commands = [];
@@ -149,7 +149,74 @@ async function preparedFixture(t) {
   return { root, source };
 }
 
-test("the fresh privileged runner accepts only prepared data and regenerates the PR report", async t => {
+async function writerFixture(t) {
+  const { root, source } = await preparedFixture(t);
+  const remote = await mkdtemp(join(tmpdir(), "pi-kit-main-"));
+  t.after(() => rm(remote, { recursive: true, force: true }));
+  execFileSync("git", ["init", "--bare", "--initial-branch=main", remote], { stdio: "pipe" });
+  const git = (...args) => execFileSync("git", args, { cwd: root, encoding: "utf8", stdio: ["pipe", "pipe", "pipe"] }).trim();
+  git("init", "--initial-branch=main");
+  git("add", "--", "package.json", "package-lock.json", "README.md", "CHANGELOG.md");
+  git("-c", "user.name=Fixture", "-c", "user.email=fixture@example.invalid", "commit", "-m", "Baseline");
+  git("remote", "add", "origin", remote);
+  git("push", "--set-upstream", "origin", "main");
+  return { root, source, remote, git };
+}
+
+test("the direct writer commits exactly the accepted four files and normally pushes main", async t => {
+  const { root, source, remote, git } = await writerFixture(t);
+  const base = git("rev-parse", "HEAD");
+  const result = await applyPreparedUpdate({ root, source });
+  assert.equal(result.commit, git("rev-parse", "HEAD"));
+  assert.equal(git("--git-dir", remote, "rev-parse", "refs/heads/main"), result.commit);
+  assert.equal(git("rev-parse", "HEAD^"), base);
+  assert.deepEqual(git("diff-tree", "--no-commit-id", "--name-only", "-r", "HEAD").split("\n"), ["CHANGELOG.md", "README.md", "package-lock.json", "package.json"]);
+  assert.equal(git("log", "-1", "--format=%an"), "github-actions[bot]");
+  assert.equal(git("status", "--porcelain", "--untracked-files=no"), "");
+});
+
+test("a main update before intake rejects the stale artifact before writing any tracked file", async t => {
+  const { root, source, remote, git } = await writerFixture(t);
+  const base = git("rev-parse", "HEAD");
+  git("-c", "user.name=Fixture", "-c", "user.email=fixture@example.invalid", "commit", "--allow-empty", "-m", "New main tip");
+  const advanced = git("rev-parse", "HEAD");
+  git("push", "origin", "HEAD:refs/heads/main");
+  git("checkout", "--detach", base);
+  await assert.rejects(applyPreparedUpdate({ root, source }), /main changed/);
+  assert.equal(git("rev-parse", "HEAD"), base);
+  assert.equal(git("--git-dir", remote, "rev-parse", "refs/heads/main"), advanced);
+  assert.equal(git("status", "--porcelain", "--untracked-files=no"), "");
+});
+
+test("a main update racing the push is never forced over or rebased", async t => {
+  const { root, source, remote, git } = await writerFixture(t);
+  const base = git("rev-parse", "HEAD");
+  let competingCommit;
+  await assert.rejects(applyPreparedUpdate({ root, source, git: (...args) => {
+    if (args[0] === "push") {
+      assert.deepEqual(args, ["push", "origin", "HEAD:refs/heads/main"]);
+      competingCommit = git("--git-dir", remote, "-c", "user.name=Fixture", "-c", "user.email=fixture@example.invalid", "commit-tree", `${base}^{tree}`, "-p", base, "-m", "Concurrent main tip");
+      git("--git-dir", remote, "update-ref", "refs/heads/main", competingCommit, base);
+    }
+    return git(...args);
+  } }), /rejected|fetch first|non-fast-forward|failed to push/);
+  assert.equal(git("--git-dir", remote, "rev-parse", "refs/heads/main"), competingCommit);
+});
+
+test("dirty checkouts and unsafe artifacts never become direct main commits", async t => {
+  for (const unsafeArtifact of [false, true]) {
+    const { root, source, remote, git } = await writerFixture(t);
+    const base = git("rev-parse", "HEAD");
+    if (unsafeArtifact) await writeFile(join(source, "untrusted.sh"), "not accepted");
+    else await writeFile(join(root, "README.md"), "pre-existing tracked work");
+    await assert.rejects(applyPreparedUpdate({ root, source }));
+    assert.equal(git("rev-parse", "HEAD"), base);
+    assert.equal(git("--git-dir", remote, "rev-parse", "refs/heads/main"), base);
+    if (unsafeArtifact) assert.equal(git("status", "--porcelain", "--untracked-files=no"), "");
+  }
+});
+
+test("the fresh privileged runner accepts only prepared data and regenerates the update report", async t => {
   const { root, source } = await preparedFixture(t);
   const result = await acceptPreparedUpdate({ root, source });
   assert.equal(result.date, "2026-01-02");
@@ -225,19 +292,22 @@ test("dependency node/npm bins cannot shadow validation commands when install an
   }
 });
 
-test("dependency preparation is secret-free/read-only and PR writing uses a fresh runner without installing anything", async () => {
+test("read-only preparation and a fresh data-only writer explicitly dispatch publication without PRs", async () => {
   const workflow = await readFile(new URL("../.github/workflows/update-pi-kit-deps.yml", import.meta.url), "utf8");
-  const [preparation, writer] = workflow.split("\n  pull-request:\n");
-  assert.ok(writer, "PR writing must be a separate job");
+  const [preparation, writer] = workflow.split("\n  apply-update:\n");
+  assert.ok(writer, "main writing must be a separate job");
   assert.match(preparation, /permissions:\n      contents: read/);
   assert.ok(!preparation.includes("secrets."));
   assert.ok(!preparation.includes("contents: write"));
   assert.match(writer, /needs: prepare/);
-  assert.match(writer, /contents: write\n      pull-requests: write/);
+  assert.match(writer, /if: \$\{\{ !inputs\.dry_run \}\}/);
+  assert.match(writer, /contents: write\n      actions: write/);
   assert.ok(writer.includes("ref: ${{ github.sha }}"));
   assert.match(writer, /actions\/download-artifact/);
-  assert.match(writer, /--accept-prepared/);
+  assert.match(writer, /--apply-prepared/);
+  assert.match(writer, /gh workflow run publish-pi-kit\.yml --ref main -f expected_commit=/);
   assert.ok(!/run:.*npm |run:.*npm$/.test(writer));
+  for (const forbidden of ["create-pull-request", "pull-requests: write", "gh pr ", "PI_KIT_PAT", "--force"]) assert.ok(!workflow.includes(forbidden));
 });
 
 test("coherence rejects ranges, bundle omissions, lock drift and wrong kit versions", () => {

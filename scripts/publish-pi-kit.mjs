@@ -10,7 +10,11 @@ function execute(command, args, options = {}) {
   return execFileSync(command, args, { encoding: "utf8", maxBuffer: 10 * 1024 * 1024, ...options }).trim();
 }
 
-export async function releaseState(root = process.cwd()) {
+export async function releaseState(root = process.cwd(), expectedCommit = "") {
+  if (expectedCommit) {
+    assert.match(expectedCommit, /^[0-9a-f]{40}$/, "expected commit must be a full Git SHA");
+    assert.equal(execute("git", ["rev-parse", "HEAD"], { cwd: root }), expectedCommit, "main moved after the publication request; do not publish another commit");
+  }
   const manifest = JSON.parse(await readFile(resolve(root, "package.json"), "utf8"));
   const lock = JSON.parse(await readFile(resolve(root, "package-lock.json"), "utf8"));
   validateCoherence(manifest, lock);
@@ -99,7 +103,7 @@ async function verifyPublicPackage(manifest) {
 async function main() {
   const command = process.argv[2];
   if (command === "check") {
-    const state = await releaseState();
+    const state = await releaseState(process.cwd(), process.env.EXPECTED_COMMIT ?? "");
     console.log(state.publish ? `Release required: ${state.tag} (latest tag: ${state.latestTag || "none"}).` : `${state.tag} is already the latest tag; nothing to publish.`);
     if (process.env.GITHUB_OUTPUT) await appendFile(process.env.GITHUB_OUTPUT, `publish=${state.publish}\nversion=${state.version}\ntag=${state.tag}\n`);
     return;

@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       dry_run:
-        description: Prepare and validate the full diff without creating or updating a PR
+        description: Prepare and validate without committing to main or publishing
         type: boolean
         default: true
 
@@ -40,7 +40,7 @@ jobs:
       - name: Discover, synchronize, install and validate updates
         id: prepare
         env:
-          PR_BODY_PATH: ${{ runner.temp }}/pi-kit-update-body.md
+          UPDATE_REPORT_PATH: ${{ runner.temp }}/pi-kit-update-report.md
         run: node scripts/check-updates.mjs
       - name: Show the complete prepared diff
         if: steps.prepare.outputs.changed == 'true'
@@ -58,19 +58,20 @@ jobs:
             README.md
             CHANGELOG.md
 
-  pull-request:
+  apply-update:
     needs: prepare
-    if: needs.prepare.outputs.changed == 'true' && !inputs.dry_run
+    if: ${{ !inputs.dry_run }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
       contents: write
-      pull-requests: write
+      actions: write
     steps:
       - name: Check out the trusted base on a fresh runner
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7
         with:
           ref: ${{ github.sha }}
+          fetch-depth: 0
           persist-credentials: false
       - name: Set up Node.js without installing dependencies
         uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1  # v7
@@ -78,37 +79,37 @@ jobs:
           node-version: 24
           package-manager-cache: false
       - name: Download this run's prepared data outside the checkout
+        if: needs.prepare.outputs.changed == 'true'
         uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333  # v8
         with:
           name: prepared-pi-kit-update
           path: ${{ runner.temp }}/pi-kit-prepared
-      - name: Accept only the expected pin, inventory and changelog changes
-        id: accept
+      - name: Validate the data and commit only the allowed update to main
+        if: needs.prepare.outputs.changed == 'true'
         env:
+          GH_TOKEN: ${{ github.token }}
           PREPARED_PATH: ${{ runner.temp }}/pi-kit-prepared
-          PR_BODY_PATH: ${{ runner.temp }}/pi-kit-update-body.md
-        run: node scripts/check-updates.mjs --accept-prepared "$PREPARED_PATH"
-      - name: Ensure PR labels exist
-        env:
-          GH_TOKEN: ${{ secrets.PI_KIT_PAT || github.token }}
+          UPDATE_REPORT_PATH: ${{ runner.temp }}/pi-kit-update-report.md
         run: |
-          gh label create dependencies --color 0366d6 --description 'Dependency updates' --force
-          gh label create automated --color ededed --description 'Prepared by automation; human review required' --force
-      - name: Open or refresh the review PR (never merge)
-        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1  # v8.1.1
-        with:
-          token: ${{ secrets.PI_KIT_PAT || github.token }}
-          base: main
-          branch: chore/pi-kit-deps
-          delete-branch: true
-          commit-message: 'chore(deps): bump pi-kit packages ${{ steps.accept.outputs.date }}'
-          title: 'chore(deps): bump pi-kit packages ${{ steps.accept.outputs.date }}'
-          body-path: ${{ runner.temp }}/pi-kit-update-body.md
-          labels: |
-            dependencies
-            automated
-          add-paths: |
-            package.json
-            package-lock.json
-            README.md
-            CHANGELOG.md
+          gh auth setup-git --hostname github.com
+          node scripts/check-updates.mjs --apply-prepared "$PREPARED_PATH"
+      - name: Check for a main version awaiting publication
+        id: publication
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git fetch origin main
+          if [ "$(git rev-parse HEAD)" != "$(git rev-parse origin/main)" ]; then
+            echo 'main changed; stop rather than publish an unexpected commit.' >&2
+            exit 1
+          fi
+          node scripts/publish-pi-kit.mjs check
+          echo "commit=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+      - name: Explicitly dispatch the OIDC publisher for this exact commit
+        if: steps.publication.outputs.publish == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EXPECTED_COMMIT: ${{ steps.publication.outputs.commit }}
+        run: |
+          gh workflow run publish-pi-kit.yml --ref main -f expected_commit="$EXPECTED_COMMIT"
+          echo 'Publication requested; follow the Publish pi-kit workflow for the result.' >> "$GITHUB_STEP_SUMMARY"
