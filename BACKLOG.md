@@ -2,10 +2,6 @@
 
 Package pins, resource order and bundled runtime ownership remain authoritative in `package.json`. Release outcomes belong in [CHANGELOG.md](./CHANGELOG.md).
 
-## Automatic-update operations
-
-- **First changed-cohort smoke:** After the first live automatic pin update, confirm the four-file main commit, explicit `workflow_dispatch` to `publish-pi-kit.yml`, matching expected commit, and final npm/tag/GitHub Release identities. No-update runs and local bare-repository tests do not prove this hosted changed-cohort path. Do not fabricate an update or weaken branch protection for a smoke test; inspect the real run or disable the updater on failure.
-
 ## Carried checks
 
 - **Installed 0.35.4 Telegram smoke (operator-owned):** After separately authorized kit installation/reload of every Pi process together, run `/telegram-new` in one follower instance and confirm the same Thread is reused with a new letter slot and title, with no second tab and no orphan left behind. Then restart that instance, open a new session in the same folder, and confirm it adopts the retained Thread instead of provisioning another. Do not erase accepted work or replay uncertain input. Packed validation does not certify installed clients.
