@@ -27,7 +27,7 @@ Versions are exact by design. An upstream release does not change an installed k
 
 Requires **Pi 1.0.0+** and **Node.js 22.19.0+**. State Flow requires its canonical checkpoint/tail storage format and does not convert unsupported stores in place. Preserve existing stores and consult the [owning package's storage guidance](https://github.com/llblab/pi-state-flow/blob/v0.26.5/docs/usage.md#moving-a-store-and-supported-formats) before changing installations.
 
-From npm:
+From NPM:
 
 ```bash
 pi install npm:@llblab/pi-kit
