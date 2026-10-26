@@ -17,7 +17,7 @@ Package links lead to the owning repositories for usage, documentation, issues, 
 | [`@llblab/pi-clean-room`](https://github.com/llblab/pi-clean-room) | `0.3.0` | Isolated nested Pi TUI with named npm extensions and compatible model selection |
 | [`@llblab/pi-codex-usage`](https://github.com/llblab/pi-codex-usage) | `0.13.2` | OpenAI/legacy Codex subscription quota and Business credit status, with persistent priority Fast toggle mirrored in Telegram |
 | [`@llblab/pi-grow-loop`](https://github.com/llblab/pi-grow-loop) | `0.9.0` | Visible continuation scheduling and bounded worker Skills through compiled, manifest-owned resources |
-| [`@llblab/pi-state-flow`](https://github.com/llblab/pi-state-flow) | `0.26.5` | Scoped context/memory compiler with step-independent current memory, stable Passive/Active modes and visible blocked-state status |
+| [`@llblab/pi-state-flow`](https://github.com/llblab/pi-state-flow) | `0.27.1` | Scoped context/memory compiler with step-independent current memory, stable Passive/Active modes and visible blocked-state status |
 | [`@llblab/pi-telegram`](https://github.com/llblab/pi-telegram) | `0.58.3` | Telegram companion with per-prompt Steer, queued controls, Reroute/Restore, recoverable connections, previews, follower Threads, files, and voice |
 | [`@llblab/skills`](https://github.com/llblab/skills) | `1.15.0` | Portable workflows for engineering, review, design, context maintenance, and other focused tasks |
 
@@ -25,7 +25,7 @@ Versions are exact by design. An upstream release does not change an installed k
 
 ## Install
 
-Requires **Pi 1.0.0+** and **Node.js 22.19.0+**. State Flow requires its canonical checkpoint/tail storage format and does not convert unsupported stores in place. Preserve existing stores and consult the [owning package's storage guidance](https://github.com/llblab/pi-state-flow/blob/v0.26.5/docs/usage.md#moving-a-store-and-supported-formats) before changing installations.
+Requires **Pi 1.0.0+** and **Node.js 22.19.0+**. State Flow requires its canonical checkpoint/tail storage format and does not convert unsupported stores in place. Preserve existing stores and consult the [owning package's storage guidance](https://github.com/llblab/pi-state-flow/blob/v0.27.1/docs/usage.md#moving-a-store-and-supported-formats) before changing installations.
 
 From NPM:
 
