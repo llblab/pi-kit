@@ -2,6 +2,11 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.38.1: Bundled Package Updates (2026-10-29)
+
+- `Exact pins`: `@llblab/pi-claude-usage` 0.2.3 → 0.2.4; `@llblab/pi-clean-room` 0.3.0 → 0.3.1.
+- `Packaging`: Synchronizes the lockfile, bundle aliases and README inventory. Package membership and resource order remain unchanged; packed validation does not certify extension safety or installed-client behavior.
+
 ## 0.38.0: Bundled Package Updates (2026-10-26)
 
 - `Exact pins`: `@llblab/pi-state-flow` 0.26.5 → 0.27.1.

@@ -1,6 +1,6 @@
 {
   "name": "@llblab/pi-kit",
-  "version": "0.38.0",
+  "version": "0.38.1",
   "private": false,
   "publishConfig": {
     "access": "public"
@@ -45,8 +45,8 @@
   ],
   "dependencies": {
     "@llblab/pi-actors": "0.55.0",
-    "@llblab/pi-claude-usage": "0.2.3",
-    "@llblab/pi-clean-room": "0.3.0",
+    "@llblab/pi-claude-usage": "0.2.4",
+    "@llblab/pi-clean-room": "0.3.1",
     "@llblab/pi-codex-usage": "0.13.2",
     "@llblab/pi-grow-loop": "0.9.0",
     "@llblab/pi-state-flow": "0.27.1",
