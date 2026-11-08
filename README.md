@@ -15,7 +15,7 @@ Package links lead to the owning repositories for usage, documentation, issues, 
 | [`@llblab/pi-actors`](https://github.com/llblab/pi-actors) | `0.55.0` | Inspectable local Runs, reusable Recipes, persistent tools, and delegation Skills |
 | [`@llblab/pi-claude-usage`](https://github.com/llblab/pi-claude-usage) | `0.2.5` | Claude subscription quota status and shared per-model Fast toggle for Opus, mirrored in Telegram |
 | [`@llblab/pi-clean-room`](https://github.com/llblab/pi-clean-room) | `0.3.1` | Isolated nested Pi TUI with named npm extensions and compatible model selection |
-| [`@llblab/pi-codex-usage`](https://github.com/llblab/pi-codex-usage) | `0.13.2` | OpenAI/legacy Codex subscription quota and Business credit status, with persistent priority Fast toggle mirrored in Telegram |
+| [`@llblab/pi-codex-usage`](https://github.com/llblab/pi-codex-usage) | `0.13.4` | OpenAI/legacy Codex subscription quota and Business credit status, with persistent priority Fast toggle mirrored in Telegram |
 | [`@llblab/pi-grow-loop`](https://github.com/llblab/pi-grow-loop) | `0.9.0` | Visible continuation scheduling and bounded worker Skills through compiled, manifest-owned resources |
 | [`@llblab/pi-state-flow`](https://github.com/llblab/pi-state-flow) | `0.27.4` | Scoped context/memory compiler with step-independent current memory, stable Passive/Active modes and visible blocked-state status |
 | [`@llblab/pi-telegram`](https://github.com/llblab/pi-telegram) | `0.58.3` | Telegram companion with per-prompt Steer, queued controls, Reroute/Restore, recoverable connections, previews, follower Threads, files, and voice |
