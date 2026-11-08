@@ -2,6 +2,11 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.39.0: Bundled Package Updates (2026-11-08)
+
+- `Exact pins`: `@llblab/pi-actors` 0.55.0 → 0.56.0.
+- `Packaging`: Synchronizes the lockfile, bundle aliases and README inventory. Package membership and resource order remain unchanged; packed validation does not certify extension safety or installed-client behavior.
+
 ## 0.38.4: Bundled Package Updates (2026-11-08)
 
 - `Exact pins`: `@llblab/pi-codex-usage` 0.13.2 → 0.13.4.
