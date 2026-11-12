@@ -1,6 +1,6 @@
 {
   "name": "@llblab/pi-kit",
-  "version": "0.41.0",
+  "version": "0.42.0",
   "private": false,
   "publishConfig": {
     "access": "public"
@@ -44,14 +44,14 @@
     "banner.jpg"
   ],
   "dependencies": {
-    "@llblab/pi-actors": "0.57.1",
+    "@llblab/pi-actors": "0.58.0",
     "@llblab/pi-claude-usage": "0.2.5",
     "@llblab/pi-clean-room": "0.3.1",
     "@llblab/pi-codex-usage": "0.13.4",
-    "@llblab/pi-grow-loop": "0.9.0",
+    "@llblab/pi-grow-loop": "0.10.0",
     "@llblab/pi-state-flow": "0.27.5",
     "@llblab/pi-telegram": "0.58.3",
-    "@llblab/skills": "1.16.1"
+    "@llblab/skills": "1.18.1"
   },
   "bundledDependencies": [
     "@llblab/pi-actors",

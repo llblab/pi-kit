@@ -2,6 +2,11 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.42.0: Bundled Package Updates (2026-11-12)
+
+- `Exact pins`: `@llblab/pi-actors` 0.57.1 → 0.58.0; `@llblab/pi-grow-loop` 0.9.0 → 0.10.0; `@llblab/skills` 1.16.1 → 1.18.1.
+- `Packaging`: Synchronizes the lockfile, bundle aliases and README inventory. Package membership and resource order remain unchanged; packed validation does not certify extension safety or installed-client behavior.
+
 ## 0.41.0: Bundled Package Updates (2026-11-11)
 
 - `Exact pins`: `@llblab/pi-actors` 0.56.1 → 0.57.1; `@llblab/pi-state-flow` 0.27.4 → 0.27.5.
