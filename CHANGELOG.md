@@ -2,6 +2,11 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.43.2: Actors Startup Hotfix (2026-11-14)
+
+- `Actors`: Pins `@llblab/pi-actors` 0.58.3 → 0.58.4, removing the import-time requirement for a physical Pi SDK beside Actors in standalone and kit-pointer installations. Host-provided SDK loading no longer fails before extension registration; no duplicate SDK dependency is bundled.
+- `Packaging`: Synchronizes the exact pin, lockfile and README inventory. All other package versions, extension pointers and resource order remain unchanged.
+
 ## 0.43.1: Bundled Package Updates (2026-11-14)
 
 - `Exact pins`: `@llblab/pi-actors` 0.58.1 → 0.58.3; `@llblab/pi-state-flow` 0.27.5 → 0.27.6; `@llblab/pi-telegram` 0.59.0 → 0.59.1.
