@@ -2,6 +2,11 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.43.4: Telegram Managed Host Hotfix (2026-11-16)
+
+- `Telegram`: Pins `@llblab/pi-telegram` 0.59.1 → 0.59.2, restoring managed-install settings through the host-mapped SettingsManager while keeping cold imports SDK-lazy. Follower Workspace observations serialize with canonical publishers without granting recovery or source-removal authority. Damaged-guard emergency recovery remains separate planned work.
+- `Packaging`: Synchronizes the exact pin, lockfile and README inventory. All other package versions, extension pointers and resource order remain unchanged; no native locking dependency is added and package validation does not certify installed clients.
+
 ## 0.43.3: Actors Completion Navigation (2026-11-15)
 
 - `Actors`: Pins `@llblab/pi-actors` 0.58.4 → 0.58.7, bringing direct rooted completion-file groups, conditional `Read first` and exact primary-file line continuation. JSON diagnostics retain character counts; source/privacy boundaries and byte-exact historical replay remain unchanged.
