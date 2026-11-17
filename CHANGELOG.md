@@ -2,6 +2,11 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.43.5: Bundled Package Updates (2026-11-17)
+
+- `Exact pins`: `@llblab/skills` 1.20.0 → 1.20.1.
+- `Packaging`: Synchronizes the lockfile, bundle aliases and README inventory. Package membership and resource order remain unchanged; packed validation does not certify extension safety or installed-client behavior.
+
 ## 0.43.4: Telegram Managed Host Hotfix (2026-11-16)
 
 - `Telegram`: Pins `@llblab/pi-telegram` 0.59.1 → 0.59.2, restoring managed-install settings through the host-mapped SettingsManager while keeping cold imports SDK-lazy. Follower Workspace observations serialize with canonical publishers without granting recovery or source-removal authority. Damaged-guard emergency recovery remains separate planned work.
