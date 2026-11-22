@@ -2,6 +2,11 @@
 
 All notable changes to `@llblab/pi-kit` are documented here.
 
+## 0.43.6: Bundled Package Updates (2026-11-22)
+
+- `Exact pins`: `@llblab/pi-telegram` 0.59.2 → 0.59.3.
+- `Packaging`: Synchronizes the lockfile, bundle aliases and README inventory. Package membership and resource order remain unchanged; packed validation does not certify extension safety or installed-client behavior.
+
 ## 0.43.5: Bundled Package Updates (2026-11-17)
 
 - `Exact pins`: `@llblab/skills` 1.20.0 → 1.20.1.
